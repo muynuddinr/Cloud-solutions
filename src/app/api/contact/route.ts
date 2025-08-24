@@ -5,7 +5,15 @@ import Contact from '@/models/Contact';
 export async function POST(request: NextRequest) {
   try {
     // Connect to database
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
 
     // Parse request body
     const body = await request.json();
@@ -77,7 +85,15 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
     
     const { searchParams } = new URL(request.url);
     const includeMessage = searchParams.get('includeMessage') === 'true';
@@ -114,7 +130,15 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
     
     const deletedContact = await Contact.findByIdAndDelete(id);
     

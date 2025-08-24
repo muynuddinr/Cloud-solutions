@@ -32,25 +32,88 @@ export default function AdminOrdersPage() {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    // Load orders from localStorage
-    const storedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-    setOrders(storedOrders.reverse()); // Show newest first
+    fetchOrders();
   }, []);
+
+  const fetchOrders = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/orders?includeDetails=true');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch orders');
+      }
+      
+      const data = await response.json();
+      setOrders(data.orders || []);
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching orders:', err);
+      setError(err instanceof Error ? err.message : 'Failed to fetch orders');
+      setOrders([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return null;
   }
 
-  const handleStatusChange = (orderId: string, newStatus: string) => {
-    const updatedOrders = orders.map(order => 
-      order.id === orderId ? { ...order, status: newStatus } : order
-    );
-    setOrders(updatedOrders);
-    localStorage.setItem('orders', JSON.stringify(updatedOrders));
+  const handleStatusChange = async (orderId: string, newStatus: string) => {
+    try {
+      const response = await fetch(`/api/orders?orderId=${orderId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ orderStatus: newStatus }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update order status');
+      }
+
+      // Update local state
+      const updatedOrders = orders.map(order => 
+        order.id === orderId ? { ...order, status: newStatus } : order
+      );
+      setOrders(updatedOrders);
+    } catch (err) {
+      console.error('Error updating order status:', err);
+      alert(`Failed to update order status: ${err instanceof Error ? err.message : 'Unknown error'}`);
+    }
+  };
+
+  const handlePaymentStatusChange = async (orderId: string, newPaymentStatus: string) => {
+    try {
+      const response = await fetch(`/api/orders?orderId=${orderId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ paymentStatus: newPaymentStatus }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update payment status');
+      }
+
+      // Update local state
+      const updatedOrders = orders.map(order => 
+        order.id === orderId ? { ...order, paymentStatus: newPaymentStatus } : order
+      );
+      setOrders(updatedOrders);
+    } catch (err) {
+      console.error('Error updating payment status:', err);
+      alert(`Failed to update payment status: ${err instanceof Error ? err.message : 'Unknown error'}`);
+    }
   };
 
   const getStatusColor = (status: string) => {
@@ -92,7 +155,19 @@ export default function AdminOrdersPage() {
         </div>
       </div>
 
-      {orders.length === 0 ? (
+      {loading ? (
+        <div className="rounded-xl border bg-white p-8 text-center">
+          <div className="text-6xl mb-4">⚙️</div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Loading Orders...</h3>
+          <p className="text-gray-600">Please wait while we fetch the latest orders.</p>
+        </div>
+      ) : error ? (
+        <div className="rounded-xl border bg-white p-8 text-center">
+          <div className="text-6xl mb-4">❌</div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Error: {error}</h3>
+          <p className="text-gray-600">Failed to load orders. Please try again later.</p>
+        </div>
+      ) : orders.length === 0 ? (
         <div className="rounded-xl border bg-white p-8 text-center">
           <div className="text-6xl mb-4">📦</div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">No Orders Yet</h3>
@@ -150,9 +225,15 @@ export default function AdminOrdersPage() {
                     </select>
                   </td>
                   <td className="px-3 py-2">
-                    <span className={`rounded-full px-2 py-1 text-xs ${getPaymentStatusColor(order.paymentStatus)}`}>
-                      {order.paymentStatus}
-                    </span>
+                    <select
+                      value={order.paymentStatus}
+                      onChange={(e) => handlePaymentStatusChange(order.id, e.target.value)}
+                      className={`rounded-full px-2 py-1 text-xs border-0 ${getPaymentStatusColor(order.paymentStatus)}`}
+                    >
+                      <option value="Pending">Pending</option>
+                      <option value="Paid">Paid</option>
+                      <option value="Failed">Failed</option>
+                    </select>
                   </td>
                   <td className="px-3 py-2 text-gray-600">
                     {new Date(order.orderDate).toLocaleDateString('en-IN')}

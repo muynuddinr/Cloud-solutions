@@ -5,7 +5,15 @@ import Newsletter from '@/models/Newsletter';
 export async function POST(request: NextRequest) {
   try {
     // Connect to database
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
 
     // Parse request body
     const body = await request.json();
@@ -98,7 +106,15 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
     
     const subscribers = await Newsletter.find({})
       .sort({ subscribedAt: -1 })
@@ -127,7 +143,15 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
     
     const deletedSubscriber = await Newsletter.findByIdAndDelete(id);
     
@@ -172,7 +196,15 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    await dbConnect();
+    const db = await dbConnect();
+    
+    // If no database connection, return error
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not available. Please check your configuration.' },
+        { status: 503 }
+      );
+    }
     
     const updatedSubscriber = await Newsletter.findByIdAndUpdate(
       id, 

@@ -267,8 +267,38 @@ function BuyNowContent() {
       console.log('Timestamp:', timestamp);
       console.log('Counter:', counter);
       
+      const orderData = {
+        orderId,
+        productId: product.id,
+        productName: product.name,
+        productImage: product.image,
+        quantity: quantity,
+        unitPrice: product.price,
+        totalPrice: finalPrice,
+        discount: discount,
+        customerInfo: formData,
+        paymentMethod: formData.paymentMethod
+      };
+
+      // Save order to MongoDB via API
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to save order');
+      }
+
+      const savedOrder = await response.json();
+      
+      // Create order object for display
       const order = {
-        id: orderId,
+        id: savedOrder.orderId,
         productId: product.id,
         productName: product.name,
         productImage: product.image,
@@ -279,17 +309,12 @@ function BuyNowContent() {
         customerInfo: formData,
         orderDate: new Date().toISOString(),
         status: 'Pending',
-        paymentMethod: 'COD',
+        paymentMethod: formData.paymentMethod,
         paymentStatus: 'Pending'
       };
-
-      // Store order in localStorage (in a real app, this would go to a database)
-      const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-      existingOrders.push(order);
-      localStorage.setItem('orders', JSON.stringify(existingOrders));
       
+      console.log('Order saved to MongoDB:', savedOrder);
       console.log('Order created:', order);
-      console.log('All orders in localStorage:', existingOrders);
 
       // Show success animation first
       setShowSuccess(true);
@@ -312,7 +337,7 @@ function BuyNowContent() {
       }, 2000); // Show success message for 2 seconds
     } catch (error) {
       console.error('Error placing order:', error);
-      alert('There was an error placing your order. Please try again.');
+      alert(`There was an error placing your order: ${error instanceof Error ? error.message : 'Please try again.'}`);
       setIsLoading(false);
     }
   };
