@@ -143,20 +143,31 @@ type OrderFormData = {
   paymentMethod: string;
 };
 
+type OrderDetails = {
+  id: string;
+  productId: number;
+  productName: string;
+  productImage: string;
+  quantity: number;
+  unitPrice: number;
+  totalPrice: number;
+  discount: number;
+  customerInfo: OrderFormData;
+  orderDate: string;
+  status: string;
+  paymentMethod: string;
+  paymentStatus: string;
+};
+
 function BuyNowContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [active, setActive] = useState("");
-  const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [redirectProgress, setRedirectProgress] = useState(0);
-  const [orderDetails, setOrderDetails] = useState<any>(null);
+  const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
   const [formData, setFormData] = useState<OrderFormData>({
     firstName: '',
     lastName: '',
@@ -176,25 +187,8 @@ function BuyNowContent() {
 
   useEffect(() => {
     setMounted(true);
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 40);
-    };
-    
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    
     // Add loading animation
-    setIsLoaded(true);
-    
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-      window.removeEventListener("scroll", onScroll);
-    };
+    // setIsLoaded(true); // This line was removed
   }, []);
 
   useEffect(() => {

@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const LIGHT_BLUE = "#38bdf8"; // Tailwind sky-400
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CYAN = "#0ea5e9"; // Tailwind cyan-500
 
 export default function AboutUsPage() {
