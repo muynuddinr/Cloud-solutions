@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 type Order = {
-  id: string;
+  orderId: string;
   productId: number;
   productName: string;
   productImage: string;
@@ -61,7 +61,6 @@ export default function AdminOrdersPage() {
     }
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return null;
   }
@@ -80,9 +79,8 @@ export default function AdminOrdersPage() {
         throw new Error('Failed to update order status');
       }
 
-      // Update local state
       const updatedOrders = orders.map(order => 
-        order.id === orderId ? { ...order, status: newStatus } : order
+        order.orderId === orderId ? { ...order, status: newStatus } : order
       );
       setOrders(updatedOrders);
     } catch (err) {
@@ -105,14 +103,33 @@ export default function AdminOrdersPage() {
         throw new Error('Failed to update payment status');
       }
 
-      // Update local state
       const updatedOrders = orders.map(order => 
-        order.id === orderId ? { ...order, paymentStatus: newPaymentStatus } : order
+        order.orderId === orderId ? { ...order, paymentStatus: newPaymentStatus } : order
       );
       setOrders(updatedOrders);
     } catch (err) {
       console.error('Error updating payment status:', err);
       alert(`Failed to update payment status: ${err instanceof Error ? err.message : 'Unknown error'}`);
+    }
+  };
+
+  const handleDeleteOrder = async (orderId: string) => {
+    try {
+      const confirmDelete = window.confirm('Are you sure you want to delete this order? This action cannot be undone.');
+      if (!confirmDelete) return;
+
+      const response = await fetch(`/api/orders?orderId=${orderId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete order');
+      }
+
+      setOrders(prev => prev.filter(order => order.orderId !== orderId));
+    } catch (err) {
+      console.error('Error deleting order:', err);
+      alert(`Failed to delete order: ${err instanceof Error ? err.message : 'Unknown error'}`);
     }
   };
 
@@ -191,8 +208,8 @@ export default function AdminOrdersPage() {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order.id} className="border-t hover:bg-gray-50">
-                  <td className="px-3 py-2 font-medium">#{order.id}</td>
+                <tr key={order.orderId} className="border-t hover:bg-gray-50">
+                  <td className="px-3 py-2 font-medium">#{order.orderId}</td>
                   <td className="px-3 py-2">
                     <div>
                       <div className="font-medium">{order.customerInfo.firstName} {order.customerInfo.lastName}</div>
@@ -214,7 +231,7 @@ export default function AdminOrdersPage() {
                   <td className="px-3 py-2">
                     <select
                       value={order.status}
-                      onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                      onChange={(e) => handleStatusChange(order.orderId, e.target.value)}
                       className={`rounded-full px-2 py-1 text-xs border-0 ${getStatusColor(order.status)}`}
                     >
                       <option value="Pending">Pending</option>
@@ -227,7 +244,7 @@ export default function AdminOrdersPage() {
                   <td className="px-3 py-2">
                     <select
                       value={order.paymentStatus}
-                      onChange={(e) => handlePaymentStatusChange(order.id, e.target.value)}
+                      onChange={(e) => handlePaymentStatusChange(order.orderId, e.target.value)}
                       className={`rounded-full px-2 py-1 text-xs border-0 ${getPaymentStatusColor(order.paymentStatus)}`}
                     >
                       <option value="Pending">Pending</option>
@@ -248,6 +265,13 @@ export default function AdminOrdersPage() {
                     >
                       View Details
                     </button>
+                    <span className="mx-2 text-gray-300">|</span>
+                    <button
+                      onClick={() => handleDeleteOrder(order.orderId)}
+                      className="text-red-600 hover:text-red-700 text-xs font-medium"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -256,7 +280,6 @@ export default function AdminOrdersPage() {
         </div>
       )}
 
-      {/* Order Details Modal */}
       {showModal && selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
@@ -273,12 +296,11 @@ export default function AdminOrdersPage() {
             </div>
 
             <div className="space-y-6">
-              {/* Order Info */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Order Information</h3>
                   <div className="space-y-1 text-sm">
-                    <p><span className="text-gray-600">Order ID:</span> #{selectedOrder.id}</p>
+                    <p><span className="text-gray-600">Order ID:</span> #{selectedOrder.orderId}</p>
                     <p><span className="text-gray-600">Date:</span> {new Date(selectedOrder.orderDate).toLocaleString('en-IN')}</p>
                     <p><span className="text-gray-600">Payment Method:</span> {selectedOrder.paymentMethod}</p>
                     <p><span className="text-gray-600">Payment Status:</span> {selectedOrder.paymentStatus}</p>
@@ -301,7 +323,6 @@ export default function AdminOrdersPage() {
                 </div>
               </div>
 
-              {/* Customer Info */}
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Customer Information</h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
@@ -321,7 +342,6 @@ export default function AdminOrdersPage() {
                 </div>
               </div>
 
-              {/* Total */}
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold">Total Amount:</span>

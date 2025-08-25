@@ -1,6 +1,5 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import Sparkline from "./components/Sparkline";
+import Sparkline from "../components/Sparkline";
 
 export default function AdminHomePage() {
   return (

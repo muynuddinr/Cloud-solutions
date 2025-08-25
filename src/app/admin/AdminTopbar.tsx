@@ -50,6 +50,18 @@ export default function AdminTopbar() {
             ))}
           </select>
         </div>
+
+        <button
+          onClick={async () => {
+            try {
+              await fetch('/api/admin/logout', { method: 'POST' });
+            } catch {}
+            router.replace('/admin/login');
+          }}
+          className="rounded-lg border bg-white px-3 py-2 text-sm hover:bg-gray-50"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

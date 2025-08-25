@@ -57,7 +57,7 @@ export default function AdminNewsletterPage() {
 
       if (response.ok) {
         setNewEmail('');
-        fetchSubscribers(); // Refresh the list
+        fetchSubscribers();
         alert('Subscriber added successfully!');
       } else {
         alert(data.error || 'Failed to add subscriber');
