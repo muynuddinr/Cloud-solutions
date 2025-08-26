@@ -162,8 +162,8 @@ export default function WhatWeDo() {
         }
         
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.6); }
+          0%, 100% { box-shadow: 0 0 20px rgba(5, 83, 170, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(5, 83, 170, 0.6); }
         }
         
         @keyframes pulse {
@@ -236,11 +236,11 @@ export default function WhatWeDo() {
         
         .hover-lift:hover {
           transform: translateY(-8px);
-          box-shadow: 0 25px 50px rgba(56, 189, 248, 0.2);
+          box-shadow: 0 25px 50px rgba(5, 83, 170, 0.2);
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+          background: linear-gradient(135deg, #0553aa 0%, #0553aa 50%, #033c7a 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -248,12 +248,12 @@ export default function WhatWeDo() {
         
         .service-card-active {
           transform: scale(1.05) translateY(-15px);
-          box-shadow: 0 30px 60px rgba(56, 189, 248, 0.3);
+          box-shadow: 0 30px 60px rgba(5, 83, 170, 0.3);
         }
         
         .service-card-hover {
           transform: scale(1.02) translateY(-8px);
-          box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+          box-shadow: 0 20px 40px rgba(5, 83, 170, 0.2);
         }
         
         .shimmer-effect {
@@ -283,34 +283,54 @@ export default function WhatWeDo() {
         .icon-container:hover::before {
           opacity: 1;
         }
+
+        .custom-blue-bg {
+          background-color: rgba(5, 83, 170, 0.05);
+        }
+        
+        .custom-blue-border {
+          border-color: #0553aa;
+        }
+        
+        .custom-blue-text {
+          color: #0553aa;
+        }
+        
+        .custom-blue-gradient {
+          background: linear-gradient(135deg, #0553aa 0%, #0553aa 50%, #033c7a 100%);
+        }
+        
+        .custom-blue-gradient-hover {
+          background: linear-gradient(135deg, #033c7a 0%, #0553aa 50%, #0553aa 100%);
+        }
       `}</style>
       
       <section 
         ref={sectionRef}
         id="what-we-do" 
-        className="py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-sky-50 relative overflow-hidden"
+        className="py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white custom-blue-bg relative overflow-hidden"
       >
         {/* Enhanced Background Decorative Elements */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-20 left-10 w-40 h-40 border-2 border-sky-400 rounded-full animate-rotate-slow"></div>
-          <div className="absolute bottom-32 right-20 w-32 h-32 border-2 border-cyan-400 rounded-lg rotate-45 animate-pulse-slow"></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-blue-400 rounded-lg rotate-12 animate-bounce-slow"></div>
-          <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-ping opacity-30"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-purple-400 rounded-xl rotate-45 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-20 left-10 w-40 h-40 border-2 custom-blue-border rounded-full animate-rotate-slow"></div>
+          <div className="absolute bottom-32 right-20 w-32 h-32 border-2 custom-blue-border rounded-lg rotate-45 animate-pulse-slow"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 border custom-blue-border rounded-lg rotate-12 animate-bounce-slow"></div>
+          <div className="absolute top-1/3 right-1/3 w-16 h-16 custom-blue-gradient rounded-full animate-ping opacity-30"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 custom-blue-border rounded-xl rotate-45 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
           
           {/* Additional floating elements */}
-          <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-bounce opacity-30"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rotate-45 animate-pulse opacity-40"></div>
+          <div className="absolute top-1/4 left-1/4 w-8 h-8 custom-blue-gradient rounded-full animate-bounce opacity-30"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 custom-blue-gradient rounded-lg rotate-45 animate-pulse opacity-40"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {/* Enhanced Section Header */}
           <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-sky-100 to-cyan-100 px-8 py-4 rounded-full mb-8 border border-sky-200 shadow-lg hover-lift animate-slide-in-bottom">
-              <div className="w-3 h-3 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full animate-pulse"></div>
+            <div className="inline-flex items-center gap-3 custom-blue-bg px-8 py-4 rounded-full mb-8 border custom-blue-border shadow-lg hover-lift animate-slide-in-bottom">
+              <div className="w-3 h-3 custom-blue-gradient rounded-full animate-pulse"></div>
               <span className="text-2xl transition-all duration-300 hover:scale-110">💼</span>
-              <span className="text-sky-700 font-bold text-lg">What We Do</span>
-              <div className="w-3 h-3 bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              <span className="custom-blue-text font-bold text-lg">What We Do</span>
+              <div className="w-3 h-3 custom-blue-gradient rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
             </div>
             
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-gradient leading-tight animate-slide-in-bottom" style={{ animationDelay: '0.2s' }}>
@@ -318,7 +338,7 @@ export default function WhatWeDo() {
               <br />
               <span className="text-gradient relative">
                 For Your Business
-                <div className="absolute -bottom-2 left-0 w-full h-4 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-20 blur-sm rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-2 left-0 w-full h-4 custom-blue-gradient opacity-20 blur-sm rounded-full animate-pulse"></div>
               </span>
             </h2>
             
@@ -330,13 +350,13 @@ export default function WhatWeDo() {
             {/* Enhanced Stats Section */}
             <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12 animate-slide-in-bottom" style={{ animationDelay: '0.6s' }}>
               {[
-                { value: "500+", label: "Happy Clients", gradient: "from-sky-500 to-cyan-500" },
-                { value: "99.9%", label: "Uptime", gradient: "from-cyan-500 to-blue-500" },
-                { value: "24/7", label: "Support", gradient: "from-blue-500 to-indigo-500" },
-                { value: "10+", label: "Years Experience", gradient: "from-indigo-500 to-purple-500" }
+                { value: "500+", label: "Happy Clients" },
+                { value: "99.9%", label: "Uptime" },
+                { value: "24/7", label: "Support" },
+                { value: "10+", label: "Years Experience" }
               ].map((stat, index) => (
                 <div key={index} className="text-center group hover-lift">
-                  <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent group-hover:scale-110 transition-all duration-300 animate-pulse-slow`} style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className={`text-3xl md:text-4xl font-bold text-gradient group-hover:scale-110 transition-all duration-300 animate-pulse-slow`} style={{ animationDelay: `${index * 0.2}s` }}>
                     {stat.value}
                   </div>
                   <div className="text-sm text-gray-600 font-medium transition-all duration-300 group-hover:text-gray-700">{stat.label}</div>
@@ -354,8 +374,8 @@ export default function WhatWeDo() {
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 } ${
                   hoveredCard === service.id 
-                    ? 'service-card-active border-sky-400 shadow-sky-500/25' 
-                    : 'hover:border-sky-300'
+                    ? 'service-card-active custom-blue-border shadow-blue-500/25' 
+                    : 'hover:border-blue-300'
                 }`}
                 style={{ 
                   transitionDelay: `${index * 150}ms`,
@@ -365,19 +385,19 @@ export default function WhatWeDo() {
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Enhanced Background Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}></div>
+                <div className={`absolute inset-0 custom-blue-bg opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}></div>
                 
                 {/* Floating Decorative Elements */}
                 <div className="absolute top-4 right-4 w-8 h-8 border-2 border-gray-200 rounded-lg rotate-45 opacity-0 group-hover:opacity-100 group-hover:rotate-90 transition-all duration-700"></div>
                 <div className="absolute bottom-4 left-4 w-6 h-6 bg-gray-100 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style={{ transitionDelay: '200ms' }}></div>
-                <div className="absolute top-1/2 right-6 w-4 h-4 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ transitionDelay: '400ms' }}></div>
+                <div className="absolute top-1/2 right-6 w-4 h-4 custom-blue-gradient rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ transitionDelay: '400ms' }}></div>
                 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Enhanced Icon */}
                   <div className="flex items-center justify-center w-20 h-20 mb-8 relative icon-container">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-sm`}></div>
-                    <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                    <div className={`absolute inset-0 custom-blue-gradient rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-sm`}></div>
+                    <div className={`absolute inset-0 custom-blue-gradient rounded-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
                     <span 
                       className="text-5xl relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
                       style={{
@@ -406,7 +426,7 @@ export default function WhatWeDo() {
                         className="flex items-center gap-3 text-sm text-gray-600 group-hover:text-gray-700 transition-all duration-300"
                         style={{ animationDelay: `${featureIndex * 0.1}s` }}
                       >
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient} flex-shrink-0 group-hover:scale-125 transition-transform duration-300`}></div>
+                        <div className={`w-2 h-2 rounded-full custom-blue-gradient flex-shrink-0 group-hover:scale-125 transition-transform duration-300`}></div>
                         <span className="font-medium transition-all duration-300 group-hover:translate-x-1">{feature}</span>
                       </div>
                     ))}
@@ -416,7 +436,7 @@ export default function WhatWeDo() {
                   <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl group-hover:bg-white transition-colors duration-300">
                     {Object.entries(service.stats).map(([key, value]) => (
                       <div key={key} className="text-center hover-lift">
-                        <div className={`text-lg font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent transition-all duration-300 group-hover:scale-110`}>
+                        <div className={`text-lg font-bold text-gradient transition-all duration-300 group-hover:scale-110`}>
                           {value}
                         </div>
                         <div className="text-xs text-gray-500 capitalize transition-all duration-300 group-hover:text-gray-600">{key}</div>
@@ -425,7 +445,9 @@ export default function WhatWeDo() {
                   </div>
 
                   {/* Enhanced CTA Button */}
-                  <button className={`w-full py-4 px-6 rounded-2xl font-bold text-white bg-gradient-to-r ${service.gradient} hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95 relative overflow-hidden animate-glow`}>
+                  <button className={`w-full py-4 px-6 rounded-2xl font-bold text-white custom-blue-gradient hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95 relative overflow-hidden animate-glow`} 
+                    onMouseEnter={(e) => e.currentTarget.classList.add('custom-blue-gradient-hover')}
+                    onMouseLeave={(e) => e.currentTarget.classList.remove('custom-blue-gradient-hover')}>
                     <span className="relative z-10">Learn More</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 shimmer-effect"></div>
                     <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -442,10 +464,10 @@ export default function WhatWeDo() {
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100 max-w-5xl mx-auto relative overflow-hidden hover-lift animate-scale-in">
               {/* Enhanced Background Pattern */}
               <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-8 left-8 w-16 h-16 border-2 border-sky-400 rounded-lg rotate-12 animate-pulse"></div>
-                <div className="absolute bottom-8 right-8 w-12 h-12 border-2 border-cyan-400 rounded-full animate-bounce"></div>
-                <div className="absolute top-1/2 right-1/4 w-8 h-8 bg-blue-400 rounded-lg rotate-45 animate-rotate-slow"></div>
-                <div className="absolute top-1/3 left-1/4 w-10 h-10 border border-purple-400 rounded-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-8 left-8 w-16 h-16 border-2 custom-blue-border rounded-lg rotate-12 animate-pulse"></div>
+                <div className="absolute bottom-8 right-8 w-12 h-12 border-2 custom-blue-border rounded-full animate-bounce"></div>
+                <div className="absolute top-1/2 right-1/4 w-8 h-8 custom-blue-gradient rounded-lg rotate-45 animate-rotate-slow"></div>
+                <div className="absolute top-1/3 left-1/4 w-10 h-10 border custom-blue-border rounded-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
 
               <div className="relative z-10">
@@ -458,17 +480,17 @@ export default function WhatWeDo() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-in-bottom" style={{ animationDelay: '0.4s' }}>
-                  <button className="group relative px-10 py-5 bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-bold rounded-2xl hover:from-cyan-500 hover:to-sky-500 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden animate-glow">
+                  <button className="group relative px-10 py-5 custom-blue-gradient text-white font-bold rounded-2xl hover:custom-blue-gradient-hover hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden animate-glow">
                     <span className="relative z-10">Get Free Quote</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 shimmer-effect"></div>
                     <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
                     </svg>
                   </button>
-                  <button className="group px-10 py-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-2xl hover:border-sky-400 hover:text-sky-600 transition-all duration-300 bg-white hover:bg-gray-50 hover:scale-105 shadow-lg hover-lift">
+                  <button className="group px-10 py-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-2xl hover:custom-blue-border hover:custom-blue-text transition-all duration-300 bg-white hover:bg-gray-50 hover:scale-105 shadow-lg hover-lift">
                     <span className="flex items-center gap-2">
                       <span>Call Us Now</span>
-                      <span className="font-bold text-sky-600">+91-XXXX-XXXX</span>
+                      <span className="font-bold custom-blue-text">+91-XXXX-XXXX</span>
                     </span>
                   </button>
                 </div>
@@ -476,12 +498,12 @@ export default function WhatWeDo() {
                 {/* Enhanced Additional Info */}
                 <div className="flex flex-wrap justify-center gap-8 mt-10 pt-8 border-t border-gray-100 animate-slide-in-bottom" style={{ animationDelay: '0.6s' }}>
                   {[
-                    { color: "green", label: "Free Consultation" },
-                    { color: "blue", label: "24/7 Support" },
-                    { color: "purple", label: "Quick Response" }
+                    { label: "Free Consultation" },
+                    { label: "24/7 Support" },
+                    { label: "Quick Response" }
                   ].map((info, index) => (
                     <div key={index} className="flex items-center gap-2 text-gray-600 hover-lift">
-                      <div className={`w-2 h-2 bg-${info.color}-500 rounded-full animate-pulse`} style={{ animationDelay: `${index * 0.5}s` }}></div>
+                      <div className={`w-2 h-2 custom-blue-gradient rounded-full animate-pulse`} style={{ animationDelay: `${index * 0.5}s` }}></div>
                       <span className="text-sm font-medium transition-all duration-300 hover:text-gray-700">{info.label}</span>
                     </div>
                   ))}
@@ -493,20 +515,20 @@ export default function WhatWeDo() {
 
         {/* Enhanced Background Decorative Elements */}
         <div 
-          className="absolute top-32 right-20 w-64 h-64 bg-gradient-to-r from-sky-100 to-cyan-100 opacity-30 rounded-full blur-3xl animate-pulse parallax"
+          className="absolute top-32 right-20 w-64 h-64 custom-blue-bg opacity-30 rounded-full blur-3xl animate-pulse parallax"
           style={{
             transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`
           }}
         />
         <div 
-          className="absolute bottom-32 left-20 w-80 h-80 bg-gradient-to-r from-cyan-100 to-blue-100 opacity-20 rounded-full blur-3xl animate-pulse parallax" 
+          className="absolute bottom-32 left-20 w-80 h-80 custom-blue-bg opacity-20 rounded-full blur-3xl animate-pulse parallax" 
           style={{ 
             animationDelay: '3s',
             transform: `translate(${-mousePosition.x * 0.005}px, ${-mousePosition.y * 0.005}px)`
           }} 
         />
         <div 
-          className="absolute top-1/2 left-10 w-48 h-48 bg-gradient-to-r from-purple-100 to-pink-100 opacity-15 rounded-full blur-3xl animate-pulse parallax" 
+          className="absolute top-1/2 left-10 w-48 h-48 custom-blue-bg opacity-15 rounded-full blur-3xl animate-pulse parallax" 
           style={{ 
             animationDelay: '1.5s',
             transform: `translate(${mousePosition.x * 0.008}px, ${-mousePosition.y * 0.008}px)`
@@ -514,8 +536,8 @@ export default function WhatWeDo() {
         />
         
         {/* New interactive elements */}
-        <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-cyan-400 rounded-full animate-ping opacity-20"></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-sky-400 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-4 h-4 custom-blue-gradient rounded-full animate-ping opacity-20"></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 custom-blue-gradient rounded-full animate-bounce opacity-30" style={{ animationDelay: '0.7s' }}></div>
       </section>
     </>
   );

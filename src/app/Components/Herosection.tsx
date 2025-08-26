@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 
-const LIGHT_BLUE = "#38bdf8";
-const CYAN = "#0ea5e9";
+const LIGHT_BLUE = "#0553aa";
+const CYAN = "#0553aa";
 
 export default function Herosection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -81,8 +81,8 @@ export default function Herosection() {
         }
         
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.6); }
+          0%, 100% { box-shadow: 0 0 20px rgba(5, 83, 170, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(5, 83, 170, 0.6); }
         }
         
         @keyframes pulse {
@@ -150,18 +150,18 @@ export default function Herosection() {
         
         .hover-lift:hover {
           transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+          box-shadow: 0 20px 40px rgba(5, 83, 170, 0.2);
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+          background: linear-gradient(135deg, #0553aa 0%, #074b96 50%, #094282 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .gradient-border {
-          background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+          background: linear-gradient(135deg, #0553aa, #074b96);
           padding: 2px;
           border-radius: 16px;
         }
@@ -182,17 +182,27 @@ export default function Herosection() {
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           {/* Geometric shapes with enhanced animations */}
-          <div className="absolute top-20 left-10 w-32 h-32 border border-sky-400 rounded-full animate-rotate-slow"></div>
-          <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-cyan-400 rounded-lg rotate-45 animate-pulse-slow"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-blue-400 rounded-lg rotate-12 animate-bounce-slow"></div>
+          <div 
+            className="absolute top-20 left-10 w-32 h-32 rounded-full animate-rotate-slow"
+            style={{ border: `1px solid #0553aa` }}
+          ></div>
+          <div 
+            className="absolute bottom-32 right-20 w-24 h-24 rounded-lg rotate-45 animate-pulse-slow"
+            style={{ border: `2px solid #0553aa` }}
+          ></div>
+          <div 
+            className="absolute top-1/3 right-1/4 w-16 h-16 rounded-lg rotate-12 animate-bounce-slow"
+            style={{ border: `1px solid #0553aa` }}
+          ></div>
           
           {/* Enhanced dotted pattern */}
           <div className="absolute top-40 left-1/3 grid grid-cols-3 gap-2">
             {[...Array(9)].map((_, i) => (
               <div 
                 key={i} 
-                className="w-2 h-2 bg-sky-300 rounded-full animate-pulse" 
+                className="w-2 h-2 rounded-full animate-pulse" 
                 style={{ 
+                  backgroundColor: '#0553aa',
                   animationDelay: `${i * 0.2}s`,
                   animationDuration: '2s'
                 }}
@@ -201,8 +211,14 @@ export default function Herosection() {
           </div>
           
           {/* Additional floating elements */}
-          <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-bounce opacity-30"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rotate-45 animate-pulse opacity-40"></div>
+          <div 
+            className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full animate-bounce opacity-30"
+            style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+          ></div>
+          <div 
+            className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40"
+            style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+          ></div>
         </div>
 
         {/* Left: Enhanced Text Content */}
@@ -215,21 +231,42 @@ export default function Herosection() {
               <br />
               <span className="relative text-gradient">
                 Made Simple
-                <div className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-20 blur-sm rounded-full animate-pulse"></div>
+                <div 
+                  className="absolute -bottom-2 left-0 w-full h-3 opacity-20 blur-sm rounded-full animate-pulse"
+                  style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+                ></div>
               </span>
             </h1>
             
             {/* Enhanced floating elements */}
-            <div className="absolute -top-6 -left-6 w-4 h-4 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-bounce opacity-80 shadow-lg animate-glow"></div>
-            <div className="absolute top-1/2 -right-8 w-3 h-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-pulse opacity-60 shadow-md"></div>
-            <div className="absolute -bottom-8 left-1/4 w-5 h-5 bg-gradient-to-r from-blue-400 to-sky-400 rounded-full animate-bounce opacity-70 shadow-lg" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-50"></div>
+            <div 
+              className="absolute -top-6 -left-6 w-4 h-4 rounded-full animate-bounce opacity-80 shadow-lg animate-glow"
+              style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+            ></div>
+            <div 
+              className="absolute top-1/2 -right-8 w-3 h-3 rounded-full animate-pulse opacity-60 shadow-md"
+              style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+            ></div>
+            <div 
+              className="absolute -bottom-8 left-1/4 w-5 h-5 rounded-full animate-bounce opacity-70 shadow-lg" 
+              style={{ 
+                background: `linear-gradient(to right, #0553aa, #074b96)`,
+                animationDelay: '1s' 
+              }}
+            ></div>
+            <div 
+              className="absolute top-1/4 right-1/3 w-2 h-2 rounded-full animate-ping opacity-50"
+              style={{ backgroundColor: '#0553aa' }}
+            ></div>
           </div>
           
           <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-xl leading-relaxed font-normal animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             Streamline your business with our comprehensive cloud infrastructure. 
             <br className="hidden md:inline" />
-            <span className="font-semibold text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-100 px-3 py-1 rounded-lg hover-lift inline-block">
+            <span 
+              className="font-semibold text-gray-800 px-3 py-1 rounded-lg hover-lift inline-block"
+              style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(7, 75, 150, 0.1))` }}
+            >
               Secure, scalable, and reliable.
             </span>
           </p>
@@ -237,7 +274,14 @@ export default function Herosection() {
           <div className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <a
               href="#get-started"
-              className="group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl border-2 border-cyan-400 transition-all duration-300 text-lg md:text-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-cyan-500 hover:to-sky-500 hover:scale-105 hover:shadow-cyan-500/25 active:scale-95 overflow-hidden hover-lift animate-glow"
+              className="group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
+              style={{ 
+                background: `linear-gradient(to right, #0553aa, #074b96)`,
+                border: `2px solid #0553aa`,
+                boxShadow: `0 0 20px rgba(5, 83, 170, 0.25)`
+              }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #074b96, #0553aa)`}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #074b96)`}
             >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -248,7 +292,15 @@ export default function Herosection() {
             
             <a
               href="#learn-more"
-              className="inline-flex items-center px-6 py-3 rounded-2xl font-semibold text-gray-700 border-2 border-gray-300 hover:border-sky-400 hover:text-sky-600 transition-all duration-300 bg-white/80 glass-effect hover:bg-white hover-lift"
+              className="inline-flex items-center px-6 py-3 rounded-2xl font-semibold text-gray-700 border-2 border-gray-300 transition-all duration-300 bg-white/80 glass-effect hover:bg-white hover-lift"
+              style={{ 
+                borderColor: '#0553aa',
+                color: '#0553aa'
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.borderColor = '#0553aa';
+                (e.target as HTMLElement).style.color = '#0553aa';
+              }}
             >
               Learn More
               <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,15 +312,15 @@ export default function Herosection() {
           {/* Enhanced Stats with animations */}
           <div className="flex gap-8 mt-12 text-center md:text-left animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
             <div className="hover-lift">
-              <div className="text-2xl font-bold text-sky-600 animate-pulse-slow">99.9%</div>
+              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa' }}>99.9%</div>
               <div className="text-sm text-gray-600">Uptime</div>
             </div>
             <div className="hover-lift">
-              <div className="text-2xl font-bold text-cyan-600 animate-pulse-slow" style={{ animationDelay: '0.5s' }}>24/7</div>
+              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#074b96', animationDelay: '0.5s' }}>24/7</div>
               <div className="text-sm text-gray-600">Support</div>
             </div>
             <div className="hover-lift">
-              <div className="text-2xl font-bold text-blue-600 animate-pulse-slow" style={{ animationDelay: '1s' }}>500+</div>
+              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa', animationDelay: '1s' }}>500+</div>
               <div className="text-sm text-gray-600">Clients</div>
             </div>
           </div>
@@ -288,10 +340,28 @@ export default function Herosection() {
               
               {/* Enhanced geometric background pattern */}
               <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-8 left-8 w-20 h-20 border-2 border-sky-400 rounded-2xl rotate-12 animate-pulse"></div>
-                <div className="absolute bottom-8 right-8 w-16 h-16 border-2 border-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute top-1/2 left-8 w-12 h-12 border-2 border-blue-400 rounded-xl -rotate-12 animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-16 right-16 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-lg rotate-45 animate-rotate-slow"></div>
+                <div 
+                  className="absolute top-8 left-8 w-20 h-20 rounded-2xl rotate-12 animate-pulse"
+                  style={{ border: `2px solid #0553aa` }}
+                ></div>
+                <div 
+                  className="absolute bottom-8 right-8 w-16 h-16 rounded-full animate-bounce" 
+                  style={{ 
+                    border: `2px solid #074b96`,
+                    animationDelay: '0.5s' 
+                  }}
+                ></div>
+                <div 
+                  className="absolute top-1/2 left-8 w-12 h-12 rounded-xl -rotate-12 animate-pulse" 
+                  style={{ 
+                    border: `2px solid #0553aa`,
+                    animationDelay: '1s' 
+                  }}
+                ></div>
+                <div 
+                  className="absolute top-16 right-16 w-8 h-8 rounded-lg rotate-45 animate-rotate-slow"
+                  style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+                ></div>
                 
                 {/* Enhanced grid pattern */}
                 <div className="absolute inset-4 border border-gray-200 rounded-2xl"></div>
@@ -312,55 +382,105 @@ export default function Herosection() {
                     🚀
                   </span>
                   {/* Enhanced glow behind rocket */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-sky-200 to-cyan-200 opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-full animate-pulse"></div>
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-full animate-pulse"
+                    style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), rgba(7, 75, 150, 0.2))` }}
+                  ></div>
                 </div>
               </div>
               
               {/* Enhanced floating elements */}
-              <div className="absolute top-6 right-6 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-ping opacity-40 shadow-lg"></div>
-              <div className="absolute bottom-10 left-10 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-pulse opacity-60 shadow-md"></div>
+              <div 
+                className="absolute top-6 right-6 w-8 h-8 rounded-full animate-ping opacity-40 shadow-lg"
+                style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+              ></div>
+              <div 
+                className="absolute bottom-10 left-10 w-6 h-6 rounded-full animate-pulse opacity-60 shadow-md"
+                style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+              ></div>
               
               {/* Enhanced hover effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-sky-50/50 to-cyan-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+                style={{ background: `linear-gradient(to top right, rgba(5, 83, 170, 0.05), rgba(7, 75, 150, 0.05))` }}
+              ></div>
             </div>
 
             {/* Enhanced orbiting elements */}
-            <div className="absolute -top-6 -right-6 w-14 h-14 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-2xl shadow-xl animate-rotate-slow opacity-90 flex items-center justify-center text-white font-bold text-xl border-2 border-white hover-lift">
+            <div 
+              className="absolute -top-6 -right-6 w-14 h-14 rounded-2xl shadow-xl animate-rotate-slow opacity-90 flex items-center justify-center text-white font-bold text-xl border-2 border-white hover-lift"
+              style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+            >
               ⚡
             </div>
             
-            <div className="absolute -bottom-8 -left-8 w-18 h-18 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-3xl shadow-xl flex items-center justify-center text-white text-3xl animate-bounce border-2 border-white hover-lift" style={{ animationDelay: '1s' }}>
+            <div 
+              className="absolute -bottom-8 -left-8 w-18 h-18 rounded-3xl shadow-xl flex items-center justify-center text-white text-3xl animate-bounce border-2 border-white hover-lift" 
+              style={{ 
+                background: `linear-gradient(to right, #074b96, #0553aa)`,
+                animationDelay: '1s' 
+              }}
+            >
               ☁️
             </div>
             
             {/* Additional decorative elements with enhanced animations */}
-            <div className="absolute top-1/4 -left-4 w-10 h-10 bg-white border-4 border-sky-300 rounded-full shadow-lg animate-pulse opacity-80 hover-lift"></div>
-            <div className="absolute bottom-1/3 -right-3 w-8 h-8 bg-white border-3 border-cyan-400 rounded-lg rotate-45 shadow-md animate-bounce hover-lift" style={{ animationDelay: '1.5s' }}></div>
+            <div 
+              className="absolute top-1/4 -left-4 w-10 h-10 bg-white rounded-full shadow-lg animate-pulse opacity-80 hover-lift"
+              style={{ border: `4px solid #0553aa` }}
+            ></div>
+            <div 
+              className="absolute bottom-1/3 -right-3 w-8 h-8 bg-white rounded-lg rotate-45 shadow-md animate-bounce hover-lift" 
+              style={{ 
+                border: `3px solid #074b96`,
+                animationDelay: '1.5s' 
+              }}
+            ></div>
           </div>
         </div>
 
         {/* Enhanced Decorative Elements */}
         <div 
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-sky-100 to-cyan-100 opacity-30 rounded-full blur-3xl animate-pulse z-0 parallax"
+          className="absolute top-20 left-20 w-96 h-96 opacity-30 rounded-full blur-3xl animate-pulse z-0 parallax"
           style={{
+            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(7, 75, 150, 0.1))`,
             transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
           }}
         />
         <div 
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-cyan-100 to-blue-100 opacity-40 rounded-full blur-3xl animate-pulse z-0 parallax" 
+          className="absolute bottom-20 right-20 w-80 h-80 opacity-40 rounded-full blur-3xl animate-pulse z-0 parallax" 
           style={{ 
+            background: `linear-gradient(to right, rgba(7, 75, 150, 0.1), rgba(5, 83, 170, 0.1))`,
             animationDelay: '2s',
             transform: `translate(${-mousePosition.x * 0.01}px, ${-mousePosition.y * 0.01}px)`
           }} 
         />
         
         {/* Additional subtle background shapes with enhanced animations */}
-        <div className="absolute top-1/3 left-10 w-2 h-32 bg-gradient-to-b from-sky-200 to-transparent opacity-30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-16 w-32 h-2 bg-gradient-to-r from-cyan-200 to-transparent opacity-30 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        <div 
+          className="absolute top-1/3 left-10 w-2 h-32 opacity-30 rounded-full animate-pulse"
+          style={{ background: `linear-gradient(to bottom, rgba(5, 83, 170, 0.2), transparent)` }}
+        ></div>
+        <div 
+          className="absolute bottom-1/3 right-16 w-32 h-2 opacity-30 rounded-full animate-pulse" 
+          style={{ 
+            background: `linear-gradient(to right, rgba(7, 75, 150, 0.2), transparent)`,
+            animationDelay: '3s' 
+          }} 
+        />
         
         {/* New interactive elements */}
-        <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-cyan-400 rounded-full animate-ping opacity-20"></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-sky-400 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0.7s' }}></div>
+        <div 
+          className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20"
+          style={{ backgroundColor: '#074b96' }}
+        ></div>
+        <div 
+          className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" 
+          style={{ 
+            backgroundColor: '#0553aa',
+            animationDelay: '0.7s' 
+          }}
+        ></div>
       </section>
     </>
   );

@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const PURPLE = "#38bdf8";
-const PINK = "#0ea5e9";
+const DARK_BLUE = "#1e3a8a"; // Dark blue color
+const ORANGE = "#f97316"; // Orange color for hover effects
 
 // Updated navLinks structure
 const navLinks = [
@@ -61,7 +61,7 @@ export default function Navbar() {
   ) => {
     e.preventDefault();
     
-    // Add ripple effect
+    // Add ripple effect with orange color
     const button = e.currentTarget;
     const ripple = document.createElement('span');
     const rect = button.getBoundingClientRect();
@@ -75,7 +75,7 @@ export default function Navbar() {
       height: ${size}px;
       left: ${x}px;
       top: ${y}px;
-      background: rgba(56, 189, 248, 0.3);
+      background: rgba(249, 115, 22, 0.3);
       border-radius: 50%;
       transform: scale(0);
       animation: ripple 0.6s linear;
@@ -172,18 +172,13 @@ export default function Navbar() {
           animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .glass-effect {
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-        }
-        
         .hover-lift {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .hover-lift:hover {
           transform: translateY(-2px);
-          box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+          box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
         }
       `}</style>
       
@@ -192,31 +187,21 @@ export default function Navbar() {
         <nav
           className={`fixed z-50 flex items-center overflow-visible transition-all duration-500 ease-out
             ${scrolled 
-              ? "top-4 max-w-7xl mx-auto rounded-3xl border-2 shadow-2xl bg-white/80 glass-effect px-4 md:px-10 h-20" 
-              : "top-0 left-0 w-full rounded-none border-0 shadow-none bg-white/95 glass-effect px-2 md:px-6 h-24"
+              ? "top-4 max-w-7xl mx-auto rounded-3xl border-2 shadow-2xl bg-white px-4 md:px-10 h-20" 
+              : "top-0 left-0 w-full rounded-none border-0 shadow-none bg-white px-2 md:px-6 h-24"
             }
             ${isMobile ? "w-[99vw] max-w-full px-2" : ""}
             ${isLoaded ? "animate-slide-in" : ""}
           `}
           style={{
             boxShadow: scrolled 
-              ? `0 20px 60px rgba(56, 189, 248, 0.15), 0 8px 25px rgba(14, 165, 233, 0.1)` 
+              ? `0 20px 60px rgba(249, 115, 22, 0.15), 0 8px 25px rgba(249, 115, 22, 0.1)` 
               : "none",
-            borderColor: scrolled ? PINK : "transparent",
+            borderColor: scrolled ? ORANGE : "transparent",
             transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
           aria-label="Main navigation"
         >
-          {/* Enhanced glassmorphism overlay */}
-          {scrolled && (
-            <div 
-              className="absolute inset-0 rounded-3xl pointer-events-none opacity-80"
-              style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%)",
-                backdropFilter: "blur(20px)"
-              }}
-            />
-          )}
           
           {/* Enhanced Logo */}
           <div className="flex items-center flex-shrink-0 mr-4 md:mr-8 relative z-10">
@@ -224,7 +209,7 @@ export default function Navbar() {
               className="transition-all duration-500 ease-out rounded-full p-1 group cursor-pointer hover-lift"
               onClick={handleLogoClick}
             >
-              <div className="h-12 w-12 bg-gradient-to-tr from-blue-500 via-cyan-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg border-4 border-cyan-400/50 animate-float group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-cyan-300/50 transition-all duration-500 ease-out">
+              <div className="h-12 w-12 bg-gradient-to-tr from-blue-800 via-blue-700 to-blue-900 rounded-full flex items-center justify-center shadow-lg border-4 border-blue-600/50 animate-float group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-orange-300/50 transition-all duration-500 ease-out">
                 <Image 
                   src="/cloudlogo.png" 
                   alt="Logo" 
@@ -236,7 +221,7 @@ export default function Navbar() {
             </div>
             <span 
               className="ml-3 font-extrabold text-xl cursor-pointer hover:opacity-80 transition-all duration-300 hover:scale-105" 
-              style={{color: PURPLE}}
+              style={{color: DARK_BLUE}}
               onClick={handleLogoClick}
             >
               Cloud IT Solution
@@ -252,13 +237,13 @@ export default function Navbar() {
                   href={link.href}
                   className={
                     link.name === "Contact"
-                      ? "font-semibold px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-105 hover-lift transition-all duration-300 ease-out relative overflow-hidden"
-                      : "relative font-semibold px-4 py-3 transition-all duration-300 ease-out group hover:text-[#0ea5e9] hover:scale-105 hover-lift after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-0 after:bg-gradient-to-r after:from-cyan-400 after:to-blue-500 after:rounded-full after:transition-all after:duration-500 after:ease-out hover:after:w-full"
+                      ? "font-semibold px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg hover:shadow-xl hover:scale-105 hover-lift transition-all duration-300 ease-out relative overflow-hidden hover:from-orange-600 hover:to-orange-700"
+                      : "relative font-semibold px-4 py-3 transition-all duration-300 ease-out group hover:text-orange-500 hover:scale-105 hover-lift after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-0 after:bg-gradient-to-r after:from-orange-400 after:to-orange-600 after:rounded-full after:transition-all after:duration-500 after:ease-out hover:after:w-full"
                   }
                   onClick={e => handleNavClick(e, link.href, link.name)}
                   style={{
                     animationDelay: `${index * 100}ms`,
-                    color: active === link.name ? PURPLE : "#222",
+                    color: active === link.name ? DARK_BLUE : "#222",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                   }}
                 >
@@ -271,13 +256,13 @@ export default function Navbar() {
           {/* Enhanced Hamburger Menu */}
           {isMobile && (
             <button
-              className="focus:outline-none ml-auto relative z-10 p-2 rounded-full hover:bg-cyan-50 transition-all duration-300 ease-out"
-              style={{color: PURPLE}}
+              className="focus:outline-none ml-auto relative z-10 p-2 rounded-full hover:bg-orange-50 transition-all duration-300 ease-out"
+              style={{color: DARK_BLUE}}
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
               <svg 
-                className="h-8 w-8 transition-transform duration-300 ease-out" 
+                className="h-8 w-8 transition-transform duration-300 ease-out hover:text-orange-500" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24" 
@@ -299,14 +284,14 @@ export default function Navbar() {
         {/* Enhanced Mobile Menu Drawer */}
         {isMobile && (
           <div 
-            className={`fixed top-24 left-1/2 -translate-x-1/2 w-[98vw] max-w-full bg-white/95 glass-effect shadow-2xl border-2 z-40 flex flex-col items-center py-6 space-y-3 rounded-3xl transition-all duration-500 ease-out ${
+            className={`fixed top-24 left-1/2 -translate-x-1/2 w-[98vw] max-w-full bg-white shadow-2xl border-2 z-40 flex flex-col items-center py-6 space-y-3 rounded-3xl transition-all duration-500 ease-out ${
               open 
                 ? "opacity-100 scale-100 translate-y-0" 
                 : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
             }`}
             style={{
-              borderColor: PINK, 
-              boxShadow: `0 20px 60px rgba(56, 189, 248, 0.15), 0 8px 25px rgba(14, 165, 233, 0.1)`
+              borderColor: ORANGE, 
+              boxShadow: `0 20px 60px rgba(249, 115, 22, 0.15), 0 8px 25px rgba(249, 115, 22, 0.1)`
             }}
           >
             {navLinks.map((link, index) => (
@@ -315,12 +300,12 @@ export default function Navbar() {
                 href={link.href}
                 className={
                   link.name === "Contact"
-                    ? "block w-11/12 text-center font-semibold px-6 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-105 hover-lift transition-all duration-300 ease-out relative overflow-hidden"
-                    : "block w-11/12 text-center font-semibold px-4 py-4 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:text-[#0ea5e9] hover-lift relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-2 after:h-1 after:w-0 after:bg-gradient-to-r after:from-cyan-400 after:to-blue-500 after:rounded-full after:transition-all after:duration-500 after:ease-out hover:after:w-16"
+                    ? "block w-11/12 text-center font-semibold px-6 py-4 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg hover:shadow-xl hover:scale-105 hover-lift transition-all duration-300 ease-out relative overflow-hidden hover:from-orange-600 hover:to-orange-700"
+                    : "block w-11/12 text-center font-semibold px-4 py-4 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:text-orange-500 hover-lift relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-2 after:h-1 after:w-0 after:bg-gradient-to-r after:from-orange-400 after:to-orange-600 after:rounded-full after:transition-all after:duration-500 after:ease-out hover:after:w-16"
                 }
                 style={{
                   animationDelay: `${index * 100}ms`,
-                  color: active === link.name ? PURPLE : "#222",
+                  color: active === link.name ? DARK_BLUE : "#0553aa",
                   transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
                 onClick={e => { 

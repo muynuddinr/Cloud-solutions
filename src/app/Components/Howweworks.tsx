@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const LIGHT_BLUE = "#38bdf8";
 const CYAN = "#0ea5e9";
+const NEW_BLUE = "#0553aa";
 
 export default function HowWeWork() {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +45,7 @@ export default function HowWeWork() {
       description: "We understand your tech needs through detailed consultation and assess your current IT infrastructure.",
       icon: "🔍",
       features: ["Free consultation", "Needs assessment", "Custom recommendations"],
-      color: "from-sky-500 to-cyan-500"
+      color: "from-sky-500 to-blue-600"
     },
     {
       id: 2,
@@ -52,7 +53,7 @@ export default function HowWeWork() {
       description: "Our experts design tailored solutions matching your budget and requirements.",
       icon: "🎯",
       features: ["Custom solutions", "Budget planning", "Technical specifications"],
-      color: "from-cyan-500 to-blue-500"
+      color: "from-cyan-500 to-blue-700"
     },
     {
       id: 3,
@@ -60,7 +61,7 @@ export default function HowWeWork() {
       description: "Professional installation, setup, and configuration of your IT equipment and systems.",
       icon: "⚙️",
       features: ["Professional setup", "Data migration", "System integration"],
-      color: "from-blue-500 to-indigo-500"
+      color: "from-blue-500 to-blue-800"
     },
     {
       id: 4,
@@ -68,7 +69,7 @@ export default function HowWeWork() {
       description: "24/7 support, maintenance, and upgrades to keep your systems running smoothly.",
       icon: "🛡️",
       features: ["24/7 support", "Regular maintenance", "System upgrades"],
-      color: "from-indigo-500 to-purple-500"
+      color: "from-blue-600 to-blue-900"
     }
   ];
 
@@ -126,8 +127,8 @@ export default function HowWeWork() {
         }
         
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.6); }
+          0%, 100% { box-shadow: 0 0 20px rgba(5, 83, 170, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(5, 83, 170, 0.6); }
         }
         
         @keyframes pulse {
@@ -195,18 +196,18 @@ export default function HowWeWork() {
         
         .hover-lift:hover {
           transform: translateY(-8px);
-          box-shadow: 0 25px 50px rgba(56, 189, 248, 0.2);
+          box-shadow: 0 25px 50px rgba(5, 83, 170, 0.2);
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+          background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0553aa 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .progress-bar {
-          background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7);
+          background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0553aa);
           background-size: 200% 100%;
           animation: shimmer 2s ease-in-out infinite;
         }
@@ -218,12 +219,12 @@ export default function HowWeWork() {
         
         .step-card-active {
           transform: scale(1.05) translateY(-10px);
-          box-shadow: 0 25px 50px rgba(56, 189, 248, 0.3);
+          box-shadow: 0 25px 50px rgba(5, 83, 170, 0.3);
         }
         
         .step-card-hover {
           transform: scale(1.02) translateY(-5px);
-          box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+          box-shadow: 0 15px 30px rgba(5, 83, 170, 0.2);
         }
       `}</style>
       
@@ -234,17 +235,18 @@ export default function HowWeWork() {
       >
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-32 left-16 w-40 h-40 border border-sky-400 rounded-2xl animate-rotate-slow"></div>
-          <div className="absolute bottom-40 right-24 w-32 h-32 border-2 border-cyan-400 rounded-full rotate-45 animate-pulse-slow"></div>
-          <div className="absolute top-1/2 left-1/4 w-20 h-20 border border-blue-400 rounded-xl rotate-12 animate-bounce-slow"></div>
+          <div className="absolute top-32 left-16 w-40 h-40 border rounded-2xl animate-rotate-slow" style={{ borderColor: '#0553aa' }}></div>
+          <div className="absolute bottom-40 right-24 w-32 h-32 border-2 rounded-full rotate-45 animate-pulse-slow" style={{ borderColor: '#0ea5e9' }}></div>
+          <div className="absolute top-1/2 left-1/4 w-20 h-20 border rounded-xl rotate-12 animate-bounce-slow" style={{ borderColor: '#0553aa' }}></div>
           
           {/* Enhanced Circuit pattern */}
           <div className="absolute top-20 right-1/3 grid grid-cols-4 gap-1">
             {[...Array(16)].map((_, i) => (
               <div 
                 key={i} 
-                className="w-1 h-1 bg-sky-300 rounded-full animate-pulse" 
+                className="w-1 h-1 rounded-full animate-pulse" 
                 style={{ 
+                  backgroundColor: '#38bdf8',
                   animationDelay: `${i * 0.1}s`,
                   animationDuration: '2s'
                 }}
@@ -254,7 +256,7 @@ export default function HowWeWork() {
           
           {/* Additional floating elements */}
           <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-bounce opacity-30"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rotate-45 animate-pulse opacity-40"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40" style={{ background: `linear-gradient(to right, #0ea5e9, #0553aa)` }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -264,12 +266,12 @@ export default function HowWeWork() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gradient">
                 How We Work
               </h2>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-3 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-20 blur-sm rounded-full animate-pulse"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-3 opacity-20 blur-sm rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #38bdf8, #0ea5e9)' }}></div>
             </div>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-slide-in-bottom" style={{ animationDelay: '0.2s' }}>
               From consultation to ongoing support, we ensure your IT infrastructure 
               <br className="hidden md:inline" />
-              <span className="font-semibold text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-100 px-3 py-1 rounded-lg hover-lift inline-block">
+              <span className="font-semibold text-gray-800 bg-gradient-to-r from-sky-100 to-blue-100 px-3 py-1 rounded-lg hover-lift inline-block">
                 works seamlessly for your business success.
               </span>
             </p>
@@ -290,10 +292,13 @@ export default function HowWeWork() {
                   key={index}
                   className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 ${
                     index <= activeStep 
-                      ? 'bg-gradient-to-r from-sky-500 to-cyan-500 border-white shadow-lg animate-glow' 
+                      ? 'border-white shadow-lg animate-glow' 
                       : 'bg-white border-gray-300'
                   }`}
-                  style={{ left: `${(index / 3) * 100}%` }}
+                  style={{ 
+                    left: `${(index / 3) * 100}%`,
+                    background: index <= activeStep ? `linear-gradient(to right, #38bdf8, #0553aa)` : ''
+                  }}
                 ></div>
               ))}
             </div>
@@ -318,18 +323,26 @@ export default function HowWeWork() {
                     activeStep === index 
                       ? 'step-card-active border-sky-400 shadow-sky-500/25' 
                       : hoveredStep === index 
-                        ? 'step-card-hover border-sky-300' 
-                        : 'border-gray-100 hover:border-sky-300'
-                  }`}>
+                        ? 'step-card-hover' 
+                        : 'border-gray-100'
+                  }`}
+                  style={{
+                    borderColor: activeStep === index || hoveredStep === index ? '#0553aa' : undefined
+                  }}>
                     
                     {/* Enhanced Step Number */}
                     <div className={`absolute top-4 right-4 w-10 h-10 rounded-full transition-all duration-500 ${
                       activeStep === index 
-                        ? 'bg-gradient-to-r from-sky-500 to-cyan-500 scale-110 animate-glow' 
+                        ? 'scale-110 animate-glow' 
                         : hoveredStep === index
-                          ? 'bg-gradient-to-r from-sky-400 to-cyan-400 scale-105'
+                          ? 'scale-105'
                           : 'bg-gray-200'
-                    } flex items-center justify-center text-sm font-bold text-white`}>
+                    } flex items-center justify-center text-sm font-bold text-white`}
+                    style={{
+                      background: activeStep === index || hoveredStep === index 
+                        ? `linear-gradient(to right, #38bdf8, #0553aa)` 
+                        : undefined
+                    }}>
                       {step.id}
                     </div>
 
@@ -361,7 +374,7 @@ export default function HowWeWork() {
                     </div>
 
                     {/* Enhanced Content */}
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight transition-all duration-300 group-hover:text-sky-700">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight transition-all duration-300 group-hover:text-blue-700">
                       {step.title}
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed transition-all duration-300 group-hover:text-gray-700">
@@ -378,11 +391,18 @@ export default function HowWeWork() {
                         >
                           <div className={`w-2 h-2 rounded-full mr-3 transition-all duration-300 ${
                             activeStep === index 
-                              ? 'bg-gradient-to-r from-sky-400 to-cyan-400 scale-125' 
+                              ? 'scale-125' 
                               : hoveredStep === index
-                                ? 'bg-gradient-to-r from-sky-300 to-cyan-300 scale-110'
-                                : 'bg-gray-300 group-hover:bg-sky-300'
-                          }`}></div>
+                                ? 'scale-110'
+                                : 'bg-gray-300'
+                          }`}
+                          style={{
+                            background: activeStep === index 
+                              ? 'linear-gradient(to right, #38bdf8, #0553aa)' 
+                              : hoveredStep === index
+                                ? 'linear-gradient(to right, #38bdf8, #0ea5e9)'
+                                : undefined
+                          }}></div>
                           <span className="transition-all duration-300 group-hover:translate-x-1">{feature}</span>
                         </li>
                       ))}
@@ -394,8 +414,8 @@ export default function HowWeWork() {
                     }`}></div>
 
                     {/* Enhanced Decorative elements */}
-                    <div className="absolute -bottom-6 -right-6 w-12 h-12 border-4 border-sky-200 rounded-full opacity-30 group-hover:opacity-60 transition-all duration-300 animate-pulse"></div>
-                    <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-cyan-200 rounded-lg rotate-45 opacity-20 group-hover:opacity-50 transition-all duration-300 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute -bottom-6 -right-6 w-12 h-12 border-4 rounded-full opacity-30 group-hover:opacity-60 transition-all duration-300 animate-pulse" style={{ borderColor: '#38bdf8' }}></div>
+                    <div className="absolute -top-4 -left-4 w-8 h-8 border-2 rounded-lg rotate-45 opacity-20 group-hover:opacity-50 transition-all duration-300 animate-bounce" style={{ borderColor: '#0ea5e9', animationDelay: '0.5s' }}></div>
                   </div>
                 </div>
               ))}
@@ -406,7 +426,7 @@ export default function HowWeWork() {
           <div className={`mt-20 text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`} style={{ animationDelay: '1s' }}>
-            <div className="bg-gradient-to-r from-sky-50 to-cyan-50 rounded-3xl p-8 md:p-12 border-2 border-sky-100 shadow-lg hover-lift animate-scale-in">
+            <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-3xl p-8 md:p-12 border-2 border-sky-100 shadow-lg hover-lift animate-scale-in">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-gradient">
                 What We Offer
               </h3>
@@ -422,7 +442,7 @@ export default function HowWeWork() {
                     style={{ animationDelay: `${1.2 + index * 0.1}s` }}
                   >
                     <div className="text-4xl mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">{service.icon}</div>
-                    <h4 className="font-semibold text-lg text-gray-800 mb-2 transition-all duration-300 group-hover:text-sky-700">{service.title}</h4>
+                    <h4 className="font-semibold text-lg text-gray-800 mb-2 transition-all duration-300 group-hover:text-blue-700">{service.title}</h4>
                     <p className="text-gray-600 transition-all duration-300 group-hover:text-gray-700">{service.desc}</p>
                   </div>
                 ))}
@@ -436,7 +456,18 @@ export default function HowWeWork() {
           }`} style={{ animationDelay: '1.5s' }}>
             <a
               href="#contact"
-              className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 border-cyan-400 transition-all duration-300 text-lg md:text-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-cyan-500 hover:to-sky-500 hover:scale-105 hover:shadow-cyan-500/25 active:scale-95 overflow-hidden hover-lift animate-glow"
+              className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
+              style={{
+                background: 'linear-gradient(to right, #38bdf8, #0553aa)',
+                borderColor: '#0ea5e9',
+                boxShadow: '0 25px 50px rgba(5, 83, 170, 0.25)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(to right, #0ea5e9, #38bdf8)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(to right, #38bdf8, #0553aa)';
+              }}
             >
               <span className="relative z-10">Start Your IT Journey</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -449,26 +480,28 @@ export default function HowWeWork() {
 
         {/* Enhanced Background Decorations */}
         <div 
-          className="absolute top-40 left-10 w-80 h-80 bg-gradient-to-r from-sky-100 to-cyan-100 opacity-20 rounded-full blur-3xl animate-pulse z-0 parallax"
+          className="absolute top-40 left-10 w-80 h-80 opacity-20 rounded-full blur-3xl animate-pulse z-0 parallax"
           style={{
+            background: 'linear-gradient(to right, #38bdf8, #0ea5e9)',
             transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`
           }}
         />
         <div 
-          className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-r from-cyan-100 to-blue-100 opacity-25 rounded-full blur-3xl animate-pulse z-0 parallax" 
+          className="absolute bottom-40 right-10 w-96 h-96 opacity-25 rounded-full blur-3xl animate-pulse z-0 parallax" 
           style={{ 
+            background: 'linear-gradient(to right, #0ea5e9, #0553aa)',
             animationDelay: '2s',
             transform: `translate(${-mousePosition.x * 0.005}px, ${-mousePosition.y * 0.005}px)`
           }} 
         />
         
         {/* Enhanced decorative elements */}
-        <div className="absolute top-1/4 right-20 w-3 h-40 bg-gradient-to-b from-sky-200 to-transparent opacity-30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-20 w-40 h-3 bg-gradient-to-r from-cyan-200 to-transparent opacity-30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 right-20 w-3 h-40 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to bottom, #38bdf8, transparent)' }}></div>
+        <div className="absolute bottom-1/4 left-20 w-40 h-3 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #0ea5e9, transparent)', animationDelay: '1s' }} />
         
         {/* New interactive elements */}
-        <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-cyan-400 rounded-full animate-ping opacity-20"></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-sky-400 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20" style={{ backgroundColor: '#0ea5e9' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" style={{ backgroundColor: '#38bdf8', animationDelay: '0.7s' }}></div>
       </section>
     </>
   );
