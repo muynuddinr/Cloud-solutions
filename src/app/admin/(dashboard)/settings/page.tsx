@@ -14,7 +14,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-sm text-gray-600 mb-1">Support Email</label>
-              <input className="w-full rounded-lg border px-3 py-2 text-sm" defaultValue="support@example.com" />
+              <input className="w-full rounded-lg border px-3 py-2 text-sm" defaultValue="cloudsolutions1@gmail.com" />
             </div>
           </div>
           <div>

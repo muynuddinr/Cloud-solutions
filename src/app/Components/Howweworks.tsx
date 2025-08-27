@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 
-const LIGHT_BLUE = "#38bdf8";
-const CYAN = "#0ea5e9";
+const LIGHT_BLUE = "#0553aa";
+const CYAN = "#0553aa";
 const NEW_BLUE = "#0553aa";
 
 export default function HowWeWork() {
@@ -200,14 +200,14 @@ export default function HowWeWork() {
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0553aa 100%);
+          background: linear-gradient(135deg, #0553aa 0%, #0553aa 50%, #0553aa 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .progress-bar {
-          background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0553aa);
+          background: linear-gradient(90deg, #0553aa, #0553aa, #0553aa);
           background-size: 200% 100%;
           animation: shimmer 2s ease-in-out infinite;
         }
@@ -236,7 +236,7 @@ export default function HowWeWork() {
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-32 left-16 w-40 h-40 border rounded-2xl animate-rotate-slow" style={{ borderColor: '#0553aa' }}></div>
-          <div className="absolute bottom-40 right-24 w-32 h-32 border-2 rounded-full rotate-45 animate-pulse-slow" style={{ borderColor: '#0ea5e9' }}></div>
+          <div className="absolute bottom-40 right-24 w-32 h-32 border-2 rounded-full rotate-45 animate-pulse-slow" style={{ borderColor: '#0553aa' }}></div>
           <div className="absolute top-1/2 left-1/4 w-20 h-20 border rounded-xl rotate-12 animate-bounce-slow" style={{ borderColor: '#0553aa' }}></div>
           
           {/* Enhanced Circuit pattern */}
@@ -246,7 +246,7 @@ export default function HowWeWork() {
                 key={i} 
                 className="w-1 h-1 rounded-full animate-pulse" 
                 style={{ 
-                  backgroundColor: '#38bdf8',
+                  backgroundColor: '#0553aa',
                   animationDelay: `${i * 0.1}s`,
                   animationDuration: '2s'
                 }}
@@ -256,7 +256,7 @@ export default function HowWeWork() {
           
           {/* Additional floating elements */}
           <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full animate-bounce opacity-30"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40" style={{ background: `linear-gradient(to right, #0ea5e9, #0553aa)` }}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40" style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -266,7 +266,7 @@ export default function HowWeWork() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gradient">
                 How We Work
               </h2>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-3 opacity-20 blur-sm rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #38bdf8, #0ea5e9)' }}></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-3 opacity-20 blur-sm rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #0553aa, #0553aa)' }}></div>
             </div>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-slide-in-bottom" style={{ animationDelay: '0.2s' }}>
               From consultation to ongoing support, we ensure your IT infrastructure 
@@ -297,7 +297,7 @@ export default function HowWeWork() {
                   }`}
                   style={{ 
                     left: `${(index / 3) * 100}%`,
-                    background: index <= activeStep ? `linear-gradient(to right, #38bdf8, #0553aa)` : ''
+                    background: index <= activeStep ? `linear-gradient(to right, #0553aa, #0553aa)` : ''
                   }}
                 ></div>
               ))}
@@ -340,7 +340,7 @@ export default function HowWeWork() {
                     } flex items-center justify-center text-sm font-bold text-white`}
                     style={{
                       background: activeStep === index || hoveredStep === index 
-                        ? `linear-gradient(to right, #38bdf8, #0553aa)` 
+                        ? `linear-gradient(to right, #0553aa, #0553aa)` 
                         : undefined
                     }}>
                       {step.id}
@@ -398,9 +398,9 @@ export default function HowWeWork() {
                           }`}
                           style={{
                             background: activeStep === index 
-                              ? 'linear-gradient(to right, #38bdf8, #0553aa)' 
+                              ? 'linear-gradient(to right, #0553aa, #0553aa)' 
                               : hoveredStep === index
-                                ? 'linear-gradient(to right, #38bdf8, #0ea5e9)'
+                                ? 'linear-gradient(to right, #0553aa, #0553aa)'
                                 : undefined
                           }}></div>
                           <span className="transition-all duration-300 group-hover:translate-x-1">{feature}</span>
@@ -414,8 +414,8 @@ export default function HowWeWork() {
                     }`}></div>
 
                     {/* Enhanced Decorative elements */}
-                    <div className="absolute -bottom-6 -right-6 w-12 h-12 border-4 rounded-full opacity-30 group-hover:opacity-60 transition-all duration-300 animate-pulse" style={{ borderColor: '#38bdf8' }}></div>
-                    <div className="absolute -top-4 -left-4 w-8 h-8 border-2 rounded-lg rotate-45 opacity-20 group-hover:opacity-50 transition-all duration-300 animate-bounce" style={{ borderColor: '#0ea5e9', animationDelay: '0.5s' }}></div>
+                    <div className="absolute -bottom-6 -right-6 w-12 h-12 border-4 rounded-full opacity-30 group-hover:opacity-60 transition-all duration-300 animate-pulse" style={{ borderColor: '#0553aa' }}></div>
+                    <div className="absolute -top-4 -left-4 w-8 h-8 border-2 rounded-lg rotate-45 opacity-20 group-hover:opacity-50 transition-all duration-300 animate-bounce" style={{ borderColor: '#0553aa', animationDelay: '0.5s' }}></div>
                   </div>
                 </div>
               ))}
@@ -458,15 +458,15 @@ export default function HowWeWork() {
               href="#contact"
               className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
               style={{
-                background: 'linear-gradient(to right, #38bdf8, #0553aa)',
-                borderColor: '#0ea5e9',
+                background: 'linear-gradient(to right, #0553aa, #0553aa)',
+                borderColor: '#0553aa',
                 boxShadow: '0 25px 50px rgba(5, 83, 170, 0.25)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #0ea5e9, #38bdf8)';
+                e.currentTarget.style.background = 'linear-gradient(to right, #0553aa, #0553aa)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #38bdf8, #0553aa)';
+                e.currentTarget.style.background = 'linear-gradient(to right, #0553aa, #0553aa)';
               }}
             >
               <span className="relative z-10">Start Your IT Journey</span>
@@ -482,26 +482,26 @@ export default function HowWeWork() {
         <div 
           className="absolute top-40 left-10 w-80 h-80 opacity-20 rounded-full blur-3xl animate-pulse z-0 parallax"
           style={{
-            background: 'linear-gradient(to right, #38bdf8, #0ea5e9)',
+            background: 'linear-gradient(to right, #0553aa, #0553aa)',
             transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`
           }}
         />
         <div 
           className="absolute bottom-40 right-10 w-96 h-96 opacity-25 rounded-full blur-3xl animate-pulse z-0 parallax" 
           style={{ 
-            background: 'linear-gradient(to right, #0ea5e9, #0553aa)',
+            background: 'linear-gradient(to right, #0553aa, #0553aa)',
             animationDelay: '2s',
             transform: `translate(${-mousePosition.x * 0.005}px, ${-mousePosition.y * 0.005}px)`
           }} 
         />
         
         {/* Enhanced decorative elements */}
-        <div className="absolute top-1/4 right-20 w-3 h-40 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to bottom, #38bdf8, transparent)' }}></div>
-        <div className="absolute bottom-1/4 left-20 w-40 h-3 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #0ea5e9, transparent)', animationDelay: '1s' }} />
+        <div className="absolute top-1/4 right-20 w-3 h-40 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to bottom, #0553aa, transparent)' }}></div>
+        <div className="absolute bottom-1/4 left-20 w-40 h-3 opacity-30 rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, #0553aa, transparent)', animationDelay: '1s' }} />
         
         {/* New interactive elements */}
-        <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20" style={{ backgroundColor: '#0ea5e9' }}></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" style={{ backgroundColor: '#38bdf8', animationDelay: '0.7s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20" style={{ backgroundColor: '#0553aa' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" style={{ backgroundColor: '#0553aa', animationDelay: '0.7s' }}></div>
       </section>
     </>
   );

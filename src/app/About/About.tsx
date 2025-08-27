@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const LIGHT_BLUE = "#38bdf8"; // Tailwind sky-400
-const CYAN = "#0ea5e9"; // Tailwind cyan-500
+const LIGHT_BLUE = "#0553aa"; // Updated to match the requested color
+const CYAN = "#0553aa"; // Updated to match the requested color
 
 export default function AboutUsPage() {
   const [isVisible, setIsVisible] = useState(false);

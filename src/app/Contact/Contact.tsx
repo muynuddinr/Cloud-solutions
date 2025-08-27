@@ -110,13 +110,13 @@ export default function ContactSection() {
               <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
                 <div className="mb-3 text-3xl">📞</div>
                 <div className="text-sm text-gray-500 font-semibold">Phone</div>
-                <div className="text-lg font-bold text-gray-900">+1 (555) 123-4567</div>
+                <div className="text-lg font-bold text-gray-900">99523 70971</div>
               </div>
               {/* Email */}
               <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
                 <div className="mb-3 text-3xl">✉️</div>
                 <div className="text-sm text-gray-500 font-semibold">Email</div>
-                <div className="text-lg font-bold text-gray-900 break-all">hello@clouditsolution.com</div>
+                <div className="text-lg font-bold text-gray-900 break-all">cloudsolutions1@gmail.com</div>
               </div>
               {/* Hours */}
               <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
@@ -129,7 +129,7 @@ export default function ContactSection() {
               <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
                 <div className="mb-3 text-3xl">📍</div>
                 <div className="text-sm text-gray-500 font-semibold">Address</div>
-                <div className="text-lg font-bold text-gray-900">123 Innovation Drive, Tech City</div>
+                <div className="text-lg font-bold text-gray-900">Shop No: 183/1, Opp Aryabhavan Sweets, Sakthi Childrens Hospital, Hosur -635 126</div>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export default function ContactSection() {
                       value={form.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-2xl border-2 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 transition-all duration-300 ${errors.email ? "border-red-300 focus:ring-red-100" : "border-gray-200 focus:border-sky-400 focus:ring-sky-100"}`}
-                      placeholder="you@company.com"
+                      placeholder="cloudsolutions1@gmail.com"
                       autoComplete="email"
                       aria-invalid={Boolean(errors.email)}
                       aria-describedby={errors.email ? "email-error" : undefined}
@@ -213,7 +213,7 @@ export default function ContactSection() {
                       value={form.phone}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-2xl border-2 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 transition-all duration-300 ${errors.phone ? "border-red-300 focus:ring-red-100" : "border-gray-200 focus:border-sky-400 focus:ring-sky-100"}`}
-                      placeholder="+1 555 000 1234"
+                      placeholder="99523 70971"
                       autoComplete="tel"
                       aria-invalid={Boolean(errors.phone)}
                       aria-describedby={errors.phone ? "phone-error" : undefined}

@@ -8,7 +8,6 @@ const trainingPrograms = [
     description: "Master cloud computing fundamentals, AWS, Azure, and Google Cloud Platform. Learn to design, deploy, and manage scalable cloud solutions.",
     duration: "8 weeks",
     level: "Intermediate",
-    price: "$1,299",
     icon: "☁️",
     features: [
       "Cloud Architecture Design",
@@ -29,7 +28,6 @@ const trainingPrograms = [
     description: "Comprehensive training in IT support, network troubleshooting, and system administration. Perfect for IT professionals and beginners.",
     duration: "6 weeks",
     level: "Beginner",
-    price: "$899",
     icon: "🔧",
     features: [
       "Network Troubleshooting",
@@ -39,8 +37,8 @@ const trainingPrograms = [
       "Customer Service Skills",
       "Certification Prep"
     ],
-    gradient: "from-cyan-500 to-blue-500",
-    bgColor: "from-cyan-50 to-blue-50",
+    gradient: "from-cyan-500 to-[#0553aa]",
+    bgColor: "from-cyan-50 to-[#0553aa]",
     accentColor: "cyan",
     category: "IT Support"
   },
@@ -50,7 +48,6 @@ const trainingPrograms = [
     description: "Learn essential cybersecurity concepts, threat detection, and security best practices. Protect your organization from cyber threats.",
     duration: "10 weeks",
     level: "Advanced",
-    price: "$1,599",
     icon: "🛡️",
     features: [
       "Threat Detection",
@@ -60,8 +57,8 @@ const trainingPrograms = [
       "Penetration Testing",
       "Security Auditing"
     ],
-    gradient: "from-blue-500 to-indigo-500",
-    bgColor: "from-blue-50 to-indigo-50",
+    gradient: "from-[#0553aa] to-indigo-500",
+    bgColor: "from-[#0553aa] to-indigo-50",
     accentColor: "blue",
     category: "Cybersecurity"
   },
@@ -71,7 +68,6 @@ const trainingPrograms = [
     description: "Modern software development training covering full-stack development, DevOps, and agile methodologies.",
     duration: "12 weeks",
     level: "Intermediate",
-    price: "$1,799",
     icon: "💻",
     features: [
       "Full-Stack Development",
@@ -92,7 +88,6 @@ const trainingPrograms = [
     description: "Master data analysis, visualization, and business intelligence tools. Transform data into actionable insights.",
     duration: "8 weeks",
     level: "Intermediate",
-    price: "$1,199",
     icon: "📊",
     features: [
       "Data Analysis",
@@ -113,7 +108,6 @@ const trainingPrograms = [
     description: "Comprehensive digital marketing training including SEO, social media, content marketing, and analytics.",
     duration: "6 weeks",
     level: "Beginner",
-    price: "$799",
     icon: "📈",
     features: [
       "SEO Optimization",
@@ -225,7 +219,7 @@ export default function Training() {
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 border border-sky-400 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
           <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-cyan-400 rounded-lg rotate-45 animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-blue-400 rounded-lg rotate-12 animate-bounce" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-[#0553aa] rounded-lg rotate-12 animate-bounce" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -258,7 +252,7 @@ export default function Training() {
                 <div className="text-sm text-gray-600">Graduates</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">95%</div>
+                <div className="text-3xl font-bold text-[#0553aa]">95%</div>
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
               <div className="text-center">
@@ -337,14 +331,16 @@ export default function Training() {
                     </div>
                   </div>
 
-                  {/* Price and CTA */}
-                  <div className="flex justify-between items-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
-                      {program.price}
-                    </div>
-                    <button className={`px-6 py-3 bg-gradient-to-r ${program.gradient} text-white rounded-2xl font-semibold hover:shadow-lg hover:shadow-${program.accentColor}-500/25 transition-all duration-300 hover:scale-105`}>
-                      Enroll Now
-                    </button>
+                  {/* Additional Features */}
+                  <div className="mt-6">
+                    <ul className="space-y-2">
+                      {program.features.slice(4, 6).map((feature, index) => (
+                        <li key={index} className="flex items-center text-sm text-gray-600">
+                          <div className={`w-2 h-2 bg-gradient-to-r ${program.gradient} rounded-full mr-3`}></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

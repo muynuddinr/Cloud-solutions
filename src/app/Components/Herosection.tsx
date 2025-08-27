@@ -154,14 +154,14 @@ export default function Herosection() {
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #0553aa 0%, #074b96 50%, #094282 100%);
+          background: linear-gradient(135deg, #0553aa 0%, #0553aa 50%, #0553aa 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .gradient-border {
-          background: linear-gradient(135deg, #0553aa, #074b96);
+          background: linear-gradient(135deg, #0553aa, #0553aa);
           padding: 2px;
           border-radius: 16px;
         }
@@ -213,11 +213,11 @@ export default function Herosection() {
           {/* Additional floating elements */}
           <div 
             className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full animate-bounce opacity-30"
-            style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+            style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
           ></div>
           <div 
             className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40"
-            style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+            style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
           ></div>
         </div>
 
@@ -233,7 +233,7 @@ export default function Herosection() {
                 Made Simple
                 <div 
                   className="absolute -bottom-2 left-0 w-full h-3 opacity-20 blur-sm rounded-full animate-pulse"
-                  style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+                  style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
                 ></div>
               </span>
             </h1>
@@ -241,16 +241,16 @@ export default function Herosection() {
             {/* Enhanced floating elements */}
             <div 
               className="absolute -top-6 -left-6 w-4 h-4 rounded-full animate-bounce opacity-80 shadow-lg animate-glow"
-              style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
             ></div>
             <div 
               className="absolute top-1/2 -right-8 w-3 h-3 rounded-full animate-pulse opacity-60 shadow-md"
-              style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
             ></div>
             <div 
               className="absolute -bottom-8 left-1/4 w-5 h-5 rounded-full animate-bounce opacity-70 shadow-lg" 
               style={{ 
-                background: `linear-gradient(to right, #0553aa, #074b96)`,
+                background: `linear-gradient(to right, #0553aa, #0553aa)`,
                 animationDelay: '1s' 
               }}
             ></div>
@@ -265,7 +265,7 @@ export default function Herosection() {
             <br className="hidden md:inline" />
             <span 
               className="font-semibold text-gray-800 px-3 py-1 rounded-lg hover-lift inline-block"
-              style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(7, 75, 150, 0.1))` }}
+              style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))` }}
             >
               Secure, scalable, and reliable.
             </span>
@@ -276,12 +276,12 @@ export default function Herosection() {
               href="#get-started"
               className="group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
               style={{ 
-                background: `linear-gradient(to right, #0553aa, #074b96)`,
+                background: `linear-gradient(to right, #0553aa, #0553aa)`,
                 border: `2px solid #0553aa`,
                 boxShadow: `0 0 20px rgba(5, 83, 170, 0.25)`
               }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #074b96, #0553aa)`}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #074b96)`}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #0553aa)`}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #0553aa)`}
             >
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -316,7 +316,7 @@ export default function Herosection() {
               <div className="text-sm text-gray-600">Uptime</div>
             </div>
             <div className="hover-lift">
-              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#074b96', animationDelay: '0.5s' }}>24/7</div>
+              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa', animationDelay: '0.5s' }}>24/7</div>
               <div className="text-sm text-gray-600">Support</div>
             </div>
             <div className="hover-lift">
@@ -347,7 +347,7 @@ export default function Herosection() {
                 <div 
                   className="absolute bottom-8 right-8 w-16 h-16 rounded-full animate-bounce" 
                   style={{ 
-                    border: `2px solid #074b96`,
+                    border: `2px solid #0553aa`,
                     animationDelay: '0.5s' 
                   }}
                 ></div>
@@ -360,7 +360,7 @@ export default function Herosection() {
                 ></div>
                 <div 
                   className="absolute top-16 right-16 w-8 h-8 rounded-lg rotate-45 animate-rotate-slow"
-                  style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+                  style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
                 ></div>
                 
                 {/* Enhanced grid pattern */}
@@ -384,7 +384,7 @@ export default function Herosection() {
                   {/* Enhanced glow behind rocket */}
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-full animate-pulse"
-                    style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), rgba(7, 75, 150, 0.2))` }}
+                    style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), rgba(5, 83, 170, 0.2))` }}
                   ></div>
                 </div>
               </div>
@@ -392,24 +392,24 @@ export default function Herosection() {
               {/* Enhanced floating elements */}
               <div 
                 className="absolute top-6 right-6 w-8 h-8 rounded-full animate-ping opacity-40 shadow-lg"
-                style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+                style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
               ></div>
               <div 
                 className="absolute bottom-10 left-10 w-6 h-6 rounded-full animate-pulse opacity-60 shadow-md"
-                style={{ background: `linear-gradient(to right, #074b96, #0553aa)` }}
+                style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
               ></div>
               
               {/* Enhanced hover effect overlay */}
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                style={{ background: `linear-gradient(to top right, rgba(5, 83, 170, 0.05), rgba(7, 75, 150, 0.05))` }}
+                style={{ background: `linear-gradient(to top right, rgba(5, 83, 170, 0.05), rgba(5, 83, 170, 0.05))` }}
               ></div>
             </div>
 
             {/* Enhanced orbiting elements */}
             <div 
               className="absolute -top-6 -right-6 w-14 h-14 rounded-2xl shadow-xl animate-rotate-slow opacity-90 flex items-center justify-center text-white font-bold text-xl border-2 border-white hover-lift"
-              style={{ background: `linear-gradient(to right, #0553aa, #074b96)` }}
+              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
             >
               ⚡
             </div>
@@ -417,7 +417,7 @@ export default function Herosection() {
             <div 
               className="absolute -bottom-8 -left-8 w-18 h-18 rounded-3xl shadow-xl flex items-center justify-center text-white text-3xl animate-bounce border-2 border-white hover-lift" 
               style={{ 
-                background: `linear-gradient(to right, #074b96, #0553aa)`,
+                background: `linear-gradient(to right, #0553aa, #0553aa)`,
                 animationDelay: '1s' 
               }}
             >
@@ -432,7 +432,7 @@ export default function Herosection() {
             <div 
               className="absolute bottom-1/3 -right-3 w-8 h-8 bg-white rounded-lg rotate-45 shadow-md animate-bounce hover-lift" 
               style={{ 
-                border: `3px solid #074b96`,
+                border: `3px solid #0553aa`,
                 animationDelay: '1.5s' 
               }}
             ></div>
@@ -443,14 +443,14 @@ export default function Herosection() {
         <div 
           className="absolute top-20 left-20 w-96 h-96 opacity-30 rounded-full blur-3xl animate-pulse z-0 parallax"
           style={{
-            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(7, 75, 150, 0.1))`,
+            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))`,
             transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
           }}
         />
         <div 
           className="absolute bottom-20 right-20 w-80 h-80 opacity-40 rounded-full blur-3xl animate-pulse z-0 parallax" 
           style={{ 
-            background: `linear-gradient(to right, rgba(7, 75, 150, 0.1), rgba(5, 83, 170, 0.1))`,
+            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))`,
             animationDelay: '2s',
             transform: `translate(${-mousePosition.x * 0.01}px, ${-mousePosition.y * 0.01}px)`
           }} 
@@ -464,7 +464,7 @@ export default function Herosection() {
         <div 
           className="absolute bottom-1/3 right-16 w-32 h-2 opacity-30 rounded-full animate-pulse" 
           style={{ 
-            background: `linear-gradient(to right, rgba(7, 75, 150, 0.2), transparent)`,
+            background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), transparent)`,
             animationDelay: '3s' 
           }} 
         />
@@ -472,7 +472,7 @@ export default function Herosection() {
         {/* New interactive elements */}
         <div 
           className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20"
-          style={{ backgroundColor: '#074b96' }}
+          style={{ backgroundColor: '#0553aa' }}
         ></div>
         <div 
           className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" 

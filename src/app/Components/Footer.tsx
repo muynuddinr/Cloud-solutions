@@ -190,7 +190,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-300">99523 70971</p>
                   <p className="text-gray-400 text-sm">24/7 Support</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-300">info@cloudsolutions.com</p>
+                  <p className="text-gray-300">cloudsolutions1@gmail.com</p>
                   <p className="text-gray-400 text-sm">Business Inquiries</p>
                 </div>
               </div>
@@ -213,8 +213,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-300">123 Cloud Street, Tech City</p>
-                  <p className="text-gray-400 text-sm">TC 12345, USA</p>
+                  <p className="text-gray-300">Shop No: 183/1, Opp Aryabhavan Sweets, Sakthi Childrens Hospital, Hosur -635 126</p>
+                  <p className="text-gray-400 text-sm"></p>
                 </div>
               </div>
             </div>

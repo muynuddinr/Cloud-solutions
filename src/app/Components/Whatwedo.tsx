@@ -4,6 +4,17 @@ import React, { useState, useEffect, useRef } from "react";
 const services = [
   {
     id: 1,
+    title: "Software Solutions",
+    description: "Custom software development, licensing, and installation services tailored to meet your specific business requirements.",
+    icon: "⚙️",
+    features: ["Custom Development", "Licensing", "Installation", "Training"],
+    gradient: "from-pink-500 to-sky-500",
+    bgColor: "from-pink-50 to-sky-50",
+    accentColor: "pink",
+    stats: { projects: "150+", languages: "10+" }
+  },
+  {
+    id: 2,
     title: "IT Solutions & Consulting",
     description: "Comprehensive IT infrastructure setup, network management, and strategic technology consulting to streamline your business operations.",
     icon: "🖥️",
@@ -14,7 +25,7 @@ const services = [
     stats: { clients: "500+", satisfaction: "98%" }
   },
   {
-    id: 2,
+    id: 3,
     title: "Computer & Laptop Sales",
     description: "Latest computers and laptops from top brands. Custom builds available for specific business needs with competitive pricing.",
     icon: "💻",
@@ -25,7 +36,7 @@ const services = [
     stats: { devices: "2000+", brands: "15+" }
   },
   {
-    id: 3,
+    id: 4,
     title: "Printer Sales & Services",
     description: "Complete printer solutions including sales, installation, maintenance, and repair services for all major printer brands.",
     icon: "🖨️",
@@ -36,7 +47,7 @@ const services = [
     stats: { printers: "800+", response: "<2hrs" }
   },
   {
-    id: 4,
+    id: 5,
     title: "Technical Support",
     description: "Round-the-clock technical support and maintenance services to keep your systems running smoothly and efficiently.",
     icon: "🔧",
@@ -47,7 +58,7 @@ const services = [
     stats: { uptime: "99.9%", tickets: "24hr" }
   },
   {
-    id: 5,
+    id: 6,
     title: "Cloud Services",
     description: "Modern cloud solutions including data backup, storage, and migration services to secure and scale your business data.",
     icon: "☁️",
@@ -57,17 +68,6 @@ const services = [
     accentColor: "purple",
     stats: { storage: "50TB+", security: "99.99%" }
   },
-  {
-    id: 6,
-    title: "Software Solutions",
-    description: "Custom software development, licensing, and installation services tailored to meet your specific business requirements.",
-    icon: "⚙️",
-    features: ["Custom Development", "Licensing", "Installation", "Training"],
-    gradient: "from-pink-500 to-sky-500",
-    bgColor: "from-pink-50 to-sky-50",
-    accentColor: "pink",
-    stats: { projects: "150+", languages: "10+" }
-  }
 ];
 
 export default function WhatWeDo() {

@@ -26,12 +26,12 @@ type Category = {
 };
 
 const categories: Category[] = [
-  { id: "all", name: "All Products", icon: "🛍️", count: 48, gradient: "from-sky-500 to-cyan-500" },
-  { id: "laptops", name: "Laptops", icon: "💻", count: 12, gradient: "from-cyan-500 to-blue-500" },
-  { id: "desktops", name: "Desktops", icon: "🖥️", count: 8, gradient: "from-blue-500 to-indigo-500" },
-  { id: "accessories", name: "Accessories", icon: "⌨️", count: 15, gradient: "from-indigo-500 to-purple-500" },
-  { id: "printers", name: "Printers", icon: "🖨️", count: 6, gradient: "from-purple-500 to-pink-500" },
-  { id: "software", name: "Software", icon: "💾", count: 7, gradient: "from-pink-500 to-rose-500" },
+  { id: "all", name: "All Products", icon: "🛍️", count: 48, gradient: "from-[#0553aa] to-[#0553aa]" },
+  { id: "laptops", name: "Laptops", icon: "💻", count: 12, gradient: "from-[#0553aa] to-[#0553aa]" },
+  { id: "desktops", name: "Desktops", icon: "🖥️", count: 8, gradient: "from-[#0553aa] to-[#0553aa]" },
+  { id: "accessories", name: "Accessories", icon: "⌨️", count: 15, gradient: "from-[#0553aa] to-[#0553aa]" },
+  { id: "printers", name: "Printers", icon: "🖨️", count: 6, gradient: "from-[#0553aa] to-[#0553aa]" },
+  { id: "software", name: "Software", icon: "💾", count: 7, gradient: "from-[#0553aa] to-[#0553aa]" },
 ];
 
 const products: Product[] = [
@@ -198,15 +198,15 @@ export default function Shop() {
     <section id="shop" className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-sky-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-sky-400 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-        <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-cyan-400 rounded-lg rotate-45 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-blue-400 rounded-lg rotate-12 animate-bounce" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 border border-[#0553aa] rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+        <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-[#0553aa] rounded-lg rotate-45 animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-[#0553aa] rounded-lg rotate-12 animate-bounce" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-32">
         {/* Header Section */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-gray-900 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-gray-900 via-[#0553aa] to-[#0553aa] bg-clip-text text-transparent">
             Our Shop
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -225,7 +225,7 @@ export default function Shop() {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-gray-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-gray-200 focus:border-[#0553aa] focus:ring-2 focus:ring-[#0553aa] transition-all duration-300 bg-white/50 backdrop-blur-sm"
               />
               <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -236,7 +236,7 @@ export default function Shop() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+              className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0553aa] focus:ring-2 focus:ring-[#0553aa] transition-all duration-300 bg-white/50 backdrop-blur-sm"
             >
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low to High</option>
@@ -255,8 +255,8 @@ export default function Shop() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`group relative p-6 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${
                   selectedCategory === category.id
-                    ? `border-sky-400 bg-gradient-to-r ${category.gradient} text-white shadow-lg`
-                    : "border-gray-200 bg-white/80 backdrop-blur-sm hover:border-sky-300 hover:shadow-lg"
+                    ? `border-[#0553aa] bg-gradient-to-r ${category.gradient} text-white shadow-lg`
+                    : "border-gray-200 bg-white/80 backdrop-blur-sm hover:border-[#0553aa] hover:shadow-lg"
                 }`}
               >
                 <div className="text-3xl mb-2">{category.icon}</div>
@@ -274,7 +274,7 @@ export default function Shop() {
           {sortedProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white/80 backdrop-blur-sm rounded-2xl border-2 border-gray-200 hover:border-sky-300 transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden cursor-pointer"
+              className="group relative bg-white/80 backdrop-blur-sm rounded-2xl border-2 border-gray-200 hover:border-[#0553aa] transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden cursor-pointer"
               onClick={(e) => {
                 // Don't navigate if clicking on buttons
                 if (!(e.target as HTMLElement).closest('button')) {
@@ -291,7 +291,7 @@ export default function Shop() {
 
               {/* Featured Badge */}
               {product.featured && (
-                <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-sky-500 to-cyan-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-[#0553aa] to-[#0553aa] text-white px-3 py-1 rounded-full text-sm font-bold">
                   Featured
                 </div>
               )}
@@ -346,7 +346,7 @@ export default function Shop() {
                   disabled={!product.inStock}
                   className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-300 ${
                     product.inStock
-                      ? "bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:from-cyan-500 hover:to-sky-500 hover:scale-105 shadow-lg hover:shadow-sky-500/25"
+                      ? "bg-gradient-to-r from-[#0553aa] to-[#0553aa] text-white hover:from-[#0553aa] hover:to-[#0553aa] hover:scale-105 shadow-lg hover:shadow-[#0553aa]/25"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
                   }`}
                 >
@@ -356,7 +356,7 @@ export default function Shop() {
                 {/* View Details Button */}
                 <button
                   onClick={() => router.push(`/Shop/${product.id}`)}
-                  className="w-full mt-2 py-2 px-4 rounded-xl font-semibold border-2 border-sky-400 text-sky-600 hover:bg-sky-50 transition-all duration-300"
+                  className="w-full mt-2 py-2 px-4 rounded-xl font-semibold border-2 border-[#0553aa] text-[#0553aa] hover:bg-[#0553aa]/10 transition-all duration-300"
                 >
                   View Details
                 </button>

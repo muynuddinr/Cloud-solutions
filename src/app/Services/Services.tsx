@@ -31,8 +31,8 @@ const services: Service[] = [
       "High-performance iOS and Android apps with beautiful UI and robust, scalable backends.",
     icon: "📱",
     features: ["iOS & Android", "App Store Launch", "Push Notifications", "APIs"],
-    gradient: "from-cyan-500 to-blue-500",
-    bgColor: "from-cyan-50 to-blue-50",
+    gradient: "from-cyan-500 to-[#0553aa]",
+    bgColor: "from-cyan-50 to-[#0553aa]",
     stats: { downloads: "250k+", uptime: "99.9%" },
   },
   {
@@ -42,8 +42,8 @@ const services: Service[] = [
       "Genuine hardware, custom builds, upgrades and repairs with quick turnaround and warranty support.",
     icon: "💻",
     features: ["New & Refurb", "Custom Builds", "Upgrades", "On-site Repair"],
-    gradient: "from-blue-500 to-indigo-500",
-    bgColor: "from-blue-50 to-indigo-50",
+    gradient: "from-[#0553aa] to-indigo-500",
+    bgColor: "from-[#0553aa] to-indigo-50",
     stats: { devices: "2000+", response: "<2 hrs" },
   },
   {
@@ -108,7 +108,7 @@ export default function ServicesSection() {
         />
         <div className="absolute bottom-24 right-20 w-28 h-28 border-2 border-cyan-400 rounded-2xl rotate-45 animate-pulse" />
         <div
-          className="absolute top-1/2 left-1/4 w-20 h-20 border border-blue-400 rounded-xl -rotate-6 animate-bounce"
+          className="absolute top-1/2 left-1/4 w-20 h-20 border border-[#0553aa] rounded-xl -rotate-6 animate-bounce"
           style={{ animationDelay: "1.5s" }}
         />
       </div>
@@ -267,10 +267,9 @@ export default function ServicesSection() {
       {/* ambient blobs */}
       <div className="absolute top-28 right-16 w-64 h-64 bg-gradient-to-r from-sky-100 to-cyan-100 opacity-30 rounded-full blur-3xl animate-pulse" />
       <div
-        className="absolute bottom-28 left-16 w-80 h-80 bg-gradient-to-r from-cyan-100 to-blue-100 opacity-20 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-28 left-16 w-80 h-80 bg-gradient-to-r from-cyan-100 to-[#0553aa] opacity-20 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "2s" }}
       />
     </section>
   );
 }
-

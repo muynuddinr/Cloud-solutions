@@ -155,14 +155,7 @@ export default function Navbar() {
           }
         }
         
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(2deg); }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
+
         
         .animate-slide-in {
           animation: slideInFromTop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -180,6 +173,7 @@ export default function Navbar() {
           transform: translateY(-2px);
           box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
         }
+
       `}</style>
       
       <header className="relative z-50 w-full flex flex-col items-center">
@@ -203,29 +197,45 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           
-          {/* Enhanced Logo */}
+          {/* Large Clear Logo */}
           <div className="flex items-center flex-shrink-0 mr-4 md:mr-8 relative z-10">
             <div 
-              className="transition-all duration-500 ease-out rounded-full p-1 group cursor-pointer hover-lift"
+              className="transition-all duration-300 ease-out cursor-pointer group flex items-center"
               onClick={handleLogoClick}
             >
-              <div className="h-12 w-12 bg-gradient-to-tr from-blue-800 via-blue-700 to-blue-900 rounded-full flex items-center justify-center shadow-lg border-4 border-blue-600/50 animate-float group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-orange-300/50 transition-all duration-500 ease-out">
+              {/* Large Logo Image - No Circles */}
+              <div className="mr-3 md:mr-4">
                 <Image 
                   src="/cloudlogo.png" 
-                  alt="Logo" 
-                  width={48} 
-                  height={48} 
-                  className="object-cover rounded-full transition-transform duration-300 group-hover:scale-105" 
+                  alt="Cloud IT Solution Logo" 
+                  width={80} 
+                  height={80} 
+                  className="object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-lg" 
+                  style={{
+                    filter: 'contrast(1.2) brightness(1.1) saturate(1.1)',
+                    maxWidth: '80px',
+                    maxHeight: '80px'
+                  }}
                 />
               </div>
+              
+              {/* Company Name - Small Size */}
+              <div className="flex flex-col">
+                <span 
+                  className="font-semibold text-lg cursor-pointer hover:opacity-80 transition-all duration-300 leading-tight" 
+                  style={{
+                    color: DARK_BLUE,
+                    textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+                  }}
+                >
+                  Cloud IT Solution
+                </span>
+                {/* Subtle Tagline */}
+                <span className="text-xs text-gray-500 font-medium opacity-70 hidden md:block">
+                  Technology Solutions
+                </span>
+              </div>
             </div>
-            <span 
-              className="ml-3 font-extrabold text-xl cursor-pointer hover:opacity-80 transition-all duration-300 hover:scale-105" 
-              style={{color: DARK_BLUE}}
-              onClick={handleLogoClick}
-            >
-              Cloud IT Solution
-            </span>
           </div>
           
           {/* Enhanced Centered Nav Links */}
