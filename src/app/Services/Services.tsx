@@ -98,7 +98,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-sky-50 relative overflow-hidden"
+      className="py-20 md:py-32 bg-gray-50 relative overflow-hidden"
     >
       {/* Background decor */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -120,16 +120,16 @@ export default function ServicesSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-sky-100 to-cyan-100 px-6 py-3 rounded-full mb-6 border border-sky-200 shadow">
-            <div className="w-2 h-2 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full animate-ping" />
+          <div className="inline-flex items-center gap-3 bg-sky-100 px-6 py-3 rounded-full mb-6 border border-sky-200 shadow">
+            <div className="w-2 h-2 bg-sky-500 rounded-full animate-ping" />
             <span className="text-sky-700 font-bold">Our Services</span>
             <div
-              className="w-2 h-2 bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full animate-ping"
+              className="w-2 h-2 bg-sky-500 rounded-full animate-ping"
               style={{ animationDelay: "0.5s" }}
             />
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 bg-gradient-to-r from-gray-900 via-sky-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 text-gray-900 leading-tight">
             Solutions That Drive Results
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -156,10 +156,8 @@ export default function ServicesSection() {
               onMouseEnter={() => setHoveredCard(service.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Gradient overlay */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}
-              />
+              {/* Hover overlay (solid) */}
+              <div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
 
               {/* Floating bits */}
               <div className="absolute top-4 right-4 w-8 h-8 border-2 border-gray-200 rounded-lg rotate-45 opacity-0 group-hover:opacity-100 group-hover:rotate-90 transition-all duration-700" />
@@ -172,12 +170,7 @@ export default function ServicesSection() {
               <div className="relative z-10">
                 {/* Icon */}
                 <div className="flex items-center justify-center w-20 h-20 mb-8 relative">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-sm`}
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
-                  />
+                  <div className="absolute inset-0 bg-sky-200 rounded-3xl opacity-30 group-hover:opacity-40 transition-opacity duration-500" />
                   <span className="text-5xl relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                     {service.icon}
                   </span>
@@ -200,9 +193,7 @@ export default function ServicesSection() {
                       key={feature}
                       className="flex items-center gap-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
                     >
-                      <div
-                        className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient} flex-shrink-0 group-hover:scale-125 transition-transform duration-300`}
-                      />
+                      <div className="w-2 h-2 rounded-full bg-sky-600 flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
                       <span className="font-medium">{feature}</span>
                     </div>
                   ))}
@@ -212,11 +203,7 @@ export default function ServicesSection() {
                 <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl group-hover:bg-white transition-colors duration-300">
                   {Object.entries(service.stats).map(([key, value]) => (
                     <div key={key} className="text-center">
-                      <div
-                        className={`text-lg font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}
-                      >
-                        {value}
-                      </div>
+                      <div className="text-lg font-bold text-sky-700">{value}</div>
                       <div className="text-xs text-gray-500 capitalize">{key}</div>
                     </div>
                   ))}
@@ -224,10 +211,9 @@ export default function ServicesSection() {
 
                 {/* CTA */}
                 <button
-                  className={`w-full py-4 px-6 rounded-2xl font-bold text-white bg-gradient-to-r ${service.gradient} hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95 relative overflow-hidden`}
+                  className="w-full py-4 px-6 rounded-2xl font-bold text-white bg-[#0553aa] hover:bg-[#044a94] hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95"
                 >
                   <span className="relative z-10">Learn More</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               </div>
             </div>
@@ -246,7 +232,7 @@ export default function ServicesSection() {
               <div className="absolute bottom-8 right-8 w-12 h-12 border-2 border-cyan-400 rounded-full animate-bounce" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-sky-600 bg-clip-text text-transparent">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
                 Need a custom solution?
               </h3>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -254,20 +240,19 @@ export default function ServicesSection() {
               </p>
               <a
                 href="#contact"
-                className="group inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl border-2 border-cyan-400 transition-all duration-300 bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-cyan-500 hover:to-sky-500 hover:scale-105 hover:shadow-cyan-500/25 active:scale-95 overflow-hidden"
+                className="group inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl border-2 border-cyan-400 transition-all duration-300 bg-[#0553aa] hover:bg-[#044a94] hover:scale-105 active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10">Get Free Quote</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ambient blobs */}
-      <div className="absolute top-28 right-16 w-64 h-64 bg-gradient-to-r from-sky-100 to-cyan-100 opacity-30 rounded-full blur-3xl animate-pulse" />
+      {/* ambient blobs (solid) */}
+      <div className="absolute top-28 right-16 w-64 h-64 bg-sky-100 opacity-30 rounded-full blur-3xl animate-pulse" />
       <div
-        className="absolute bottom-28 left-16 w-80 h-80 bg-gradient-to-r from-cyan-100 to-[#0553aa] opacity-20 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-28 left-16 w-80 h-80 bg-cyan-100 opacity-20 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "2s" }}
       />
     </section>

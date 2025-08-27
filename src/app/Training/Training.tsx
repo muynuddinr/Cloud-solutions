@@ -17,8 +17,6 @@ const trainingPrograms = [
       "Hands-on Projects",
       "24/7 Support"
     ],
-    gradient: "from-sky-500 to-cyan-500",
-    bgColor: "from-sky-50 to-cyan-50",
     accentColor: "sky",
     category: "Cloud Computing"
   },
@@ -37,8 +35,6 @@ const trainingPrograms = [
       "Customer Service Skills",
       "Certification Prep"
     ],
-    gradient: "from-cyan-500 to-[#0553aa]",
-    bgColor: "from-cyan-50 to-[#0553aa]",
     accentColor: "cyan",
     category: "IT Support"
   },
@@ -57,8 +53,6 @@ const trainingPrograms = [
       "Penetration Testing",
       "Security Auditing"
     ],
-    gradient: "from-[#0553aa] to-indigo-500",
-    bgColor: "from-[#0553aa] to-indigo-50",
     accentColor: "blue",
     category: "Cybersecurity"
   },
@@ -77,8 +71,6 @@ const trainingPrograms = [
       "Testing Strategies",
       "Deployment Pipeline"
     ],
-    gradient: "from-indigo-500 to-purple-500",
-    bgColor: "from-indigo-50 to-purple-50",
     accentColor: "indigo",
     category: "Software Development"
   },
@@ -97,8 +89,6 @@ const trainingPrograms = [
       "Machine Learning Basics",
       "Reporting Tools"
     ],
-    gradient: "from-purple-500 to-pink-500",
-    bgColor: "from-purple-50 to-pink-50",
     accentColor: "purple",
     category: "Data Analytics"
   },
@@ -117,8 +107,6 @@ const trainingPrograms = [
       "Email Marketing",
       "Conversion Optimization"
     ],
-    gradient: "from-pink-500 to-rose-500",
-    bgColor: "from-pink-50 to-rose-50",
     accentColor: "pink",
     category: "Digital Marketing"
   }
@@ -212,31 +200,23 @@ export default function Training() {
     : trainingPrograms.filter(program => program.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-sky-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 border border-sky-400 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-          <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-cyan-400 rounded-lg rotate-45 animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-[#0553aa] rounded-lg rotate-12 animate-bounce" style={{ animationDelay: '2s' }}></div>
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-gray-900 via-sky-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-gray-900 leading-tight">
               Professional
               <br />
-              <span className="relative bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Training Programs
-                <div className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-20 blur-sm rounded-full"></div>
               </span>
             </h1>
             
             <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Transform your career with our industry-leading training programs. 
               <br className="hidden md:inline" />
-              <span className="font-semibold text-gray-800 bg-gradient-to-r from-sky-100 to-cyan-100 px-3 py-1 rounded-lg">
+              <span className="font-semibold text-gray-800 bg-blue-50 px-3 py-1 rounded-lg">
                 Expert-led courses designed for real-world success.
               </span>
             </p>
@@ -244,19 +224,19 @@ export default function Training() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-sky-600">50+</div>
+                <div className="text-3xl font-bold text-blue-600">50+</div>
                 <div className="text-sm text-gray-600">Training Programs</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-600">2000+</div>
+                <div className="text-3xl font-bold text-blue-600">2000+</div>
                 <div className="text-sm text-gray-600">Graduates</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0553aa]">95%</div>
+                <div className="text-3xl font-bold text-blue-600">95%</div>
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600">24/7</div>
+                <div className="text-3xl font-bold text-blue-600">24/7</div>
                 <div className="text-sm text-gray-600">Support</div>
               </div>
             </div>
@@ -265,17 +245,17 @@ export default function Training() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 bg-white/50 backdrop-blur-sm">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   activeCategory === category
-                    ? "bg-gradient-to-r from-sky-500 to-cyan-500 text-white shadow-lg shadow-sky-500/25"
-                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-sky-400 hover:text-sky-600"
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-400 hover:text-blue-600"
                 }`}
               >
                 {category}
@@ -292,18 +272,15 @@ export default function Training() {
             {filteredPrograms.map((program) => (
               <div
                 key={program.id}
-                className={`group relative bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-${program.accentColor}-200 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
-                  hoveredCard === program.id ? 'scale-105' : ''
+                className={`group relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  hoveredCard === program.id ? 'scale-102' : ''
                 }`}
                 onMouseEnter={() => setHoveredCard(program.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${program.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
-                
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${program.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg`}>
+                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-2xl mb-6">
                     {program.icon}
                   </div>
 
@@ -316,7 +293,7 @@ export default function Training() {
                     <ul className="space-y-2">
                       {program.features.slice(0, 4).map((feature, index) => (
                         <li key={index} className="flex items-center text-sm text-gray-600">
-                          <div className={`w-2 h-2 bg-gradient-to-r ${program.gradient} rounded-full mr-3`}></div>
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
                           {feature}
                         </li>
                       ))}
@@ -336,7 +313,7 @@ export default function Training() {
                     <ul className="space-y-2">
                       {program.features.slice(4, 6).map((feature, index) => (
                         <li key={index} className="flex items-center text-sm text-gray-600">
-                          <div className={`w-2 h-2 bg-gradient-to-r ${program.gradient} rounded-full mr-3`}></div>
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
                           {feature}
                         </li>
                       ))}
@@ -350,11 +327,11 @@ export default function Training() {
       </section>
 
       {/* Instructors Section */}
-      <section className="py-20 md:py-32 bg-white/50 backdrop-blur-sm">
+      <section className="py-20 md:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Expert <span className="bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">Instructors</span>
+              Expert <span className="text-blue-600">Instructors</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Learn from industry professionals with years of experience and proven track records
@@ -363,13 +340,13 @@ export default function Training() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 hover:border-sky-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+              <div key={instructor.id} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 shadow-lg">
+                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                     {instructor.image}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{instructor.name}</h3>
-                  <p className="text-sky-600 font-semibold mb-2">{instructor.position}</p>
+                  <p className="text-blue-600 font-semibold mb-2">{instructor.position}</p>
                   <p className="text-gray-600 mb-4">{instructor.expertise}</p>
                   
                   <div className="flex justify-center items-center space-x-4 mb-6">
@@ -387,7 +364,7 @@ export default function Training() {
                     </div>
                   </div>
 
-                  <button className="w-full px-6 py-3 bg-gradient-to-r from-sky-500 to-cyan-500 text-white rounded-2xl font-semibold hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300 hover:scale-105">
+                  <button className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300">
                     View Profile
                   </button>
                 </div>
@@ -402,7 +379,7 @@ export default function Training() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              What Our <span className="bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">Students Say</span>
+              What Our <span className="text-blue-600">Students Say</span>
             </h2>
           </div>
 
@@ -411,8 +388,8 @@ export default function Training() {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.id}
-                  className={`bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 transition-all duration-500 ${
-                    index === activeTestimonial ? 'scale-105 shadow-2xl' : 'opacity-75'
+                  className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-200 transition-all duration-500 ${
+                    index === activeTestimonial ? 'scale-105 shadow-xl border-blue-300' : 'opacity-75'
                   }`}
                 >
                   <div className="flex items-center mb-4">
@@ -431,7 +408,7 @@ export default function Training() {
                     <div>
                       <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
                       <p className="text-sm text-gray-600">{testimonial.position}</p>
-                      <p className="text-sm text-sky-600">{testimonial.company}</p>
+                      <p className="text-sm text-blue-600">{testimonial.company}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm font-semibold text-gray-900">{testimonial.program}</p>
@@ -445,24 +422,19 @@ export default function Training() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-sky-500 to-cyan-500 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-32 h-32 border border-white rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-          <div className="absolute bottom-32 right-20 w-24 h-24 border-2 border-white rounded-lg rotate-45 animate-pulse"></div>
-        </div>
-
+      <section className="py-20 md:py-32 bg-blue-600 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Transform Your Career?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Join thousands of professionals who have already taken the next step in their careers with our training programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-sky-600 rounded-2xl font-bold hover:shadow-lg hover:shadow-white/25 transition-all duration-300 hover:scale-105">
+            <button className="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300">
               Browse All Courses
             </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-2xl font-bold hover:bg-white hover:text-sky-600 transition-all duration-300 hover:scale-105">
+            <button className="px-8 py-4 border-2 border-white text-white rounded-xl font-bold hover:bg-white hover:text-blue-600 transition-all duration-300">
               Contact Us
             </button>
           </div>
