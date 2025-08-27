@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -8,28 +8,18 @@ RUN npm ci --frozen-lockfile
 COPY . .
 RUN npm run build
 
-# Copy public directory containing robots.txt and sitemap.xml
-COPY public/ ./public/
-
-# Copy source files including sitemap.ts
-COPY src/ ./src/
 
 # -- Production image --
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV MONGODB_URI=mongodb+srv://websitedata0102:unv12345@unvdb.kjxwy3y.mongodb.net/?retryWrites=true&w=majority&appName=unvdb
-ENV NEXT_PUBLIC_API_URL=https://unv-iran.com
-ENV JWT_SECRET=a73238645aff5c25899442e4eef2ecc8bee74cc1b534de56f4cef8d0d0006d33a63169ff4503ae9fac36e4a305a6af5eef42c65b0e76e34271c3e1ebdd84803607f867e683bb5d33e332e281eb1bc2cb2a2c1db2578e6295a6b6eb945d08cc52ce1f80c93b8627b65dce414009ef4322eb8dab91d585a776998d4c833778c3480932e5ef5b39f4604c06507feaf5ece1ff18f3015502d3bbacd214d3fc06606baa5c67076e3cd6ac2f3bd83805074acaed93c2203f82a740ecbc4a250180eb25f09a651c408bbccc9f7dc31f53dd409125895e1a4c93aec0a7f29a9bcbfd5d87ad73b8864dec997705a13e7dde2635f2e7a7ed963a2b13b693cf17d19e50329f
-ENV NEXT_PHASE=phase-production-build
-ENV ADMIN_EMAIL=admin@unv-iran.com
-ENV ADMIN_PASSWORD=securePassword123
-ENV NEXT_PUBLIC_URL=https://unv-iran.com/
-ENV CLOUDINARY_CLOUD_NAME=websitedata123
-ENV CLOUDINARY_API_KEY=644637253953816
-ENV CLOUDINARY_API_SECRET=ylf1oww0Wh_m4Wt7gmcPbth8pEU
+ENV MONGODB_URI=mongodb+srv://muynmuyn786:1234@cluster0bhuvi.0otmzh4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0bhuvi
+ENV NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api
+ENV ADMIN_USERNAME=Admin
+ENV ADMIN_PASSWORD=Cloudit@admin123
+ENV JWT_SECRET=rr:]:4aJruY*j|KAtu!EZ!A9c8-]@E$So!AO/Zo:2Z2>a=JCL?S^+X%T>}_$2B=*:JBp/X1mpT&6zBos,yr]{S7-sD=$]w):kD_drEmzE4nxEXd1C<&v$ELIN(]=8*ddIvnA(>Tzt?t.f$Rm!>[K.j_56%m^gs1T%VOWeo7VrpHk;B;]se*Gv9#}4<faF_nS.wK0jPYL0f%iz:9EP.P2.uC3{rYq{0toq}4,mQGIs%yqi+odsD,]+ci)MYcP9fL27
 
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
