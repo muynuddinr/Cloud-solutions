@@ -77,26 +77,24 @@ export default function ContactSection() {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-sky-50 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 left-10 w-40 h-40 border-2 border-sky-400 rounded-full animate-spin" style={{ animationDuration: "30s" }} />
-        <div className="absolute bottom-24 right-16 w-28 h-28 border-2 border-cyan-400 rounded-2xl rotate-45 animate-pulse" />
-        <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-blue-400 rounded-xl rotate-12 animate-bounce" style={{ animationDelay: "1.5s" }} />
+      {/* Background decorative elements aligned with site theme */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 -left-10 h-40 w-40 rounded-full bg-gradient-to-br from-sky-200 to-cyan-200 blur-2xl" />
+        <div className="absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-gradient-to-tr from-cyan-200 to-sky-200 blur-2xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-28 relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 relative">
         {/* Header */}
-        <div className="text-center mb-14 md:mb-20">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-sky-100 to-cyan-100 px-6 py-3 rounded-full mb-6 border border-sky-200 shadow">
-            <div className="w-2 h-2 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full animate-ping" />
-            <span className="text-sky-700 font-bold">Contact Us</span>
-            <div className="w-2 h-2 bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full animate-ping" style={{ animationDelay: "0.5s" }} />
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-sky-100 to-cyan-100 px-5 py-2.5 rounded-full mb-5 border border-sky-200 shadow-sm">
+            <span className="inline-block h-2 w-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500" />
+            <span className="text-sky-700 font-semibold tracking-wide">Get in touch</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-5 bg-gradient-to-r from-gray-900 via-sky-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-gray-900 via-sky-700 to-cyan-700 bg-clip-text text-transparent">
             We would love to hear from you
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Have a question, project idea, or need a custom quote? Send us a message and our team will get back to you shortly.
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            Questions, ideas, or a custom quote? Send a message and our team will respond shortly.
           </p>
         </div>
 
@@ -107,38 +105,48 @@ export default function ContactSection() {
             {/* Info cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Phone */}
-              <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
-                <div className="mb-3 text-3xl">📞</div>
-                <div className="text-sm text-gray-500 font-semibold">Phone</div>
-                <div className="text-lg font-bold text-gray-900">99523 70971</div>
-              </div>
+              <a
+                href="tel:+919952370971"
+                className="relative bg-white/80 hover:bg-white/90 transition-colors backdrop-blur-xl rounded-3xl border-2 border-sky-200 hover:border-cyan-300 shadow-xl p-6 group"
+              >
+                <div className="mb-2 text-3xl">📞</div>
+                <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Phone</div>
+                <div className="text-lg font-bold text-gray-900 group-hover:text-sky-700">99523 70971</div>
+                <span className="mt-1 inline-block text-xs text-sky-600">Tap to call</span>
+              </a>
               {/* Email */}
-              <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
-                <div className="mb-3 text-3xl">✉️</div>
-                <div className="text-sm text-gray-500 font-semibold">Email</div>
-                <div className="text-lg font-bold text-gray-900 break-all">cloudsolutions1@gmail.com</div>
-              </div>
+              <a
+                href="mailto:cloudsolutions1@gmail.com"
+                className="relative bg-white/80 hover:bg-white/90 transition-colors backdrop-blur-xl rounded-3xl border-2 border-sky-200 hover:border-cyan-300 shadow-xl p-6 group"
+              >
+                <div className="mb-2 text-3xl">✉️</div>
+                <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Email</div>
+                <div className="text-lg font-bold text-gray-900 break-all group-hover:text-sky-700">cloudsolutions1@gmail.com</div>
+                <span className="mt-1 inline-block text-xs text-sky-600">Tap to email</span>
+              </a>
               {/* Hours */}
-              <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
-                <div className="mb-3 text-3xl">⏰</div>
-                <div className="text-sm text-gray-500 font-semibold">Hours</div>
+              <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-xl p-6">
+                <div className="mb-2 text-3xl">⏰</div>
+                <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Hours</div>
                 <div className="text-lg font-bold text-gray-900">Mon–Fri: 9:00–18:00</div>
                 <div className="text-sm text-gray-500">Sat: 10:00–16:00</div>
               </div>
               {/* Address */}
-              <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6">
-                <div className="mb-3 text-3xl">📍</div>
-                <div className="text-sm text-gray-500 font-semibold">Address</div>
-                <div className="text-lg font-bold text-gray-900">Shop No: 183/1, Opp Aryabhavan Sweets, Sakthi Childrens Hospital, Hosur -635 126</div>
-              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Shop%20No%3A%20183%2F1%2C%20Opp%20Aryabhavan%20Sweets%2C%20Sakthi%20Childrens%20Hospital%2C%20Hosur%20-635%20126"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative bg-white/80 hover:bg-white/90 transition-colors backdrop-blur-xl rounded-3xl border-2 border-sky-200 hover:border-cyan-300 shadow-xl p-6 group"
+              >
+                <div className="mb-2 text-3xl">📍</div>
+                <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Address</div>
+                <div className="text-lg font-bold text-gray-900 group-hover:text-sky-700">Shop No: 183/1, Opp Aryabhavan Sweets, Sakthi Childrens Hospital, Hosur -635 126</div>
+                <span className="mt-1 inline-block text-xs text-sky-600">Open in Google Maps</span>
+              </a>
             </div>
 
             {/* Map */}
-            <div className="relative overflow-hidden rounded-3xl border-2 border-sky-200 shadow-2xl bg-white/70 backdrop-blur-xl">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-6 left-6 w-12 h-12 border-2 border-sky-400 rounded-lg rotate-12 animate-pulse" />
-                <div className="absolute bottom-6 right-6 w-10 h-10 border-2 border-cyan-400 rounded-full animate-bounce" />
-              </div>
+            <div className="relative overflow-hidden rounded-3xl border-2 border-sky-200 shadow-xl bg-white/80 backdrop-blur-xl">
               <div className="relative h-72 w-full">
                 <iframe
                   title="Cloud IT Solution Location"
@@ -152,11 +160,11 @@ export default function ContactSection() {
           </div>
 
           {/* Form */}
-          <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-2xl p-6 sm:p-8 md:p-10">
+          <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border-2 border-sky-200 shadow-xl p-6 sm:p-8 md:p-10">
             {/* Gradient sheen */}
             <div className="absolute inset-0 pointer-events-none rounded-3xl" style={{ background: "linear-gradient(120deg,rgba(255,255,255,0.45) 60%,rgba(255,255,255,0.25) 100%)" }} />
             <div className="relative z-10">
-              <h2 className="text-2xl md:text-3xl font-extrabold mb-2 bg-gradient-to-r from-gray-900 to-sky-600 bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-3xl font-extrabold mb-2 bg-gradient-to-r from-gray-900 to-sky-700 bg-clip-text text-transparent">
                 Send us a message
               </h2>
               <p className="text-gray-600 mb-6">Fill out the form and we’ll get back to you within 1–2 business days.</p>
