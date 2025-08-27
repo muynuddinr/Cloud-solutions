@@ -11,7 +11,7 @@ function getEncodedSecret(): Uint8Array {
 
 export type AdminJWTPayload = {
   sub: string;
-  email: string;
+  username: string;
   role: 'admin';
 };
 
@@ -28,7 +28,7 @@ export async function generateAdminToken(payload: AdminJWTPayload, expiresIn: st
 export async function verifyAdminToken(token: string): Promise<AdminJWTPayload | null> {
   try {
     const { payload } = await jwtVerify(token, getEncodedSecret());
-    if (payload.role !== 'admin' || typeof payload.email !== 'string' || typeof payload.sub !== 'string') {
+    if (payload.role !== 'admin' || typeof payload.username !== 'string' || typeof payload.sub !== 'string') {
       return null;
     }
     return payload as AdminJWTPayload;

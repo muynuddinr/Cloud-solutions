@@ -3,20 +3,20 @@ import { generateAdminToken } from '@/lib/auth';
 
 export async function POST(request: Request) {
   try {
-    const { email, password, remember } = await request.json();
+    const { username, password, remember } = await request.json();
 
-    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminUsername = process.env.ADMIN_USERNAME;
     const adminPassword = process.env.ADMIN_PASSWORD;
 
-    if (!adminEmail || !adminPassword) {
+    if (!adminUsername || !adminPassword) {
       return NextResponse.json({ error: 'Server is not configured for admin auth' }, { status: 500 });
     }
 
-    if (email !== adminEmail || password !== adminPassword) {
+    if (username !== adminUsername || password !== adminPassword) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 
-    const token = await generateAdminToken({ sub: 'admin', email, role: 'admin' }, remember ? '7d' : 'session');
+    const token = await generateAdminToken({ sub: 'admin', username, role: 'admin' }, remember ? '7d' : 'session');
 
     const response = NextResponse.json({ success: true });
     response.cookies.set('admin_token', token, {
