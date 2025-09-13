@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+
 export interface ITrainingEnquiry extends Document {
   contactInfo: {
     name: string;
