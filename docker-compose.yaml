@@ -1,0 +1,18 @@
+services:
+  nextjs:
+    build: .
+    ports:
+      - "8080:8080"
+    command: ["sh", "-c", "npm run build && npm run start"]
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - MONGODB_URI=mongodb+srv://muynmuyn786:1234@cluster0bhuvi.0otmzh4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0bhuvi
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api
+      - ADMIN_USERNAME=Admin
+      - ADMIN_PASSWORD=Cloudit@admin123
+      - JWT_SECRET=rr:]:4aJruY*j|KAtu!EZ!A9c8-]@E$So!AO/Zo:2Z2>a=JCL?S^+X%T>}_$2B=*:JBp/X1mpT&6zBos,yr]{S7-sD=$]w):kD_drEmzE4nxEXd1C<&v$ELIN(]=8*ddIvnA(>Tzt?t.f$Rm!>[K.j_56%m^gs1T%VOWeo7VrpHk;B;]se*Gv9#}4<faF_nS.wK0jPYL0f%iz:9EP.P2.uC3{rYq{0toq}4,mQGIs%yqi+odsD,]+ci)MYcP9fL27
+    volumes:      
+      - .:/app
+      - /app/node_modules
+      - /app/.next
