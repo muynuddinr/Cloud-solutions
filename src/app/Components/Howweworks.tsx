@@ -455,7 +455,7 @@ export default function HowWeWork() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`} style={{ animationDelay: '1.5s' }}>
             <a
-              href="#contact"
+              href="Contact"
               className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
               style={{
                 background: 'linear-gradient(to right, #0553aa, #0553aa)',

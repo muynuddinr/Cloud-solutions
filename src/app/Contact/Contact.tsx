@@ -116,12 +116,12 @@ export default function ContactSection() {
               </a>
               {/* Email */}
               <a
-                href="mailto:cloudsolutions1@gmail.com"
+                href="mailto:contact@clouditsolution.in"
                 className="relative bg-white/80 hover:bg-white/90 transition-colors backdrop-blur-xl rounded-3xl border-2 border-sky-200 hover:border-cyan-300 shadow-xl p-6 group"
               >
                 <div className="mb-2 text-3xl">✉️</div>
                 <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Email</div>
-                <div className="text-lg font-bold text-gray-900 break-all group-hover:text-sky-700">cloudsolutions1@gmail.com</div>
+                <div className="text-lg font-bold text-gray-900 break-all group-hover:text-sky-700">contact@clouditsolution.in</div>
                 <span className="mt-1 inline-block text-xs text-sky-600">Tap to email</span>
               </a>
               {/* Hours */}
@@ -202,7 +202,7 @@ export default function ContactSection() {
                       value={form.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-2xl border-2 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 transition-all duration-300 ${errors.email ? "border-red-300 focus:ring-red-100" : "border-gray-200 focus:border-sky-400 focus:ring-sky-100"}`}
-                      placeholder="cloudsolutions1@gmail.com"
+                      placeholder="contact@clouditsolution.in"
                       autoComplete="email"
                       aria-invalid={Boolean(errors.email)}
                       aria-describedby={errors.email ? "email-error" : undefined}

@@ -332,7 +332,7 @@ export default function GamingStudio() {
         </div>
 
         {/* Testimonials */}
-        <div className="mb-24">
+        {/* <div className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Client Stories</h2>
           </div>
@@ -353,7 +353,7 @@ export default function GamingStudio() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
         <div className="text-center">
@@ -371,7 +371,7 @@ export default function GamingStudio() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="#contact"
+                  href="Contact"
                   className={`group px-8 py-4 bg-gradient-to-r ${ACCENT_FROM} ${ACCENT_TO} text-white font-bold rounded-2xl hover:scale-105 transition-all shadow-xl hover:shadow-2xl hover:shadow-orange-500/25`}
                 >
                   Start Your Project

@@ -21,7 +21,7 @@ export default function AboutUsPage() {
 
   const teamMembers = [
     {
-      name: "[Selvam's Wife Name]",
+      name: "Suganya",
       role: "CEO & Co-Founder",
       image: "👑",
       bio: "20+ years of experience in IT leadership and business strategy. Visionary leader driving company growth and innovation.",

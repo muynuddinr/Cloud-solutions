@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 // --- Data Structures for the New Training Page ---
-
 const trainingPrograms = [
   {
     id: "laptop",
@@ -129,7 +127,6 @@ const trainingPrograms = [
     ]
   },
 ];
-
 const whyTrainWithUs = [
   { icon: "✨", text: "Hands-on Practical Sessions" },
   { icon: "🎓", text: "Certified IT Professionals as Trainers" },
@@ -138,9 +135,7 @@ const whyTrainWithUs = [
   { icon: "🌙", text: "Weekend & Evening Classes Available" },
   { icon: "📜", text: "Certificate of Completion Provided" },
 ];
-
 // --- Main Component ---
-
 export default function TrainingPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>("laptop");
@@ -156,32 +151,24 @@ export default function TrainingPage() {
   
   const [preferredFormat, setPreferredFormat] = useState("inPerson");
   const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
   useEffect(() => { setIsVisible(true); }, []);
-
   const handleFormInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTrainingSelection(prev => ({ ...prev, [e.target.name]: e.target.checked }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmissionStatus("submitting");
-
     // Collect selected training programs
     const selectedPrograms = Object.keys(trainingSelection).filter(key => trainingSelection[key as keyof typeof trainingSelection]);
-
     const enquiryData = {
       ...formData,
       trainingPrograms: selectedPrograms,
       preferredFormat,
     };
-
     console.log("Submitting Training Enquiry:", enquiryData);
-
     // --- Backend API Call ---
     try {
       const response = await fetch('/api/training-enquiry', {
@@ -191,12 +178,10 @@ export default function TrainingPage() {
         },
         body: JSON.stringify(enquiryData),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Failed to submit enquiry');
       }
-
       const result = await response.json();
       console.log("Submission successful:", result);
       setSubmissionStatus("success");
@@ -205,7 +190,6 @@ export default function TrainingPage() {
       setSubmissionStatus("error");
     }
   };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -218,6 +202,87 @@ export default function TrainingPage() {
             <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               At Cloud IT Solution, we believe that knowledge is power. Our hands-on training programs are designed to give you the confidence and skills to manage, repair, and optimize laptops, desktops, printers, and gadgets.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Enquiry Form Section - MOVED TO TOP */}
+      <section className="py-20 bg-gradient-to-br from-sky-50 to-cyan-50">
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <div className="bg-white rounded-3xl p-8 md:p-12 border-2 border-[#0553aa] shadow-xl">
+            {submissionStatus === 'success' ? (
+                 <div className="text-center py-12">
+                  <div className="text-6xl mb-4">👍</div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Enquiry Sent!</h2>
+                  <p className="text-lg text-gray-600">Thank you for your interest. We've received your enquiry and our team will get back to you soon!</p>
+                </div>
+            ) : (
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <h2 className="text-3xl font-bold text-center text-gray-900">Request a Training Enquiry</h2>
+              {/* Customer Details */}
+              <fieldset>
+                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Customer Details</legend>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Name <span className="text-red-500">*</span></label>
+                    <input type="text" name="name" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Phone/WhatsApp <span className="text-red-500">*</span></label>
+                    <input type="tel" name="phone" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Email <span className="text-red-500">*</span></label>
+                    <input type="email" name="email" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Address <span className="text-gray-400 font-normal">(Optional)</span></label>
+                    <input type="text" name="address" onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
+                  </div>
+                </div>
+              </fieldset>
+              {/* Program Selection */}
+              <fieldset>
+                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Select Training Program(s)</legend>
+                <div className="grid grid-cols-2 gap-4">
+                  {trainingPrograms.map(p => (
+                    <label key={p.id} className="flex items-center p-3 rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
+                      <input type="checkbox" name={p.id} onChange={handleCheckboxChange} className="h-5 w-5 rounded border-gray-300 text-[#0553aa] focus:ring-[#0553aa]"/>
+                      <span className="ml-3 font-medium text-gray-700">{p.title}</span>
+                    </label>
+                  ))}
+                  <label className="flex items-center p-3 rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
+                      <input type="checkbox" name="corporate" onChange={handleCheckboxChange} className="h-5 w-5 rounded border-gray-300 text-[#0553aa] focus:ring-[#0553aa]"/>
+                      <span className="ml-3 font-medium text-gray-700">Corporate / Custom Training</span>
+                  </label>
+                </div>
+              </fieldset>
+              {/* Preferred Format */}
+              <fieldset>
+                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Preferred Training Format</legend>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
+                    <input type="radio" name="format" value="inPerson" checked={preferredFormat === 'inPerson'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
+                    <span className="font-bold">In-Person (@Center)</span>
+                  </label>
+                   <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
+                    <input type="radio" name="format" value="online" checked={preferredFormat === 'online'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
+                    <span className="font-bold">Online (Live Class)</span>
+                  </label>
+                   <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
+                    <input type="radio" name="format" value="onSite" checked={preferredFormat === 'onSite'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
+                    <span className="font-bold">On-Site (Business/Institute)</span>
+                  </label>
+                </div>
+              </fieldset>
+              
+              <div>
+                <button type="submit" disabled={submissionStatus === 'submitting'} className="w-full mt-4 p-4 rounded-xl font-bold text-white text-lg bg-[#0553aa] hover:bg-blue-800 transition-colors disabled:opacity-60">
+                  {submissionStatus === 'submitting' ? 'Submitting...' : '📩 Submit Training Enquiry'}
+                </button>
+              </div>
+            </form>
+            )}
           </div>
         </div>
       </section>
@@ -236,7 +301,7 @@ export default function TrainingPage() {
           </div>
         </div>
       </section>
-
+      
       {/* Training Programs Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -277,90 +342,6 @@ export default function TrainingPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Enquiry Form Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-8">
-            <div className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 md:p-12 border-2 border-[#0553aa] shadow-xl">
-            {submissionStatus === 'success' ? (
-                 <div className="text-center py-12">
-                  <div className="text-6xl mb-4">👍</div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Enquiry Sent!</h2>
-                  <p className="text-lg text-gray-600">Thank you for your interest. We've received your enquiry and our team will get back to you soon!</p>
-                </div>
-            ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <h2 className="text-3xl font-bold text-center text-gray-900">Request a Training Enquiry</h2>
-
-              {/* Customer Details */}
-              <fieldset>
-                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Customer Details</legend>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Name <span className="text-red-500">*</span></label>
-                    <input type="text" name="name" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Phone/WhatsApp <span className="text-red-500">*</span></label>
-                    <input type="tel" name="phone" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Email <span className="text-red-500">*</span></label>
-                    <input type="email" name="email" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Address <span className="text-gray-400 font-normal">(Optional)</span></label>
-                    <input type="text" name="address" onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
-                  </div>
-                </div>
-              </fieldset>
-
-              {/* Program Selection */}
-              <fieldset>
-                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Select Training Program(s)</legend>
-                <div className="grid grid-cols-2 gap-4">
-                  {trainingPrograms.map(p => (
-                    <label key={p.id} className="flex items-center p-3 rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
-                      <input type="checkbox" name={p.id} onChange={handleCheckboxChange} className="h-5 w-5 rounded border-gray-300 text-[#0553aa] focus:ring-[#0553aa]"/>
-                      <span className="ml-3 font-medium text-gray-700">{p.title}</span>
-                    </label>
-                  ))}
-                  <label className="flex items-center p-3 rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
-                      <input type="checkbox" name="corporate" onChange={handleCheckboxChange} className="h-5 w-5 rounded border-gray-300 text-[#0553aa] focus:ring-[#0553aa]"/>
-                      <span className="ml-3 font-medium text-gray-700">Corporate / Custom Training</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              {/* Preferred Format */}
-              <fieldset>
-                <legend className="text-xl font-semibold text-gray-800 mb-4">🔹 Preferred Training Format</legend>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
-                    <input type="radio" name="format" value="inPerson" checked={preferredFormat === 'inPerson'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
-                    <span className="font-bold">In-Person (@Center)</span>
-                  </label>
-                   <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
-                    <input type="radio" name="format" value="online" checked={preferredFormat === 'online'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
-                    <span className="font-bold">Online (Live Class)</span>
-                  </label>
-                   <label className="flex-1 p-4 text-center rounded-lg border-2 bg-white cursor-pointer has-[:checked]:border-[#0553aa] has-[:checked]:bg-blue-50">
-                    <input type="radio" name="format" value="onSite" checked={preferredFormat === 'onSite'} onChange={(e) => setPreferredFormat(e.target.value)} className="sr-only"/>
-                    <span className="font-bold">On-Site (Business/Institute)</span>
-                  </label>
-                </div>
-              </fieldset>
-              
-              <div>
-                <button type="submit" disabled={submissionStatus === 'submitting'} className="w-full mt-4 p-4 rounded-xl font-bold text-white text-lg bg-[#0553aa] hover:bg-blue-800 transition-colors disabled:opacity-60">
-                  {submissionStatus === 'submitting' ? 'Submitting...' : '📩 Submit Training Enquiry'}
-                </button>
-              </div>
-            </form>
-            )}
           </div>
         </div>
       </section>

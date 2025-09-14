@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 // Define the primary color for consistency
 const PRIMARY_BLUE = "#0553aa";
-
 // Data for checkboxes to keep the JSX clean
 const pcTypeOptions = [
   { id: "desktop", label: "Desktop PC" },
@@ -14,7 +12,6 @@ const pcTypeOptions = [
   { id: "mini", label: "Mini PC" },
   { id: "server", label: "Server PC" },
 ];
-
 const usageTypeOptions = [
   { id: "basic", label: "Basic Use (Internet, Email, MS Office, Video Calls)" },
   { id: "business", label: "Business & Office Work (Productivity, Accounting, Multi-monitor)" },
@@ -27,7 +24,6 @@ const usageTypeOptions = [
   { id: "serverEnterprise", label: "Server & Enterprise (File Storage, Hosting, ERP, Databases)" },
   { id: "travel", label: "Travel & Portability (Lightweight, Long Battery, 2-in-1 Devices)" },
 ];
-
 export default function ShopPage() {
   const [isVisible, setIsVisible] = useState(false);
   
@@ -37,22 +33,20 @@ export default function ShopPage() {
     email: "",
     phone: "",
   });
-
-  // State for PC Type checkboxes, with 'laptop' as default
+  // State for PC Type checkboxes, with all options initially false
   const [pcTypes, setPcTypes] = useState({
     desktop: false,
-    laptop: true,
+    laptop: false, // Changed from true to false
     gaming: false,
     workstation: false,
     allInOne: false,
     mini: false,
     server: false,
   });
-
-  // State for Usage Type checkboxes, with 'business' as default
+  // State for Usage Type checkboxes, with all options initially false
   const [usageTypes, setUsageTypes] = useState({
     basic: false,
-    business: true,
+    business: false, // Changed from true to false
     education: false,
     creative: false,
     gamingCasual: false,
@@ -65,17 +59,14 @@ export default function ShopPage() {
   
   // State to manage form submission status
   const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
   // Handlers for state changes
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setContactInfo(prev => ({ ...prev, [name]: value }));
   };
-
   const handlePcTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setPcTypes(prev => ({ ...prev, [name]: checked }));
@@ -90,19 +81,15 @@ export default function ShopPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmissionStatus("submitting");
-
     // Collect checked options
     const selectedPcTypes = Object.keys(pcTypes).filter(key => pcTypes[key as keyof typeof pcTypes]);
     const selectedUsageTypes = Object.keys(usageTypes).filter(key => usageTypes[key as keyof typeof usageTypes]);
-
     const quoteRequest = {
       ...contactInfo,
       pcTypes: selectedPcTypes,
       usageTypes: selectedUsageTypes,
     };
-
     console.log("Submitting Quote Request:", quoteRequest);
-
     // --- Backend API Call ---
     try {
       const response = await fetch('/api/shop-quote', {
@@ -112,12 +99,10 @@ export default function ShopPage() {
         },
         body: JSON.stringify(quoteRequest),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Failed to submit request');
       }
-
       const result = await response.json();
       console.log("Submission successful:", result);
       setSubmissionStatus("success");
@@ -126,7 +111,6 @@ export default function ShopPage() {
       setSubmissionStatus("error");
     }
   };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Intro Section */}
@@ -137,7 +121,7 @@ export default function ShopPage() {
               Find Your Perfect PC
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Looking for the right computer that fits your needs and budget? At Cloud IT Solution, we make it easy. Whether you need a basic desktop, a business laptop, a powerful gaming rig, or a professional workstation, we’ve got you covered.
+              Looking for the right computer that fits your needs and budget? At Cloud IT Solution, we make it easy. Whether you need a basic desktop, a business laptop, a powerful gaming rig, or a professional workstation, we've got you covered.
             </p>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
               Simply fill out the form below. Our team will review your request and provide you with the best options, transparent pricing, and a customized quotation.
@@ -145,7 +129,6 @@ export default function ShopPage() {
           </div>
         </div>
       </section>
-
       {/* Form Section */}
       <section className="pb-20 md:pb-32">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
@@ -177,7 +160,6 @@ export default function ShopPage() {
                   <input type="tel" name="phone" id="phone" required value={contactInfo.phone} onChange={handleContactChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0553aa]" placeholder="10-digit mobile number"/>
                 </div>
               </div>
-
               {/* PC Type Selection */}
               <fieldset className="mb-10">
                 <legend className="text-xl font-bold text-gray-900 mb-4">💻 PC Type <span className="text-sm font-normal text-gray-500">(Select One or More)</span></legend>
@@ -190,7 +172,6 @@ export default function ShopPage() {
                   ))}
                 </div>
               </fieldset>
-
               {/* Usage Type Selection */}
               <fieldset className="mb-12">
                 <legend className="text-xl font-bold text-gray-900 mb-4">🚀 Usage Type <span className="text-sm font-normal text-gray-500">(Select One or More)</span></legend>
@@ -203,10 +184,9 @@ export default function ShopPage() {
                   ))}
                 </div>
               </fieldset>
-
               {/* Tip and Submit Button */}
               <div className="bg-[rgba(5,83,170,0.1)] text-[#0553aa] p-4 rounded-lg text-center mb-8">
-                💡 Not sure which option to choose? Don’t worry – just tick the closest match, and our experts will guide you to the right solution.
+                💡 Not sure which option to choose? Don't worry – just tick the closest match, and our experts will guide you to the right solution.
               </div>
               
               <div className="text-center">

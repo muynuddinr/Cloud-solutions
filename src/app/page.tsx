@@ -3,7 +3,7 @@ import Footer from "./Components/Footer";
 import Herosection from "./Components/Herosection";
 import WhatWeDo from "./Components/Whatwedo";
 import Howweworks from "./Components/Howweworks";
-import Testimonials from "./Components/Testomonial";
+// import Testimonials from "./Components/Testomonial";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Herosection />
       <WhatWeDo />
       <Howweworks />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Footer />
     </div>
   );
