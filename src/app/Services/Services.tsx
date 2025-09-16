@@ -239,7 +239,7 @@ export default function ServicesSection() {
                 Talk to our experts for a free consultation and tailored proposal for your business.
               </p>
               <a
-                href="#contact"
+                href="/Contact"
                 className="group inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl border-2 border-cyan-400 transition-all duration-300 bg-[#0553aa] hover:bg-[#044a94] hover:scale-105 active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10">Get Free Quote</span>

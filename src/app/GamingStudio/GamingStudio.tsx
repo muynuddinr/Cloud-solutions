@@ -372,12 +372,6 @@ export default function PCBuildingCompany() {
                 >
                   Configure Your PC
                 </a>
-                <a
-                  href="mailto:pcbuilders@example.com"
-                  className="group px-8 py-4 border-2 border-gray-300 text-gray-600 font-semibold rounded-2xl hover:border-orange-400 hover:text-orange-600 transition-all bg-white/50 hover:bg-gray-50/50"
-                >
-                  Get in Touch
-                </a>
               </div>
             </div>
           </div>

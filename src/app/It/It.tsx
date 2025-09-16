@@ -172,18 +172,11 @@ const CTASection = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="#contact"
+              href="/Contact"
               className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-white shadow-lg transition-all duration-300 text-base bg-[#0553aa] hover:bg-blue-700 hover:scale-105 active:scale-95"
             >
               Request a Service
               <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
-            <a
-              href="tel:+919942733444"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-gray-700 border-2 border-gray-200 hover:border-[#0553aa] hover:text-[#0553aa] transition-all duration-300 bg-white/80 backdrop-blur-sm"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              Call Us Directly
             </a>
           </div>
         </div>

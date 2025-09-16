@@ -244,7 +244,7 @@ export default function DigitalPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="#contact"
+                href="/Contact"
                 className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 border-[#0553aa] transition-all duration-300 text-lg md:text-xl bg-gradient-to-r from-[#0553aa] to-[#0553aa] hover:from-[#0553aa] hover:to-[#0553aa] hover:scale-105 active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10">Get a Free Quote</span>
@@ -254,15 +254,6 @@ export default function DigitalPage() {
                 </svg>
               </a>
               
-              <a
-                href="tel:+1-555-0123"
-                className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold text-gray-700 border-2 border-gray-300 hover:border-[#0553aa] hover:text-[#0553aa] transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call Us Now
-              </a>
             </div>
           </div>
         </div>
