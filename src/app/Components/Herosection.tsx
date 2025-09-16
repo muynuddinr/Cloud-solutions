@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import img from '../../../public/hero.jpg'
 
-const LIGHT_BLUE = "#0553aa";
-const CYAN = "#0553aa";
+const LIGHT_BLUE = "#3b82f6";
+const CYAN = "#06b6d4";
 
 export default function Herosection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,8 +81,8 @@ export default function Herosection() {
         }
         
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(5, 83, 170, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(5, 83, 170, 0.6); }
+          0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
         }
         
         @keyframes pulse {
@@ -152,335 +150,310 @@ export default function Herosection() {
         
         .hover-lift:hover {
           transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(5, 83, 170, 0.2);
+          box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
         }
         
         .text-gradient {
-          background: linear-gradient(135deg, #0553aa 0%, #0553aa 50%, #0553aa 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #ffffff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .gradient-border {
-          background: linear-gradient(135deg, #0553aa, #0553aa);
+          background: linear-gradient(135deg, #3b82f6, #06b6d4);
           padding: 2px;
           border-radius: 16px;
         }
         
         .gradient-border > div {
-          background: white;
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 14px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+          .hero-content {
+            max-width: 90%;
+          }
+        }
+        
+        @media (max-width: 1024px) {
+          .hero-heading {
+            font-size: 3.5rem !important;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.25rem !important;
+          }
+          
+          .feature-card {
+            padding: 1.25rem !important;
+          }
+          
+          .feature-icon {
+            width: 3rem !important;
+            height: 3rem !important;
+          }
+          
+          .cta-button {
+            padding: 0.75rem 1.5rem !important;
+            font-size: 0.9rem !important;
+          }
+          
+          .stats-text {
+            font-size: 1.75rem !important;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .hero-section {
+            min-height: 100vh;
+            padding: 1rem 0;
+          }
+          
+          .hero-content {
+            max-width: 100%;
+            padding: 0 1rem;
+          }
+          
+          .hero-heading {
+            font-size: 2.5rem !important;
+            line-height: 1.2 !important;
+          }
+          
+          .hero-subtitle {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+          }
+          
+          .feature-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+          }
+          
+          .feature-card {
+            padding: 1rem !important;
+            width: 100% !important;
+          }
+          
+          .feature-icon {
+            width: 2.5rem !important;
+            height: 2.5rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .feature-title {
+            font-size: 1.125rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .feature-text {
+            font-size: 0.875rem !important;
+          }
+          
+          .cta-container {
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 1rem !important;
+          }
+          
+          .cta-button {
+            width: 100% !important;
+            padding: 0.75rem 1rem !important;
+            font-size: 0.875rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .stats-container {
+            gap: 1.5rem !important;
+            margin-top: 2rem !important;
+          }
+          
+          .stats-text {
+            font-size: 1.5rem !important;
+          }
+          
+          .stats-label {
+            font-size: 0.75rem !important;
+          }
+          
+          .wave-svg {
+            height: 3rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-heading {
+            font-size: 2rem !important;
+          }
+          
+          .hero-subtitle {
+            font-size: 0.875rem !important;
+          }
+          
+          .feature-card {
+            padding: 0.875rem !important;
+          }
+          
+          .feature-icon {
+            width: 2rem !important;
+            height: 2rem !important;
+          }
+          
+          .cta-button {
+            padding: 0.625rem 1rem !important;
+            font-size: 0.8125rem !important;
+          }
+          
+          .stats-text {
+            font-size: 1.25rem !important;
+          }
         }
       `}</style>
       
       <section 
         ref={heroRef}
         id="home" 
-        className="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-32 gap-12 md:gap-0 overflow-hidden bg-white"
+        className="hero-section relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Enhanced Animated Background Elements */}
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          {/* Geometric shapes with enhanced animations */}
-          <div 
-            className="absolute top-20 left-10 w-32 h-32 rounded-full animate-rotate-slow"
-            style={{ border: `1px solid #0553aa` }}
-          ></div>
-          <div 
-            className="absolute bottom-32 right-20 w-24 h-24 rounded-lg rotate-45 animate-pulse-slow"
-            style={{ border: `2px solid #0553aa` }}
-          ></div>
-          <div 
-            className="absolute top-1/3 right-1/4 w-16 h-16 rounded-lg rotate-12 animate-bounce-slow"
-            style={{ border: `1px solid #0553aa` }}
-          ></div>
-          
-          {/* Enhanced dotted pattern */}
-          <div className="absolute top-40 left-1/3 grid grid-cols-3 gap-2">
-            {[...Array(9)].map((_, i) => (
-              <div 
-                key={i} 
-                className="w-2 h-2 rounded-full animate-pulse" 
-                style={{ 
-                  backgroundColor: '#0553aa',
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: '2s'
-                }}
-              ></div>
-            ))}
-          </div>
-          
-          {/* Additional floating elements */}
-          <div 
-            className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full animate-bounce opacity-30"
-            style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-          ></div>
-          <div 
-            className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-lg rotate-45 animate-pulse opacity-40"
-            style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-          ></div>
-        </div>
-
-        {/* Left: Enhanced Text Content */}
-        <div className={`flex-1 flex flex-col items-center md:items-start text-center md:text-left z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="relative animate-slide-in-left">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              <span className="text-gradient">
-                Reliable IT Services
-              </span>
-              <br />
-              <span className="relative text-gradient">
-                You Can Trust
-                <div 
-                  className="absolute -bottom-2 left-0 w-full h-3 opacity-20 blur-sm rounded-full animate-pulse"
-                  style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-                ></div>
-              </span>
-            </h1>
-            
-            {/* Enhanced floating elements */}
-            <div 
-              className="absolute -top-6 -left-6 w-4 h-4 rounded-full animate-bounce opacity-80 shadow-lg animate-glow"
-              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-            ></div>
-            <div 
-              className="absolute top-1/2 -right-8 w-3 h-3 rounded-full animate-pulse opacity-60 shadow-md"
-              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-            ></div>
-            <div 
-              className="absolute -bottom-8 left-1/4 w-5 h-5 rounded-full animate-bounce opacity-70 shadow-lg" 
-              style={{ 
-                background: `linear-gradient(to right, #0553aa, #0553aa)`,
-                animationDelay: '1s' 
-              }}
-            ></div>
-            <div 
-              className="absolute top-1/4 right-1/3 w-2 h-2 rounded-full animate-ping opacity-50"
-              style={{ backgroundColor: '#0553aa' }}
-            ></div>
-          </div>
-          
-          <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-xl leading-relaxed font-normal animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Honesty, Transparency, and Trust – That's Our Promise.
-            <br className="hidden md:inline" />
-            <span 
-              className="font-semibold text-gray-800 px-3 py-1 rounded-lg hover-lift inline-block mt-3"
-              style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))` }}
-            >
-              Secure, scalable, and reliable cloud solutions.
-            </span>
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <a
-              href="#get-started"
-              className="group relative inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl transition-all duration-300 text-lg md:text-xl hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
-              style={{ 
-                background: `linear-gradient(to right, #0553aa, #0553aa)`,
-                border: `2px solid #0553aa`,
-                boxShadow: `0 0 20px rgba(5, 83, 170, 0.25)`
-              }}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #0553aa)`}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.background = `linear-gradient(to right, #0553aa, #0553aa)`}
-            >
-              <span className="relative z-10">Get a Free Quote</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
-              </svg>
-            </a>
-            
-            <a
-              href="tel:9952370971"
-              className="inline-flex items-center px-6 py-3 rounded-2xl font-semibold text-gray-700 border-2 border-gray-300 transition-all duration-300 bg-white/80 glass-effect hover:bg-white hover-lift"
-              style={{ 
-                borderColor: '#0553aa',
-                color: '#0553aa'
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.borderColor = '#0553aa';
-                (e.target as HTMLElement).style.color = '#0553aa';
-              }}
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              Call Us: 9952370971
-            </a>
-          </div>
-
-          {/* Enhanced Stats with animations */}
-          <div className="flex gap-8 mt-12 text-center md:text-left animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <div className="hover-lift">
-              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa' }}>99.9%</div>
-              <div className="text-sm text-gray-600">Uptime</div>
-            </div>
-            <div className="hover-lift">
-              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa', animationDelay: '0.5s' }}>24/7</div>
-              <div className="text-sm text-gray-600">Support</div>
-            </div>
-            <div className="hover-lift">
-              <div className="text-2xl font-bold animate-pulse-slow" style={{ color: '#0553aa', animationDelay: '1s' }}>500+</div>
-              <div className="text-sm text-gray-600">Clients</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Enhanced Illustration with Interactive Effects */}
-        <div className={`flex-1 flex items-center justify-center mb-10 md:mb-0 z-10 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-          <div className="relative animate-slide-in-right">
-            {/* Main illustration container with enhanced effects */}
-            <div 
-              className="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center bg-white rounded-3xl shadow-xl border-2 border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-500 hover-lift"
-              style={{
-                transform: isHovered ? `perspective(1000px) rotateX(${(mousePosition.y - 200) * 0.01}deg) rotateY(${(mousePosition.x - 200) * 0.01}deg)` : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              
-              {/* Enhanced geometric background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div 
-                  className="absolute top-8 left-8 w-20 h-20 rounded-2xl rotate-12 animate-pulse"
-                  style={{ border: `2px solid #0553aa` }}
-                ></div>
-                <div 
-                  className="absolute bottom-8 right-8 w-16 h-16 rounded-full animate-bounce" 
-                  style={{ 
-                    border: `2px solid #0553aa`,
-                    animationDelay: '0.5s' 
-                  }}
-                ></div>
-                <div 
-                  className="absolute top-1/2 left-8 w-12 h-12 rounded-xl -rotate-12 animate-pulse" 
-                  style={{ 
-                    border: `2px solid #0553aa`,
-                    animationDelay: '1s' 
-                  }}
-                ></div>
-                <div 
-                  className="absolute top-16 right-16 w-8 h-8 rounded-lg rotate-45 animate-rotate-slow"
-                  style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-                ></div>
-                
-                {/* Enhanced grid pattern */}
-                <div className="absolute inset-4 border border-gray-200 rounded-2xl"></div>
-                <div className="absolute inset-8 border border-gray-100 rounded-xl"></div>
-              </div>
-              
-              {/* Main image with enhanced styling and animations */}
-              <div className="relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 animate-scale-in">
-                <div className="relative">
-                  <img 
-                    src={img.src} 
-                    alt="Cloud IT Solutions" 
-                    className="w-64 h-64 md:w-80 md:h-80 object-contain select-none filter drop-shadow-xl transition-all duration-300 group-hover:scale-110" 
-                    style={{
-                      animation: isHovered ? 'float 2s ease-in-out infinite' : 'none'
-                    }}
-                  />
-                  {/* Enhanced glow behind image */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-full animate-pulse"
-                    style={{ background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), rgba(5, 83, 170, 0.2))` }}
-                  ></div>
-                </div>
-              </div>
-              
-              {/* Enhanced floating elements */}
-              <div 
-                className="absolute top-6 right-6 w-8 h-8 rounded-full animate-ping opacity-40 shadow-lg"
-                style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-              ></div>
-              <div 
-                className="absolute bottom-10 left-10 w-6 h-6 rounded-full animate-pulse opacity-60 shadow-md"
-                style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-              ></div>
-              
-              {/* Enhanced hover effect overlay */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                style={{ background: `linear-gradient(to top right, rgba(5, 83, 170, 0.05), rgba(5, 83, 170, 0.05))` }}
-              ></div>
-            </div>
-
-            {/* Enhanced orbiting elements */}
-            <div 
-              className="absolute -top-6 -right-6 w-14 h-14 rounded-2xl shadow-xl animate-rotate-slow opacity-90 flex items-center justify-center text-white font-bold text-xl border-2 border-white hover-lift"
-              style={{ background: `linear-gradient(to right, #0553aa, #0553aa)` }}
-            >
-              ⚡
-            </div>
-            
-            <div 
-              className="absolute -bottom-8 -left-8 w-18 h-18 rounded-3xl shadow-xl flex items-center justify-center text-white text-3xl animate-bounce border-2 border-white hover-lift" 
-              style={{ 
-                background: `linear-gradient(to right, #0553aa, #0553aa)`,
-                animationDelay: '1s' 
-              }}
-            >
-              🔒
-            </div>
-            
-            {/* Additional decorative elements with enhanced animations */}
-            <div 
-              className="absolute top-1/4 -left-4 w-10 h-10 bg-white rounded-full shadow-lg animate-pulse opacity-80 hover-lift"
-              style={{ border: `4px solid #0553aa` }}
-            ></div>
-            <div 
-              className="absolute bottom-1/3 -right-3 w-8 h-8 bg-white rounded-lg rotate-45 shadow-md animate-bounce hover-lift" 
-              style={{ 
-                border: `3px solid #0553aa`,
-                animationDelay: '1.5s' 
-              }}
-            ></div>
-          </div>
-        </div>
-
-        {/* Enhanced Decorative Elements */}
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90 z-0"></div>
+        
+        {/* Decorative Elements - Hidden on mobile */}
         <div 
-          className="absolute top-20 left-20 w-96 h-96 opacity-30 rounded-full blur-3xl animate-pulse z-0 parallax"
+          className="absolute top-20 left-20 w-96 h-96 opacity-30 rounded-full blur-3xl animate-pulse z-0 hidden lg:block"
           style={{
-            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))`,
+            background: `linear-gradient(to right, rgba(59, 130, 246, 0.4), rgba(6, 182, 212, 0.4))`,
             transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
           }}
         />
         <div 
-          className="absolute bottom-20 right-20 w-80 h-80 opacity-40 rounded-full blur-3xl animate-pulse z-0 parallax" 
+          className="absolute bottom-20 right-20 w-80 h-80 opacity-40 rounded-full blur-3xl animate-pulse z-0 hidden lg:block" 
           style={{ 
-            background: `linear-gradient(to right, rgba(5, 83, 170, 0.1), rgba(5, 83, 170, 0.1))`,
+            background: `linear-gradient(to right, rgba(59, 130, 246, 0.4), rgba(6, 182, 212, 0.4))`,
             animationDelay: '2s',
             transform: `translate(${-mousePosition.x * 0.01}px, ${-mousePosition.y * 0.01}px)`
           }} 
         />
         
-        {/* Additional subtle background shapes with enhanced animations */}
-        <div 
-          className="absolute top-1/3 left-10 w-2 h-32 opacity-30 rounded-full animate-pulse"
-          style={{ background: `linear-gradient(to bottom, rgba(5, 83, 170, 0.2), transparent)` }}
-        ></div>
-        <div 
-          className="absolute bottom-1/3 right-16 w-32 h-2 opacity-30 rounded-full animate-pulse" 
-          style={{ 
-            background: `linear-gradient(to right, rgba(5, 83, 170, 0.2), transparent)`,
-            animationDelay: '3s' 
-          }} 
-        />
+        {/* Main Content */}
+        <div className="hero-content relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-12 md:pt-16 lg:pt-20">
+          <div className="flex flex-col items-center text-center">
+            {/* Main Heading */}
+            <div className={`mb-6 md:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight">
+                <span className="text-gradient block">
+                  Cloud IT Solutions
+                </span>
+                <span className="text-white block mt-1 md:mt-2">
+                  For Modern Businesses
+                </span>
+              </h1>
+              
+              {/* Subtitle */}
+              <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto px-2">
+                Empowering your business with secure, scalable, and reliable technology infrastructure
+              </p>
+            </div>
+            
+            {/* Feature Cards */}
+            <div className={`feature-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              {/* Feature 1 */}
+              <div className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover-lift animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="feature-icon w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="feature-title text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">Secure</h3>
+                <p className="feature-text text-sm md:text-base text-gray-300">Enterprise-grade security to protect your valuable data</p>
+              </div>
+              
+              {/* Feature 2 */}
+              <div className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover-lift animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <div className="feature-icon w-12 h-12 md:w-16 md:h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="feature-title text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">Fast</h3>
+                <p className="feature-text text-sm md:text-base text-gray-300">Lightning-fast performance for optimal productivity</p>
+              </div>
+              
+              {/* Feature 3 */}
+              <div className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover-lift animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <div className="feature-icon w-12 h-12 md:w-16 md:h-16 rounded-full bg-indigo-500/20 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
+                </div>
+                <h3 className="feature-title text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">Scalable</h3>
+                <p className="feature-text text-sm md:text-base text-gray-300">Grow your infrastructure as your business expands</p>
+              </div>
+            </div>
+            
+            {/* CTA Buttons */}
+            <div className={`cta-container flex flex-col sm:flex-row gap-3 md:gap-4 justify-center transition-all duration-1000 delay-500 w-full max-w-md px-4 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <a
+                href="/Contact"
+                className="cta-button group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden hover-lift animate-glow"
+                style={{ 
+                  background: `linear-gradient(to right, #3b82f6, #06b6d4)`,
+                  boxShadow: `0 0 20px rgba(59, 130, 246, 0.5)`
+                }}
+              >
+                <span className="relative z-10 text-sm md:text-base">Get a Free Quote</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <svg className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
+                </svg>
+              </a>
+              
+              {/* <a
+                href="tel:9952370971"
+                className="cta-button inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-xl font-semibold text-white border-2 border-white/30 transition-all duration-300 bg-white/10 glass-effect hover:bg-white/20 hover-lift"
+              >
+                <svg className="w-4 h-4 md:w-5 md:h-5 mr-1 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span className="text-sm md:text-base">Call: 9952370971</span>
+              </a> */}
+            </div>
+
+            {/* Stats */}
+            <div className={`stats-container flex flex-wrap justify-center gap-6 md:gap-8 mt-8 md:mt-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="hover-lift">
+                <div className="stats-text text-2xl md:text-3xl font-bold animate-pulse-slow text-white">99.9%</div>
+                <div className="stats-label text-xs md:text-sm text-gray-300">Uptime Guarantee</div>
+              </div>
+              <div className="hover-lift">
+                <div className="stats-text text-2xl md:text-3xl font-bold animate-pulse-slow text-white" style={{ animationDelay: '0.5s' }}>24/7</div>
+                <div className="stats-label text-xs md:text-sm text-gray-300">Support Available</div>
+              </div>
+              <div className="hover-lift">
+                <div className="stats-text text-2xl md:text-3xl font-bold animate-pulse-slow text-white" style={{ animationDelay: '1s' }}>500+</div>
+                <div className="stats-label text-xs md:text-sm text-gray-300">Happy Clients</div>
+              </div>
+            </div>
+          </div>
+        </div>
         
-        {/* New interactive elements */}
-        <div 
-          className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full animate-ping opacity-20"
-          style={{ backgroundColor: '#0553aa' }}
-        ></div>
-        <div 
-          className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full animate-bounce opacity-30" 
-          style={{ 
-            backgroundColor: '#0553aa',
-            animationDelay: '0.7s' 
-          }}
-        ></div>
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="wave-svg w-full h-16 md:h-24">
+            <path fill="#000000" fillOpacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+        </div>
       </section>
     </>
   );

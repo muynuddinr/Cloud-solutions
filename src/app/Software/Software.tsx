@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 // Define the primary color for consistency
 const PRIMARY_BLUE = "#0553aa";
 
-export default function DigitalPage() {
+export default function SoftwareDevelopmentPage() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -15,70 +15,94 @@ export default function DigitalPage() {
   // Data for the main services offered
   const services = [
     {
-      title: "SEO (Search Engine Optimization)",
-      description: "Improve your organic search rankings and attract qualified traffic. Our SEO services include technical optimization, content strategy, and link building.",
-      icon: "🔍",
-      features: ["Technical SEO", "Content Optimization", "Link Building", "Local SEO"],
-      color: "from-green-500 to-teal-500"
+      title: "Custom Software Development",
+      description: "Tailored software solutions designed to meet your unique business requirements and drive operational efficiency.",
+      icon: "⚙️",
+      features: ["Bespoke Solutions", "Scalable Architecture", "Integration Capabilities", "Ongoing Support"],
+      color: "from-blue-500 to-indigo-500"
     },
     {
-      title: "SEM (Search Engine Marketing)",
-      description: "Boost your online visibility with targeted paid advertising campaigns. We create and manage SEM strategies that drive traffic, leads, and sales.",
-      icon: "📈",
-      features: ["PPC Campaigns", "Keyword Research", "Ad Copy Creation", "Performance Analytics"],
+      title: "Web Application Development",
+      description: "Modern, responsive web applications that deliver exceptional user experiences across all devices and platforms.",
+      icon: "🌐",
+      features: ["Responsive Design", "Cross-Platform", "Performance Optimized", "Secure Architecture"],
+      color: "from-sky-500 to-cyan-500"
+    },
+    {
+      title: "Mobile Application Development",
+      description: "Native and cross-platform mobile apps that engage users and provide seamless experiences on iOS and Android.",
+      icon: "📱",
+      features: ["iOS & Android", "Cross-Platform", "UI/UX Excellence", "App Store Optimization"],
       color: "from-purple-500 to-indigo-500"
     },
     {
-      title: "SMM (Social Media Marketing)",
-      description: "Engage your audience and build brand loyalty with strategic social media campaigns. We manage your presence across all major platforms.",
-      icon: "📱",
-      features: ["Content Creation", "Community Management", "Paid Social Ads", "Analytics & Reporting"],
-      color: "from-pink-500 to-rose-500"
+      title: "Enterprise Software Solutions",
+      description: "Robust, scalable enterprise applications that streamline complex business processes and drive digital transformation.",
+      icon: "🏢",
+      features: ["Process Automation", "Data Integration", "Security Compliance", "Scalable Infrastructure"],
+      color: "from-green-500 to-teal-500"
+    },
+    {
+      title: "Software Maintenance & Support",
+      description: "Comprehensive maintenance and support services to ensure your software remains secure, updated, and performing optimally.",
+      icon: "🔧",
+      features: ["24/7 Support", "Regular Updates", "Performance Monitoring", "Security Audits"],
+      color: "from-amber-500 to-orange-500"
     }
   ];
 
   // Data for the development process
   const processSteps = [
     {
-      title: "Discovery & Strategy",
-      description: "We start by understanding your vision, goals, and target audience to create a strategic plan.",
+      title: "Discovery & Planning",
+      description: "We analyze your requirements, define objectives, and create a detailed project roadmap.",
       icon: "🔍",
     },
     {
-      title: "Campaign Planning",
-      description: "Our team designs tailored campaigns with compelling messaging and targeting strategies.",
-      icon: "📋",
+      title: "Design & Architecture",
+      description: "Our team designs intuitive interfaces and robust system architecture for optimal performance.",
+      icon: "🎨",
     },
     {
-      title: "Execution & Optimization",
-      description: "We implement campaigns across channels and continuously optimize for maximum performance.",
-      icon: "⚙️",
+      title: "Development & Testing",
+      description: "We build your solution using modern technologies and conduct rigorous testing for quality assurance.",
+      icon: "💻",
     },
     {
-      title: "Reporting & Analysis",
-      description: "We provide detailed reports and insights to measure success and guide future strategies.",
-      icon: "📊",
+      title: "Deployment & Support",
+      description: "We handle the deployment and provide ongoing support to ensure your software thrives.",
+      icon: "🚀",
     }
   ];
   
-    // Data for the "Why Choose Us" section
+  // Data for the "Why Choose Us" section
   const differentiators = [
     {
-      title: "Data-Driven Strategies",
-      description: "We base all our marketing decisions on comprehensive data analysis and industry insights."
+      title: "Expert Development Team",
+      description: "Our developers have deep expertise across multiple technologies and industries, ensuring top-quality solutions."
     },
     {
-      title: "Custom-Tailored Campaigns",
-      description: "We don't use one-size-fits-all approaches. Every campaign is uniquely crafted to meet your specific business goals."
+      title: "Agile Development Process",
+      description: "We use agile methodologies to deliver projects efficiently with flexibility and transparency throughout the process."
     },
     {
-      title: "Multi-Channel Expertise",
-      description: "Our team has deep expertise across all digital marketing channels to create integrated strategies."
+      title: "Focus on Scalability",
+      description: "We build software that grows with your business, designed to handle increased users and functionality over time."
     },
     {
-      title: "Transparent Reporting",
-      description: "You'll always know how your campaigns are performing with our detailed, easy-to-understand reports."
+      title: "Security-First Approach",
+      description: "Security is integrated into every phase of development to protect your data and ensure compliance."
     }
+  ];
+
+  // Data for technologies we use
+  const technologies = [
+    { name: "Frontend", items: ["React", "Angular", "Vue.js", "Next.js"] },
+    { name: "Backend", items: ["Node.js", "Python", "Java", ".NET", "PHP"] },
+    { name: "Mobile", items: ["React Native", "Flutter", "Swift", "Kotlin"] },
+    { name: "Database", items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"] },
+    { name: "Cloud", items: ["AWS", "Azure", "Google Cloud", "DigitalOcean"] },
+    { name: "DevOps", items: ["Docker", "Kubernetes", "CI/CD", "Jenkins"] }
   ];
 
   return (
@@ -96,35 +120,35 @@ export default function DigitalPage() {
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative inline-block mb-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-[#0553aa] to-[#0553aa] bg-clip-text text-transparent leading-tight">
-                Digital Marketing Solutions
+                Software Development
               </h1>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-gradient-to-r from-[#0553aa] to-[#0553aa] opacity-20 blur-sm rounded-full"></div>
             </div>
             
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-              Strategic SEO, SEM & SMM Services That Drive Growth and Maximize ROI
+              Custom Software Solutions Built to Drive Your Business Forward
             </p>
 
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-[#0553aa]">SEO</div>
-                <div className="text-sm text-gray-600">Optimization</div>
+                <div className="text-3xl font-bold text-[#0553aa]">Custom</div>
+                <div className="text-sm text-gray-600">Solutions</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#0553aa]">SEM</div>
-                <div className="text-sm text-gray-600">Campaigns</div>
+                <div className="text-3xl font-bold text-[#0553aa]">Scalable</div>
+                <div className="text-sm text-gray-600">Architecture</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#0553aa]">SMM</div>
-                <div className="text-sm text-gray-600">Strategies</div>
+                <div className="text-3xl font-bold text-[#0553aa]">Modern</div>
+                <div className="text-sm text-gray-600">Technologies</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#0553aa]">Data</div>
-                <div className="text-sm text-gray-600">Driven</div>
+                <div className="text-3xl font-bold text-[#0553aa]">Agile</div>
+                <div className="text-sm text-gray-600">Process</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#0553aa]">Results</div>
-                <div className="text-sm text-gray-600">Focused</div>
+                <div className="text-3xl font-bold text-[#0553aa]">Secure</div>
+                <div className="text-sm text-gray-600">Development</div>
               </div>
             </div>
           </div>
@@ -139,13 +163,13 @@ export default function DigitalPage() {
       <section className="py-20 bg-gradient-to-r from-sky-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Marketing Services</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Development Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive digital marketing solutions designed to elevate your brand and drive business growth.
+              Comprehensive software development solutions tailored to your business needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -174,13 +198,43 @@ export default function DigitalPage() {
         </div>
       </section>
 
-      {/* Our Process Section */}
+      {/* Technologies Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Marketing Process</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Technologies We Use</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven methodology to deliver measurable results for your business.
+              We leverage cutting-edge technologies to build robust, scalable software solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {technologies.map((tech, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-sky-50 to-cyan-50 rounded-3xl p-8 shadow-lg border-2 border-gray-100 hover:border-[#0553aa] hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">{tech.name}</h3>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {tech.items.map((item, itemIndex) => (
+                    <span key={itemIndex} className="px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process Section */}
+      <section className="py-20 bg-gradient-to-r from-sky-50 to-cyan-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Development Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A proven methodology to deliver high-quality software solutions on time and within budget.
             </p>
           </div>
 
@@ -205,12 +259,12 @@ export default function DigitalPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-r from-sky-50 to-cyan-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Why Partner With Us?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We deliver more than just services; we provide measurable growth for your business.
+              We deliver more than just code; we provide comprehensive software solutions that drive business growth.
             </p>
           </div>
 
@@ -231,20 +285,20 @@ export default function DigitalPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-r from-sky-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-          <div className="bg-gradient-to-r from-sky-50 to-cyan-50 rounded-3xl p-12 border-2 border-[#0553aa] shadow-lg">
+          <div className="bg-white rounded-3xl p-12 border-2 border-[#0553aa] shadow-lg">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
-              Ready to Grow Your Business?
+              Ready to Build Your Software Solution?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Let's discuss how our digital marketing strategies can help you achieve your business objectives. 
+              Let's discuss your project requirements and how we can help you achieve your business objectives. 
               Contact us today for a free, no-obligation consultation.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="#contact"
+                href="Contact"
                 className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 border-[#0553aa] transition-all duration-300 text-lg md:text-xl bg-gradient-to-r from-[#0553aa] to-[#0553aa] hover:from-[#0553aa] hover:to-[#0553aa] hover:scale-105 active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10">Get a Free Quote</span>
@@ -254,15 +308,6 @@ export default function DigitalPage() {
                 </svg>
               </a>
               
-              <a
-                href="tel:+1-555-0123"
-                className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold text-gray-700 border-2 border-gray-300 hover:border-[#0553aa] hover:text-[#0553aa] transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call Us Now
-              </a>
             </div>
           </div>
         </div>

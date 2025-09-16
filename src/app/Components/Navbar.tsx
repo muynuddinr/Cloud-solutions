@@ -1,35 +1,30 @@
 "use client";
 import React from "react";
 import Link from 'next/link';
-
 const DARK_BLUE = "#1e3a8a";
 const ORANGE = "#f97316";
-
 // --- SVG Icon Components (unchanged) ---
 const ChevronDown = ({ className }: { className?: string }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
 );
-
 const MenuIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
 );
-
 const CloseIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
 );
 
-
 // --- Navigation Data (unchanged) ---
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/About" },
-  { name: "Shop", href: "/Shop" },
+  { name: "About Us", href: "/About" },
+
   {
     name: "Services",
     href: "/services", // Keep href for reference, but this item will act as a button
@@ -38,15 +33,15 @@ const navLinks = [
       { name: "Business Applications", href: "/Business" },
       { name: "IT Hardware", href: "/It" },
       { name: "Security Solutions", href: "/Security" },
+      { name: "Software Development", href: "/Software" },
     ],
   },
   { name: "Repair", href: "/Repair" },
   { name: "Products", href: "/Products" },
   { name: "Gaming", href: "/GamingStudio" },
   { name: "Training", href: "/Training" },
-  { name: "Contact", href: "/Contact" },
+  { name: "Contact Us", href: "/Contact" },
 ];
-
 export default function Navbar() {
   const [active, setActive] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -55,7 +50,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const navRef = React.useRef<HTMLElement>(null);
-
   React.useEffect(() => {
     // Determine active link on mount from URL
     const currentPath = window.location.pathname;
@@ -70,24 +64,19 @@ export default function Navbar() {
         });
     }
     if (currentLink) setActive(currentLink.name);
-
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
     window.addEventListener("resize", checkMobile);
-
     const onScroll = () => setScrolled(window.scrollY > 50);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
     setIsLoaded(true);
-
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", onScroll);
@@ -102,7 +91,6 @@ export default function Navbar() {
   };
   
   // --- REMOVED: handleNavClick and handleLogoClick are no longer needed ---
-
   return (
     <>
       <style jsx global>{`
@@ -112,7 +100,6 @@ export default function Navbar() {
         }
         @keyframes slideInFromTop { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .animate-slide-in { animation: slideInFromTop 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
-
         .nav-link-container {
             position: relative;
         }
@@ -125,7 +112,6 @@ export default function Navbar() {
         .nav-link:hover, .nav-button:hover {
             color: ${ORANGE};
         }
-
         .active-link-indicator {
             position: absolute;
             bottom: -8px;
@@ -136,10 +122,6 @@ export default function Navbar() {
             background-color: ${ORANGE};
             border-radius: 50%;
             transition: all 0.3s ease;
-        }
-
-        .contact-btn {
-            box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
         }
       `}</style>
       
@@ -158,7 +140,7 @@ export default function Navbar() {
           {/* --- FIXED: Logo Section uses Link --- */}
           <div className="flex items-center">
             <Link href="/" onClick={() => setActive("Home")} className="flex items-center gap-3 cursor-pointer group">
-              <img src="/cloudlogo.png" alt="Cloud IT Solution Logo" width={scrolled ? 48 : 56} height={scrolled ? 48 : 56} className="object-contain transition-all duration-300 group-hover:rotate-6 group-hover:scale-110" />
+              <img src="/hero.jpg" alt="Cloud IT Solution Logo" width={scrolled ? 48 : 56} height={scrolled ? 48 : 56} className="object-contain transition-all duration-300 group-hover:rotate-6 group-hover:scale-110" />
               <div className="flex flex-col">
                 <span className="font-bold text-xl" style={{ color: DARK_BLUE }}>Cloud IT</span>
                 <span className="text-xs text-gray-500 font-medium hidden sm:block">Technology Solutions</span>
@@ -211,13 +193,6 @@ export default function Navbar() {
               </div>
             ))}
           </div>
-
-           {/* --- FIXED: Right side buttons use Link --- */}
-          <div className="hidden lg:flex items-center">
-             <Link href="/Contact" onClick={() => setActive("Contact")} className="contact-btn rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold px-6 py-2.5 shadow-lg hover:shadow-orange-400/50 transition-all duration-300 transform hover:scale-105">
-                Contact Us
-            </Link>
-          </div>
           
           {/* Mobile Hamburger Menu Button (unchanged) */}
           <div className="lg:hidden">
@@ -267,7 +242,7 @@ export default function Navbar() {
                     ) : (
                       <Link 
                         href={link.href} 
-                        className={`w-full text-left font-bold text-lg px-4 py-3 rounded-xl ${link.name === "Contact" ? "bg-orange-500 text-white" : ""} ${active === link.name && link.name !== "Contact" ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'}`} 
+                        className={`w-full text-left font-bold text-lg px-4 py-3 rounded-xl ${active === link.name ? 'bg-orange-50 text-orange-600' : 'text-gray-700 hover:bg-gray-100'}`} 
                         onClick={() => {
                           setActive(link.name);
                           setOpen(false);

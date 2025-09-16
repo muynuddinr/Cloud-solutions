@@ -8,7 +8,6 @@ const footerLinks = {
     { name: "About Us", href: "/About" },
     { name: "Our Team", href: "/About#team" },
     { name: "Careers", href: "/About#careers" },
-    { name: "News & Blog", href: "/About#news" },
   ],
   services: [
     { name: "IT Solutions", href: "/Services#it" },
@@ -30,12 +29,7 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { name: "Facebook", href: "#", icon: "📘" },
-  { name: "Twitter", href: "#", icon: "🐦" },
-  { name: "LinkedIn", href: "#", icon: "💼" },
-  { name: "Instagram", href: "#", icon: "📷" },
-];
+
 
 export default function Footer() {
   const [email, setEmail] = React.useState('');
@@ -87,7 +81,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent">
-                  Cloud Solutions
+                  Cloud IT Solutions
                 </h3>
                 <p className="text-gray-400 text-sm">Made Simple</p>
               </div>
@@ -96,20 +90,7 @@ export default function Footer() {
               Streamline your business with our comprehensive cloud infrastructure. 
               Secure, scalable, and reliable solutions for modern enterprises.
             </p>
-            <div className="flex space-x-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  aria-label={social.name}
-                  className="group w-10 h-10 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-white transition-colors duration-200 border border-white/10"
-                >
-                  <span className="text-lg group-hover:scale-110 transition-transform duration-200">
-                    {social.icon}
-                  </span>
-                </a>
-              ))}
-            </div>
+
           </div>
 
           {/* Company Links */}
@@ -177,7 +158,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-300">99523 70971</p>
+                  <p className="text-gray-300">+91 9944788878</p>
                   <p className="text-gray-400 text-sm">24/7 Support</p>
                 </div>
               </div>
@@ -249,17 +230,6 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Cloud Solutions. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <Link href="#privacy" className="text-gray-400 hover:text-sky-300 transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="#terms" className="text-gray-400 hover:text-sky-300 transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link href="#cookies" className="text-gray-400 hover:text-sky-300 transition-colors duration-200">
-                Cookie Policy
-              </Link>
             </div>
           </div>
         </div>

@@ -92,7 +92,6 @@ const SuccessMessage = () => (
 
 
 const RepairForm = () => {
-  const [customerType, setCustomerType] = useState("new");
   const [formData, setFormData] = useState<FormData>({
     name: "", phone: "", email: "", address: "", deviceType: "",
     brandModel: "", serialNumber: "", otherIssue: "", preferredService: "bringToCenter",
@@ -120,7 +119,7 @@ const RepairForm = () => {
       .filter(Boolean);
 
     const repairRequest = {
-      customerType,
+      customerType: "new", // Always set to "new" since we removed the customer type selection
       customerDetails: {
         name: formData.name,
         phone: formData.phone,
@@ -171,14 +170,6 @@ const RepairForm = () => {
       <fieldset>
         <SectionLegend>Customer Details</SectionLegend>
         <div className="space-y-6">
-            <div className="flex items-center space-x-2 rounded-lg bg-gray-100 p-1 border">
-              <button type="button" onClick={() => setCustomerType('new')} className={`w-1/2 p-2.5 rounded-md text-sm font-semibold transition-all ${customerType === 'new' ? 'bg-white text-[#0553aa] shadow' : 'text-gray-600 hover:bg-gray-200'}`}>
-                New Customer
-              </button>
-              <button type="button" onClick={() => setCustomerType('existing')} className={`w-1/2 p-2.5 rounded-md text-sm font-semibold transition-all ${customerType === 'existing' ? 'bg-white text-[#0553aa] shadow' : 'text-gray-600 hover:bg-gray-200'}`}>
-                Existing Customer
-              </button>
-            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField label="Name" name="name" required>
                   <input type="text" name="name" id="name" required value={formData.name} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>

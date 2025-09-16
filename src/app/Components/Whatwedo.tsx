@@ -490,7 +490,7 @@ export default function WhatWeDo() {
                   <button className="group px-10 py-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-2xl hover:custom-blue-border hover:custom-blue-text transition-all duration-300 bg-white hover:bg-gray-50 hover:scale-105 shadow-lg hover-lift">
                     <span className="flex items-center gap-2">
                       <span>Call Us Now</span>
-                      <span className="font-bold custom-blue-text">+91-XXXX-XXXX</span>
+                      <span className="font-bold custom-blue-text">+91 9944788878</span>
                     </span>
                   </button>
                 </div>

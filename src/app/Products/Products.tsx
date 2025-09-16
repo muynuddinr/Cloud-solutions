@@ -34,7 +34,6 @@ const products = [
 
 export default function SoftwarePage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [customerType, setCustomerType] = useState("new");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -78,7 +77,7 @@ export default function SoftwarePage() {
       .map(([key, _]) => key.toUpperCase());
 
     const requestData = {
-      customerType,
+      customerType: "new", // Always set to "new" since we removed the customer type selection
       contactDetails: { ...formData },
       interestedIn: selectedProducts,
       requestType: formData.requestType,
@@ -162,10 +161,6 @@ export default function SoftwarePage() {
               {/* Customer Details */}
               <fieldset>
                 <legend className="text-lg font-semibold text-gray-800 mb-3 flex items-center"><span className="text-[#0553aa] mr-2">🔹</span> Customer Details</legend>
-                 <div className="flex items-center space-x-2 rounded-lg bg-gray-100 p-1 border mb-4">
-                  <button type="button" onClick={() => setCustomerType('new')} className={`w-1/2 p-2 rounded-md text-sm font-semibold transition-colors ${customerType === 'new' ? 'bg-[#0553aa] text-white shadow' : 'text-gray-600 hover:bg-gray-200'}`}>New Customer</button>
-                  <button type="button" onClick={() => setCustomerType('existing')} className={`w-1/2 p-2 rounded-md text-sm font-semibold transition-colors ${customerType === 'existing' ? 'bg-[#0553aa] text-white shadow' : 'text-gray-600 hover:bg-gray-200'}`}>Existing Customer</button>
-                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                    <div>
                       <label htmlFor="name" className="text-sm font-medium text-gray-700">Name <span className="text-red-500">*</span></label>

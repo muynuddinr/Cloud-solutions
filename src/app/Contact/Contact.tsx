@@ -111,7 +111,7 @@ export default function ContactSection() {
               >
                 <div className="mb-2 text-3xl">📞</div>
                 <div className="text-xs uppercase tracking-wide text-gray-500 font-semibold">Phone</div>
-                <div className="text-lg font-bold text-gray-900 group-hover:text-sky-700">99523 70971</div>
+                <div className="text-lg font-bold text-gray-900 group-hover:text-sky-700">+91 9944788878</div>
                 <span className="mt-1 inline-block text-xs text-sky-600">Tap to call</span>
               </a>
               {/* Email */}
@@ -221,7 +221,7 @@ export default function ContactSection() {
                       value={form.phone}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-2xl border-2 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 transition-all duration-300 ${errors.phone ? "border-red-300 focus:ring-red-100" : "border-gray-200 focus:border-sky-400 focus:ring-sky-100"}`}
-                      placeholder="99523 70971"
+                      placeholder="+91 9944788878"
                       autoComplete="tel"
                       aria-invalid={Boolean(errors.phone)}
                       aria-describedby={errors.phone ? "phone-error" : undefined}

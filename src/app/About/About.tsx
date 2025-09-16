@@ -21,7 +21,7 @@ export default function AboutUsPage() {
 
   const teamMembers = [
     {
-      name: "Suganya",
+      name: "Suganiya N",
       role: "CEO & Co-Founder",
       image: "👑",
       bio: "20+ years of experience in IT leadership and business strategy. Visionary leader driving company growth and innovation.",
@@ -37,8 +37,8 @@ export default function AboutUsPage() {
       color: "from-[#0553aa] to-[#0553aa]"
     },
     {
-      name: "Sudha",
-      role: "GM CIO & Co-Founder",
+      name: "Sudha GM",
+      role: "CIO & Co-Founder",
       image: "👩‍💼",
       bio: "Information management specialist with expertise in digital transformation and IT governance.",
       expertise: ["IT Management", "Digital Transformation", "Governance"],
@@ -136,7 +136,7 @@ export default function AboutUsPage() {
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative inline-block mb-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-[#0553aa] to-[#0553aa] bg-clip-text text-transparent leading-tight">
-                About CloudITsolution
+                About CloudIT solution
               </h1>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-gradient-to-r from-[#0553aa] to-[#0553aa] opacity-20 blur-sm rounded-full"></div>
             </div>
@@ -338,14 +338,14 @@ export default function AboutUsPage() {
       </section>
 
       {/* Our Team Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The passionate professionals behind CloudITsolution
-            </p>
-          </div>
+<section id="team" className="py-20 bg-white"> {/* Added id="team" here */}
+  <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Meet Our Team</h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        The passionate professionals behind CloudITsolution
+      </p>
+    </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
@@ -541,7 +541,7 @@ export default function AboutUsPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="#contact"
+                href="Contact"
                 className="group relative inline-flex items-center px-10 py-5 rounded-2xl font-bold text-white shadow-2xl border-2 border-[#0553aa] transition-all duration-300 text-lg md:text-xl bg-gradient-to-r from-[#0553aa] to-[#0553aa] hover:from-[#0553aa] hover:to-[#0553aa] hover:scale-105 active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10">Get Your Free Consultation</span>

@@ -16,39 +16,39 @@ type Capability = {
 const capabilities: Capability[] = [
   {
     id: 1,
-    title: "Game Development",
+    title: "Custom PC Builds",
     description:
-      "Full-cycle development from concept to launch. Unity, Unreal, and custom engines.",
-    icon: "🎮",
+      "Tailored systems designed for your specific needs. Gaming, workstations, and more.",
+    icon: "🖥️",
     gradient: `from-orange-500 to-red-500`,
-    points: ["Unity / Unreal", "Multiplayer", "Live Ops"],
+    points: ["Gaming PCs", "Workstations", "Silent Builds"],
   },
   {
     id: 2,
-    title: "Art & Design",
+    title: "Hardware Upgrades",
     description:
-      "Stunning visuals from concept art to final assets. 2D, 3D, and animation.",
-    icon: "🎨",
+      "Boost your system's performance with the latest components and optimizations.",
+    icon: "🔧",
     gradient: `from-red-500 to-orange-400`,
-    points: ["2D/3D Art", "UI/UX", "Animation"],
+    points: ["GPU/CPU", "RAM/Storage", "Cooling"],
   },
   {
     id: 3,
-    title: "QA & Optimization",
+    title: "PC Repair & Support",
     description:
-      "Rigorous testing and performance optimization across all platforms.",
-    icon: "🧪",
+      "Diagnose and fix hardware issues. Full system diagnostics and troubleshooting.",
+    icon: "🛠️",
     gradient: `from-orange-400 to-yellow-500`,
-    points: ["Automation", "Perf Tuning", "Device Lab"],
+    points: ["Diagnostics", "Repairs", "Maintenance"],
   },
   {
     id: 4,
-    title: "Monetization & Growth",
+    title: "Liquid Cooling",
     description:
-      "Data-driven monetization strategies and growth optimization.",
-    icon: "🚀",
+      "Advanced cooling solutions for maximum performance and aesthetics.",
+    icon: "💧",
     gradient: `from-yellow-500 to-orange-500`,
-    points: ["IAP/Ads", "A/B Tests", "Analytics"],
+    points: ["Custom Loops", "AIO Coolers", "Thermal Optimization"],
   },
 ];
 
@@ -64,63 +64,63 @@ type PortfolioItem = {
 const portfolio: PortfolioItem[] = [
   { 
     id: 1, 
-    name: "Neon Drift", 
-    category: "Mobile Racing", 
-    emoji: "🏎️", 
+    name: "Titan Gaming", 
+    category: "High-End Gaming", 
+    emoji: "🎮", 
     gradient: "from-orange-400 to-red-500",
-    description: "High-octane neon racing with stunning visuals"
+    description: "RTX 4090, i9-13900K, 64GB DDR5"
   },
   { 
     id: 2, 
-    name: "Star Forge", 
-    category: "PC Strategy", 
-    emoji: "🛰️", 
+    name: "Creator Pro", 
+    category: "Workstation", 
+    emoji: "🎨", 
     gradient: "from-red-500 to-orange-600",
-    description: "Epic space strategy with deep mechanics"
+    description: "Threadripper Pro, 128GB RAM, RTX A6000"
   },
   { 
     id: 3, 
-    name: "Myth Quest", 
-    category: "Console RPG", 
-    emoji: "🐉", 
+    name: "Silent Beast", 
+    category: "Quiet PC", 
+    emoji: "🤫", 
     gradient: "from-orange-500 to-yellow-600",
-    description: "Immersive fantasy RPG adventure"
+    description: "Passive cooling, noise-optimized components"
   },
   { 
     id: 4, 
-    name: "City Builder", 
-    category: "PC Simulation", 
-    emoji: "🏗️", 
+    name: "Compact Power", 
+    category: "SFF Build", 
+    emoji: "📦", 
     gradient: "from-yellow-500 to-orange-600",
-    description: "Next-gen city building simulation"
+    description: "ITX form factor with full-size performance"
   },
   { 
     id: 5, 
-    name: "Puzzle Bloom", 
-    category: "Mobile Puzzle", 
-    emoji: "🧩", 
+    name: "Liquid Cooled", 
+    category: "Custom Loop", 
+    emoji: "💧", 
     gradient: "from-orange-500 to-red-400",
-    description: "Beautiful puzzle game with unique mechanics"
+    description: "Hardline tubing, RGB lighting, dual radiators"
   },
   { 
     id: 6, 
-    name: "Arena Royale", 
-    category: "Console Action", 
-    emoji: "⚔️", 
+    name: "Budget King", 
+    category: "Value Build", 
+    emoji: "💰", 
     gradient: "from-orange-500 to-red-600",
-    description: "Intense battle royale action"
+    description: "Best performance per dollar, upgradeable"
   },
 ];
 
 const techStack = [
-  { name: "Unity", tag: "C#", color: "text-orange-400" },
-  { name: "Unreal", tag: "C++", color: "text-red-400" },
-  { name: "Godot", tag: "GDScript", color: "text-orange-300" },
-  { name: "Blender", tag: "3D", color: "text-yellow-400" },
-  { name: "Maya", tag: "3D", color: "text-orange-400" },
-  { name: "Photoshop", tag: "2D", color: "text-red-400" },
-  { name: "Figma", tag: "UI", color: "text-orange-300" },
-  { name: "Firebase", tag: "Live Ops", color: "text-yellow-400" },
+  { name: "Intel", tag: "CPU", color: "text-orange-400" },
+  { name: "AMD", tag: "CPU/GPU", color: "text-red-400" },
+  { name: "NVIDIA", tag: "GPU", color: "text-orange-300" },
+  { name: "ASUS", tag: "Motherboard", color: "text-yellow-400" },
+  { name: "Corsair", tag: "RAM/PSU", color: "text-orange-400" },
+  { name: "Samsung", tag: "Storage", color: "text-red-400" },
+  { name: "EKWB", tag: "Cooling", color: "text-orange-300" },
+  { name: "Lian Li", tag: "Case", color: "text-yellow-400" },
 ];
 
 type Testimonial = {
@@ -135,38 +135,37 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     quote:
-      "They delivered a polished game on time. Incredible art direction and tight gameplay.",
-    name: "Aarav Kapoor",
-    role: "Producer, Flux Games",
+      "They built my dream gaming PC that handles everything I throw at it. Perfect cable management too!",
+    name: "Alex Johnson",
+    role: "Content Creator",
     avatar: "👨‍💼",
   },
   {
     id: 2,
     quote:
-      "Our KPIs improved 2x after their monetization pass. Data-driven and creative.",
-    name: "Maya Singh",
-    role: "Head of Growth, HyperPlay",
+      "Our studio's workstations have never been more reliable. The custom cooling solution is genius.",
+    name: "Sarah Williams",
+    role: "Studio Manager",
     avatar: "👩‍💼",
   },
   {
     id: 3,
     quote:
-      "Super responsive team with deep engine knowledge. Perf issues vanished.",
-    name: "Daniel Lee",
-    role: "Technical Director, Overbyte",
+      "Upgraded my old PC into a modern powerhouse. Their component selection was spot-on.",
+    name: "Michael Chen",
+    role: "Software Developer",
     avatar: "👨‍💻",
   },
 ];
 
-export default function GamingStudio() {
+export default function PCBuildingCompany() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   
   useEffect(() => setIsVisible(true), []);
 
   return (
     <section
-      id="gaming-studio"
+      id="pc-building"
       className="relative bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden min-h-screen"
     >
       {/* Animated background elements */}
@@ -198,22 +197,22 @@ export default function GamingStudio() {
         <div className={`relative mb-24 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-900/50 to-red-900/50 px-6 py-3 rounded-full border border-orange-400/30 backdrop-blur-sm">
             <span className="text-2xl">⚡</span>
-            <span className="text-orange-300 font-bold">Gaming Studio</span>
+            <span className="text-orange-300 font-bold">PC Building Experts</span>
           </div>
           <div className="mt-6 relative">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-orange-600 to-red-600 bg-clip-text text-transparent leading-tight">
-              We craft immersive
+              We build powerful
               <br />
               <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-                gaming experiences
+                custom computers
               </span>
             </h1>
             <div className="absolute -bottom-2 left-0 w-56 h-4 bg-gradient-to-r from-orange-400 to-red-400 opacity-30 blur-sm rounded-full"></div>
           </div>
-                    <div className="mt-8 flex flex-col lg:flex-row gap-8 items-center">
+          <div className="mt-8 flex flex-col lg:flex-row gap-8 items-center">
             <div className="flex-1">
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl">
-                From concept to launch, our passionate team brings your gaming vision to life with cutting-edge technology and stunning visuals.
+                From gaming rigs to professional workstations, we craft high-performance PCs tailored to your specific needs.
               </p>
               
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -221,7 +220,7 @@ export default function GamingStudio() {
                   href="#contact"
                   className={`group inline-flex items-center px-8 py-4 rounded-2xl font-bold text-white shadow-2xl border-2 border-orange-400 transition-all duration-300 bg-gradient-to-r ${ACCENT_FROM} ${ACCENT_TO} hover:scale-105 hover:shadow-orange-500/25 hover:shadow-2xl`}
                 >
-                  <span>Start Your Project</span>
+                  <span>Configure Your PC</span>
                   <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
                   </svg>
@@ -230,7 +229,7 @@ export default function GamingStudio() {
                   href="#portfolio"
                   className="inline-flex items-center px-6 py-4 rounded-2xl font-semibold text-gray-600 border-2 border-gray-300 hover:border-orange-400 hover:text-orange-600 transition-all duration-300 bg-white/50 backdrop-blur-sm"
                 >
-                  View Our Games
+                  View Our Builds
                 </a>
               </div>
             </div>
@@ -250,16 +249,13 @@ export default function GamingStudio() {
                 </video>
               </div>
             </div>
-          
           </div>
         </div>
-
-
 
         {/* Capabilities */}
         <div className="mb-24">
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 text-center mb-12">
-            Our Expertise
+            Our Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cap, index) => (
@@ -292,8 +288,8 @@ export default function GamingStudio() {
         {/* Portfolio */}
         <div id="portfolio" className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Our Games</h2>
-            <p className="text-gray-600 text-lg">A showcase of worlds we've brought to life.</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Featured Builds</h2>
+            <p className="text-gray-600 text-lg">A showcase of our custom PC creations.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((item) => (
@@ -318,14 +314,14 @@ export default function GamingStudio() {
         {/* Tech Stack */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Tech Stack</h2>
-            <p className="text-gray-600 text-lg">The tools and engines we master.</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Component Partners</h2>
+            <p className="text-gray-600 text-lg">Premium brands we trust and use.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {techStack.map((t) => (
               <div key={t.name} className="flex items-center justify-between px-5 py-4 rounded-2xl bg-white/80 border border-gray-200 hover:border-orange-400/50 transition-all backdrop-blur-sm shadow-lg">
                 <span className={`font-semibold ${t.color}`}>{t.name}</span>
-                                  <span className="text-xs text-gray-500 bg-gray-100 rounded-full px-2 py-1 border border-gray-200">{t.tag}</span>
+                <span className="text-xs text-gray-500 bg-gray-100 rounded-full px-2 py-1 border border-gray-200">{t.tag}</span>
               </div>
             ))}
           </div>
@@ -364,20 +360,20 @@ export default function GamingStudio() {
             </div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-orange-600 bg-clip-text text-transparent">
-                Ready to create your next hit game?
+                Ready to build your dream PC?
               </h3>
               <p className="text-lg md:text-xl text-gray-600 mb-8">
-                Let's discuss your project and bring your gaming vision to reality.
+                Let's discuss your requirements and create the perfect system for your needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="Contact"
                   className={`group px-8 py-4 bg-gradient-to-r ${ACCENT_FROM} ${ACCENT_TO} text-white font-bold rounded-2xl hover:scale-105 transition-all shadow-xl hover:shadow-2xl hover:shadow-orange-500/25`}
                 >
-                  Start Your Project
+                  Configure Your PC
                 </a>
                 <a
-                  href="mailto:cloudsolutions1@gmail.com"
+                  href="mailto:pcbuilders@example.com"
                   className="group px-8 py-4 border-2 border-gray-300 text-gray-600 font-semibold rounded-2xl hover:border-orange-400 hover:text-orange-600 transition-all bg-white/50 hover:bg-gray-50/50"
                 >
                   Get in Touch
@@ -394,5 +390,3 @@ export default function GamingStudio() {
     </section>
   );
 }
-
-
