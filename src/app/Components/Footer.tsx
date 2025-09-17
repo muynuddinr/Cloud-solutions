@@ -7,13 +7,13 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/About" },
     { name: "Our Team", href: "/About#team" },
-    { name: "Careers", href: "/About#careers" },
+    { name: "Contact Us", href: "/Contact" },
   ],
   services: [
-    { name: "IT Solutions", href: "/Services#it" },
-    { name: "Cloud Services", href: "/Services#cloud" },
-    { name: "Technical Support", href: "/Services#support" },
-    { name: "Software Solutions", href: "/Services#software" },
+    { name: "Digital Solutions", href: "/Digital" },
+    { name: "It Hardware", href: "/It" },
+    { name: "Security solutions", href: "/Security" },
+    { name: "Software Solutions", href: "/Software" },
   ],
   products: [
     { name: "Computers & Laptops", href: "/Shop" },
@@ -76,12 +76,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6">
-              <div className="h-12 w-12 bg-gradient-to-tr from-sky-500 to-cyan-400 rounded-full flex items-center justify-center shadow-sm border border-cyan-400/40 mr-4">
+              {/* <div className="h-12 w-12 bg-gradient-to-tr from-sky-500 to-cyan-400 rounded-full flex items-center justify-center shadow-sm border border-cyan-400/40 mr-4">
                 <Image src="/cloudlogo.png" alt="Cloud Solutions logo" width={48} height={48} className="h-8 w-8 object-cover rounded-full" />
-              </div>
+              </div> */}
               <div>
                 <h3 className="text-2xl font-semibold bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent">
-                  Cloud IT Solutions
+                  Cloud IT Solution
                 </h3>
                 <p className="text-gray-400 text-sm">Made Simple</p>
               </div>

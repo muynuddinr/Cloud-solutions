@@ -136,7 +136,7 @@ export default function AboutUsPage() {
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative inline-block mb-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-[#0553aa] to-[#0553aa] bg-clip-text text-transparent leading-tight">
-                About CloudIT solution
+                About Cloud IT solution
               </h1>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-gradient-to-r from-[#0553aa] to-[#0553aa] opacity-20 blur-sm rounded-full"></div>
             </div>
@@ -187,7 +187,7 @@ export default function AboutUsPage() {
                 </h3>
                 <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                   <p>
-                    CloudITsolution is a trusted provider of cloud-based IT services, business applications, 
+                    Cloud IT Solution is a trusted provider of cloud-based IT services, business applications, 
                     and technology infrastructure solutions. Since our inception in 2012, we have been dedicated 
                     to helping businesses embrace digital transformation by delivering scalable, secure, and 
                     customized technology solutions.
@@ -277,7 +277,7 @@ export default function AboutUsPage() {
       <section className="py-20 bg-gradient-to-r from-sky-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Why Choose CloudITsolution?</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Why Choose Cloud IT Solution?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We stand out from the competition with our commitment to excellence
             </p>
@@ -343,7 +343,7 @@ export default function AboutUsPage() {
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Meet Our Team</h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        The passionate professionals behind CloudITsolution
+        The passionate professionals behind Cloud IT Solution
       </p>
     </div>
 
@@ -535,7 +535,7 @@ export default function AboutUsPage() {
               Ready to Transform Your IT Experience?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Since 2012, CloudITsolution has empowered hundreds of organizations to build smarter infrastructures, 
+              Since 2012, Cloud IT Solution has empowered hundreds of organizations to build smarter infrastructures, 
               operate more efficiently, and serve their customers better. Let's build the future together.
             </p>
             

@@ -98,10 +98,28 @@ const RepairForm = () => {
   });
   const [issues, setIssues] = useState<Issues>(issueOptions.reduce((acc, opt) => ({ ...acc, [opt.id]: false }), {}));
   const [submissionStatus, setSubmissionStatus] = useState<SubmissionStatus>("idle");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Validate phone field
+    if (name === 'phone') {
+      // Remove any non-digit characters
+      const digitsOnly = value.replace(/\D/g, '');
+      // Limit to 10 digits
+      const truncatedValue = digitsOnly.slice(0, 10);
+      
+      setFormData(prev => ({ ...prev, phone: truncatedValue }));
+      
+      // Validate if exactly 10 digits
+      if (truncatedValue.length > 0 && truncatedValue.length < 10) {
+        setPhoneError("Phone number must be exactly 10 digits");
+      } else {
+        setPhoneError(null);
+      }
+    }
   };
   
   const handleIssueChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -111,6 +129,13 @@ const RepairForm = () => {
   
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    // Validate phone before submission
+    if (formData.phone.length !== 10) {
+      setPhoneError("Phone number must be exactly 10 digits");
+      return;
+    }
+    
     setSubmissionStatus("submitting");
 
     const selectedIssues = Object.entries(issues)
@@ -128,7 +153,7 @@ const RepairForm = () => {
       },
       deviceDetails: {
         deviceType: formData.deviceType,
-        brandModel: formData.brandModel,
+        brandModel: formData.brandModel || undefined, // Handle optional field
         serialNumber: formData.serialNumber || undefined,
       },
       issues: selectedIssues,
@@ -175,7 +200,18 @@ const RepairForm = () => {
                   <input type="text" name="name" id="name" required value={formData.name} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>
               </FormField>
               <FormField label="Phone / WhatsApp" name="phone" required>
-                  <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>
+                  <input 
+                    type="tel" 
+                    name="phone" 
+                    id="phone" 
+                    required 
+                    value={formData.phone} 
+                    onChange={handleInputChange} 
+                    className={`w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition ${phoneError ? 'border-red-500' : ''}`}
+                    placeholder="Enter 10-digit phone number"
+                    maxLength={10}
+                  />
+                  {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
               </FormField>
               <FormField label="Email ID" name="email" optional>
                   <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>
@@ -197,8 +233,8 @@ const RepairForm = () => {
               <option>Laptop</option><option>PC / Desktop</option><option>Printer</option><option>Others</option>
             </select>
           </FormField>
-          <FormField label="Brand & Model" name="brandModel" required>
-            <input type="text" name="brandModel" id="brandModel" required value={formData.brandModel} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>
+          <FormField label="Brand & Model" name="brandModel" optional>
+            <input type="text" name="brandModel" id="brandModel" value={formData.brandModel} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#0553aa] focus:border-[#0553aa] transition"/>
           </FormField>
           <div className="md:col-span-2">
             <FormField label="Serial Number" name="serialNumber" optional>
@@ -248,7 +284,7 @@ const RepairForm = () => {
       <div className="mt-12 text-center">
         <button
           type="submit"
-          disabled={submissionStatus === 'submitting'}
+          disabled={submissionStatus === 'submitting' || !!phoneError}
           className="w-full md:w-auto inline-flex items-center justify-center px-12 py-4 rounded-xl font-bold text-white shadow-lg transition-all duration-300 text-lg bg-[#0553aa] hover:bg-blue-700 hover:scale-105 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {submissionStatus === 'submitting' ? 'Submitting...' : 'Submit Repair Request'}

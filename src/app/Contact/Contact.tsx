@@ -30,13 +30,25 @@ export default function ContactSection() {
     if (!form.email.trim()) nextErrors.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = "Enter a valid email";
     if (!form.message.trim()) nextErrors.message = "Please enter your message";
-    if (form.phone && !/^[+\d][\d\s()-]{6,}$/.test(form.phone)) nextErrors.phone = "Enter a valid phone";
+    // Updated phone validation to check for exactly 10 digits
+    if (form.phone && !/^\d{10}$/.test(form.phone)) nextErrors.phone = "Enter a valid 10-digit phone number";
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    
+    // Special handling for phone field to allow only 10 digits
+    if (name === 'phone') {
+      // Remove all non-digit characters
+      const digitsOnly = value.replace(/\D/g, '');
+      // Limit to 10 digits
+      const truncatedValue = digitsOnly.slice(0, 10);
+      setForm(prev => ({ ...prev, [name]: truncatedValue }));
+      return;
+    }
+    
     setForm(prev => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormState]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
@@ -220,12 +232,16 @@ export default function ContactSection() {
                       type="tel"
                       value={form.phone}
                       onChange={handleChange}
+                      maxLength={10}
+                      pattern="\d{10}"
+                      title="Please enter exactly 10 digits"
                       className={`w-full px-4 py-3 rounded-2xl border-2 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 transition-all duration-300 ${errors.phone ? "border-red-300 focus:ring-red-100" : "border-gray-200 focus:border-sky-400 focus:ring-sky-100"}`}
-                      placeholder="+91 9944788878"
+                      placeholder="9944788878"
                       autoComplete="tel"
                       aria-invalid={Boolean(errors.phone)}
                       aria-describedby={errors.phone ? "phone-error" : undefined}
                     />
+                    <p className="text-xs text-gray-500 mt-1">Enter 10-digit phone number</p>
                     {errors.phone && <p id="phone-error" className="mt-1 text-sm text-red-500">{errors.phone}</p>}
                   </div>
                   <div>
@@ -276,4 +292,3 @@ export default function ContactSection() {
     </section>
   );
 }
-

@@ -38,7 +38,7 @@ const navLinks = [
   },
   { name: "Repair", href: "/Repair" },
   { name: "Products", href: "/Products" },
-  { name: "Gaming", href: "/GamingStudio" },
+  { name: "Gaming PC", href: "/GamingStudio" },
   { name: "Training", href: "/Training" },
   { name: "Contact Us", href: "/Contact" },
 ];
@@ -142,8 +142,8 @@ export default function Navbar() {
             <Link href="/" onClick={() => setActive("Home")} className="flex items-center gap-3 cursor-pointer group">
               <img src="/hero.jpg" alt="Cloud IT Solution Logo" width={scrolled ? 48 : 56} height={scrolled ? 48 : 56} className="object-contain transition-all duration-300 group-hover:rotate-6 group-hover:scale-110" />
               <div className="flex flex-col">
-                <span className="font-bold text-xl" style={{ color: DARK_BLUE }}>Cloud IT</span>
-                <span className="text-xs text-gray-500 font-medium hidden sm:block">Technology Solutions</span>
+                <span className="font-bold text-xl" style={{ color: DARK_BLUE }}>Cloud IT Solution
+</span>
               </div>
             </Link>
           </div>

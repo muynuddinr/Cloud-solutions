@@ -152,12 +152,27 @@ export default function TrainingPage() {
   const [preferredFormat, setPreferredFormat] = useState("inPerson");
   const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   useEffect(() => { setIsVisible(true); }, []);
+  
   const handleFormInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    
+    // Special handling for phone field to allow only 10 digits
+    if (name === 'phone') {
+      // Remove all non-digit characters
+      const digitsOnly = value.replace(/\D/g, '');
+      // Limit to 10 digits
+      const truncatedValue = digitsOnly.slice(0, 10);
+      setFormData(prev => ({ ...prev, [name]: truncatedValue }));
+      return;
+    }
+    
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
+  
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTrainingSelection(prev => ({ ...prev, [e.target.name]: e.target.checked }));
   };
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmissionStatus("submitting");
@@ -190,6 +205,7 @@ export default function TrainingPage() {
       setSubmissionStatus("error");
     }
   };
+  
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -229,7 +245,18 @@ export default function TrainingPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Phone/WhatsApp <span className="text-red-500">*</span></label>
-                    <input type="tel" name="phone" required onChange={handleFormInputChange} className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"/>
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      required 
+                      value={formData.phone} 
+                      onChange={handleFormInputChange}
+                      maxLength={10}
+                      pattern="\d{10}"
+                      title="Please enter exactly 10 digits"
+                      className="mt-1 w-full p-3 rounded-md border border-gray-300 focus:ring-1 focus:ring-[#0553aa]"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">Enter 10-digit phone number</p>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Email <span className="text-red-500">*</span></label>

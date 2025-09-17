@@ -60,6 +60,17 @@ export default function SoftwarePage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    
+    // Special handling for phone field to allow only 10 digits
+    if (name === 'phone') {
+      // Remove all non-digit characters
+      const digitsOnly = value.replace(/\D/g, '');
+      // Limit to 10 digits
+      const truncatedValue = digitsOnly.slice(0, 10);
+      setFormData(prev => ({ ...prev, [name]: truncatedValue }));
+      return;
+    }
+    
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -109,7 +120,6 @@ export default function SoftwarePage() {
       setSubmissionStatus("error");
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-cyan-50">
@@ -168,7 +178,19 @@ export default function SoftwarePage() {
                    </div>
                    <div>
                       <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone/WhatsApp <span className="text-red-500">*</span></label>
-                      <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleInputChange} className="mt-1 w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-[#0553aa]"/>
+                      <input 
+                        type="tel" 
+                        name="phone" 
+                        id="phone" 
+                        required 
+                        value={formData.phone} 
+                        onChange={handleInputChange}
+                        maxLength={10}
+                        pattern="\d{10}"
+                        title="Please enter exactly 10 digits"
+                        className="mt-1 w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-[#0553aa]"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Enter 10-digit phone number</p>
                    </div>
                    <div>
                       <label htmlFor="email" className="text-sm font-medium text-gray-700">Email <span className="text-red-500">*</span></label>

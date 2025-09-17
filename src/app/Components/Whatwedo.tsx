@@ -445,7 +445,7 @@ export default function WhatWeDo() {
                   </div>
 
                   {/* Enhanced CTA Button */}
-                  <button className={`w-full py-4 px-6 rounded-2xl font-bold text-white custom-blue-gradient hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95 relative overflow-hidden animate-glow`} 
+                  {/* <button className={`w-full py-4 px-6 rounded-2xl font-bold text-white custom-blue-gradient hover:shadow-xl transition-all duration-500 group-hover:scale-105 active:scale-95 relative overflow-hidden animate-glow`} 
                     onMouseEnter={(e) => e.currentTarget.classList.add('custom-blue-gradient-hover')}
                     onMouseLeave={(e) => e.currentTarget.classList.remove('custom-blue-gradient-hover')}>
                     <span className="relative z-10">Learn More</span>
@@ -453,7 +453,7 @@ export default function WhatWeDo() {
                     <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}
